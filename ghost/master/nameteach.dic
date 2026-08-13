@@ -1,0 +1,67 @@
+﻿//---------------------------The User's Name--------------------------
+//--OnTeachName
+OnTeachName	
+{
+	if reference0 == "TEACHNAME"
+	{
+		if language=="ES"{
+			"\0\s[0]¿Cómo debería llamarte?\![open,inputbox,OnNameTeach,-1]\e"
+		}else{
+			"\0\s[0]What should I call you?\![open,inputbox,OnNameTeach,-1]\e"
+		}
+	}
+	else
+	{
+	}
+}
+
+
+//--OnNameTeach
+
+OnNameTeach
+{
+	_tempname = reference0
+	
+	
+	reference0 = TOLOWER(reference0) //changes it to lowercase
+	reference0 = REPLACE(reference0," ","") //removes spaces
+	reference0 = REPLACE(reference0,".","") //removes periods
+	reference0 = REPLACE(reference0,"-","") //removes dashes
+	
+	
+	if reference0 == ""
+	{
+		username = "USER"
+		if language=="ES"{"\0\s[6]¿Sin nombre?...\w8 \s[24]Veamos.\w8.\w8. ¿Te parece bien si te llamo USER?\s[0]\i[6]\i[8]\w8"}else{"\0\s[6]No name?...\w8 \s[24]Let's see.\w8.\w8. Would it be okay if I called you USER?\s[0]\i[6]\i[8]\w8"}
+		--
+		NameDone
+	}
+	else
+	{
+		username = _tempname
+		if language=="ES"{
+			"\0\s[0]\i[8]De acuerdo, a partir de ahora te llamaré %(username).\w8"
+			"\0\s[0]\i[6]%(username), ¡Vaya! \w3Es un lindo nombre.\w8"
+		}else{
+			"\0\s[0]\i[8]Alright, from now on I'll call you %(username).\w8"
+			"\0\s[0]\i[6]%(username), wow! \w3That's a lovely name.\w8"
+		}
+		--
+		NameDone
+	}
+}
+
+
+//--NameDone
+
+NameDone
+{
+	if firstboot == 1
+	{
+		OnEndFirstBoot
+	}
+	else
+	{
+		"\0\e"
+	}	
+}

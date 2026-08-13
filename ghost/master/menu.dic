@@ -1,0 +1,1281 @@
+//---------------------------Menus--------------------------
+/*This file has...
+
+OpenSakuraMenu
+MenuRun
+OnLastTalk
+GetWeekDay
+GetAP
+nowmin
+nowhour
+Select.BACKTOMENU
+Delete on/off
+Test variable
+*/
+//--OpenSakuraMenu
+
+OpenSakuraMenu
+{
+	if language=="ES"{
+		if takagiwatch == 0{
+			"\0\s[0]\b2¿Qué haremos ahora?."
+		}elseif takagiwatch == 1{
+			"\0\s[13]\b2Sí ¿Qué pasa?."
+			"\0\s[13]\b2Sí, dime."
+		}else{
+			"\0\s[5]\b2Dime."
+		}
+	}else{
+		if takagiwatch == 0{
+			"\0\s[0]\b2What should we do now?"
+		}elseif takagiwatch == 1{
+			"\0\s[13]\b2Yes?\nWhat's wrong?"
+			"\0\s[13]\b2Yes?\nI'm listening."
+		}else{
+			"\0\s[5]\b2What is it?"
+		}
+	}
+	--
+	MenuRun
+}
+
+//--MenuRun
+//As you just saw above. This actually fills out the rest of the menu.
+
+MenuRun : all
+ {	
+ 	wd = GetWeekDay
+ 	ap = GetAP
+	//It's putting together the information to display the time at the bottom of the balloon.
+	--
+	"\n\n\_q\b2" // \_q means quick session, meaning all the text from this point on will display instantly instead of a few letters at a time like normal ghost dialogue.
+	--
+	if language=="ES"{
+		"\f[bold,1]Funciones\f[bold,0]\n\n[half]"
+		if lastTalk != "" //What this does is check to see if the ghost has already said a random bit of dialogue on its own, essentially by seeing if the lastTalk thing is NOT empty (!= means "does not equal").
+		{
+		  "\![*]\q[Repite el último comentario,OnLastTalk]\n\n[half]"
+		}
+		--
+	 	"\![*]\q[Dime algo,OnAiTalk]\n"
+		"\![*]\q[Resumen,summary]\n"
+		"\![*]\q[Especial,myspecial]\n"
+		"\![*]\q[Lista de Pendientes,OnToDoList]\n\n"
+		"\f[bold,1]Sistema\f[bold,0]\n\n[half]"
+		"\![*]\q[Utilidades,dosomething]\n"
+		"\![*]\q[Perfil,configmenu]\n"
+		"\![*]\q[Créditos,informationCredits]\n\n"
+	 	"\![*]\q[Salir,CANCEL]\n\n\n[half]%(wd), %(day)/%(month)/%(year) %(nowhour):%(nowmin)%(ap)\e"
+	}else{
+		"\f[bold,1]Features\f[bold,0]\n\n[half]"
+		if lastTalk != ""
+		{
+		  "\![*]\q[Repeat the Last Comment,OnLastTalk]\n\n[half]"
+		}
+		--
+		"\![*]\q[Tell Me Something,OnAiTalk]\n"
+		"\![*]\q[Summary,summary]\n"
+		"\![*]\q[Special,myspecial]\n"
+		"\![*]\q[To-Do List,OnToDoList]\n\n"
+		"\f[bold,1]System\f[bold,0]\n\n[half]"
+		"\![*]\q[Utilities,dosomething]\n"
+		"\![*]\q[Profile,configmenu]\n"
+		"\![*]\q[Credits,informationCredits]\n\n"
+		"\![*]\q[Exit,CANCEL]\n\n\n[half]%(wd), %(month)/%(day)/%(year) %(nowhour):%(nowmin)%(ap)\e"
+	}
+	
+}
+
+//Leave this alone
+OnLastTalk 
+{
+"%(lastTalk)\e"
+}
+
+//This is figuring out what day of the week it is. Leave it alone.
+GetWeekDay
+{
+	if language=="ES"{
+		if weekday == 0
+		{"Domingo"}
+		elseif weekday == 1
+		{"Lunes"}
+		elseif weekday == 2
+		{"Martes"}
+		elseif weekday == 3
+		{"Miercoles"}
+		elseif weekday == 4
+		{"Jueves"}
+		elseif weekday == 5
+		{"Viernes"}
+		else
+		{"Sabado"}
+	}else{
+		if weekday == 0
+		{"Sunday"}
+		elseif weekday == 1
+		{"Monday"}
+		elseif weekday == 2
+		{"Tuesday"}
+		elseif weekday == 3
+		{"Wednesday"}
+		elseif weekday == 4
+		{"Thursday"}
+		elseif weekday == 5
+		{"Friday"}
+		else
+		{"Saturday"}
+	}
+}
+
+//This is finding out whether it's AM or PM. Leave it alone.
+GetAP
+{
+ 	if hour >= 0 && hour <= 11
+ 		{"AM"}
+ 	else
+ 		{"PM"}
+}
+
+nowhour
+{
+	if hour12 == 0; "1"
+	else; "%(hour12)"
+}
+
+nowmin
+{
+	if minute >= 0 && minute <=9; "0%(minute)"
+	else; "%(minute)"
+}
+
+
+//If someone selects an option linked to BACKTOMENU, it will go back to MenuRun.
+
+Select.BACKTOMENU
+{
+	MenuRun
+}
+
+//If someone selects configmenu, this will lead to TalkConfig.
+Select.configmenu
+{
+	TalkConfig
+}
+
+//summary
+Select.summary : all{
+	"\0\b[2]"
+	if language=="ES"{
+		"\0\_q\f[align,center]\f[bold,1]Resumen\_q\n\n\f[align,left]\f[bold,0]"
+		"\0\s[22]Deacuerdo, veamos que tenemos aquí.\n\n"
+
+		_arrayMonthPrint="Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre"
+		"\0Hoy es \f[bold,1]%(wd) %(day) de %(_arrayMonthPrint[month-1]) del %(year)\f[bold,0]\n\n"
+
+		_unfinishedTasks=ASEARCHEX(0,toDoArrayDone)
+		_currentAny=ANY(_unfinishedTasks)
+	
+		if ARRAYSIZE(_unfinishedTasks)==1{
+			"\0Tienes solo una tarea pendiente, %(toDoArray[_currentAny]), no la olvides.\n\n"
+		}elseif ARRAYSIZE(_unfinishedTasks)>1{
+			"\0Tienes un total de \f[bold,1]%(ARRAYSIZE(_unfinishedTasks)) tareas sin finalizar\f[bold,0], incluyendo %(toDoArray[_currentAny]), no la olvides.\n\n"
+		}else{
+			"\0No tienes tareas pendientes.\n\n"
+		}
+	
+		if glicoRounds>0{
+			"\0Hemos jugado un total de %(glicoRounds) veces piedra, papel o tijeras.\n\n"
+		}else{
+			"\0Nunca hemos jugado piedra, papel o tijeras, deberíamos intentarlo\n\n"
+		}
+	
+		"\0Creo que eso sería todo por el momento.\e"
+	}else{
+		"\0\_q\f[align,center]\f[bold,1]Summary\_q\n\n\f[align,left]\f[bold,0]"
+		"\0\s[22]Ok, here we go.\n\n"
+
+		_arrayMonthPrint="January,February,March,April,May,June,July,August,September,October,November,December"
+		"\0Today is \f[bold,1]%(wd), %(_arrayMonthPrint[month-1]) %(day), %(year)\f[bold,0]\n\n"
+
+		_unfinishedTasks=ASEARCHEX(0,toDoArrayDone)
+		_currentAny=ANY(_unfinishedTasks)
+		
+		if ARRAYSIZE(_unfinishedTasks)==1{
+			"\0You only have one task pending: %(toDoArray[_currentAny]). Don't forget about it.\n\n"
+		}elseif ARRAYSIZE(_unfinishedTasks)>1{
+			"\0You have a total of \f[bold,1]%(ARRAYSIZE(_unfinishedTasks)) unfinished tasks\f[bold,0], including %(toDoArray[_currentAny]). Don't forget about it.\n\n"
+		}else{
+			"\0You don't have any pending tasks.\n\n"
+		}
+		
+		if glicoRounds>0{
+			"\0We've played rock, paper, scissors a total of %(glicoRounds) times.\n\n"
+		}else{
+			"\0We've never played rock, paper, scissors. We should give it a try.\n\n"
+		}
+		
+		"\0I think that should be all for now.\e"
+	}
+}
+
+Select.informationCredits:all{
+	if language	== "ES"{
+		"\b2\0\s[0]\i[8]\f[align,center]El autor de este Ukagaka es \n\n \f[bold,1]\q[@TakagiChikita,OnJumpAuthor,https://x.com/takagichikita]\f[bold,0]\n\n"
+		"\0\s[0]\f[align,center]Cualquier asunto relacionado, duda o sugerencia puedes contactarlo en X (Twitter) \s[0]aunque puede tardar un poco en responder.\i[6]\w8\w8\n\n"
+		"\0\s[0]\i[8]\f[align,center]También es co-autor de otro Ukagaka junto con su amiga \n\n \f[bold,1]\q[@SunflowHamato,OnJumpAuthor,https://x.com/SunflowHamato]\f[bold,0]\n\nPuedes acercarte a ellos para más información.\n\n"
+		"\0\s[6]\f[align,center]Hacer Ukagakas es una tarea laboriosa y pesada, considera apoyar con un pequeño donativo en \n\n\f[bold,1]\![*]\q[Ko-Fi.com,OnJumpAuthor,https://ko-fi.com/takagichikita]\![*]\f[bold,0]\n"
+		"\0\s[0]\i[8]\f[align,center]\nTus donativos ayudarán a seguir trayendo contenido, actualizaciones y mantenimiento de este y otros proyectos.\n"
+		"\0\s[0]\i[6]\n\f[align,left]\![*]\q[OK,CANCEL]\e"
+	}else{
+		"\b2\0\s[0]\i[8]\f[align,center]The creator of this Ukagaka is\n\n\f[bold,1]\q[@TakagiChikita,OnJumpAuthor,https://x.com/takagichikita]\f[bold,0]\n\n"
+		"\0\s[0]\f[align,center]If you have any questions, suggestions, or issues related to this Ukagaka, you can contact them on X (Twitter),\s[0] though it may take a while for them to reply.\i[6]\w8\w8\n\n"
+		"\0\s[0]\i[8]\f[align,center]They are also the co-creator of another Ukagaka together with their friend\n\n\f[bold,1]\q[@SunflowHamato,OnJumpAuthor,https://x.com/SunflowHamato]\f[bold,0]\n\nFeel free to reach out to either of them for more information.\n\n"
+		"\0\s[6]\f[align,center]Creating Ukagakas takes a lot of time and effort. If you'd like to support the project, please consider making a small donation through\n\n\f[bold,1]\![*]\q[Ko-Fi.com,OnJumpAuthor,https://ko-fi.com/takagichikita]\![*]\f[bold,0]\n"
+		"\0\s[0]\i[8]\f[align,center]\nYour donations help support new content, updates, and the continued maintenance of this and other projects.\n"
+		"\0\s[0]\i[6]\n\f[align,left]\![*]\q[OK,CANCEL]\e"
+	}
+}
+OnJumpAuthor{
+	_goURL=reference0
+	"\j[%(_goURL)]"
+}
+
+//--TalkConfig
+//I commented out birthday and pronoun options, you can uncomment them if you want to add them back.
+
+TalkConfig : all
+{
+	"\0\b[2]\_q" 
+	
+	if language=="ES"{
+		"\f[bold,1]Tu Nombre:\f[bold,0] %(username) \f[sup,1](\q[Cambiar,TEACHNAME])\f[sup,0]\n"
+		
+		"\n\f[bold,1]Tus Pronombres:\f[bold,0] %(espPron) \f[sup,1](\q[Cambiar,TEACHPRONOUN])\f[sup,0]\n"
+		
+		"\n\f[bold,1]Tu cumpleaños:\f[bold,0] %(birthdayprint) \f[sup,1](\q[Cambiar,TEACHBDAY])\f[sup,0]\n"
+		
+		"\n\f[bold,1]Talk Rate:\f[bold,0] - cada %(talktime) \f[sup,1](\q[Cambiar,talkinter])\f[sup,0]\n\n"
+
+		// "\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+
+		"\![*]\q[Volver Al Menú,BACKTOMENU]\e"
+	}else{
+		"\f[bold,1]Name:\f[bold,0] %(username) \f[sup,1](\q[Change,TEACHNAME])\f[sup,0]\n"
+		
+		"\n\f[bold,1]Pronouns:\f[bold,0] %(heshe) \f[sup,1](\q[Change,TEACHPRONOUN])\f[sup,0]\n"
+		
+		"\n\f[bold,1]Your Birthday:\f[bold,0] %(birthdayprintEN) \f[sup,1](\q[Change,TEACHBDAY])\f[sup,0]\n"
+		
+		"\n\f[bold,1]Talk Rate:\f[bold,0] - every %(talktimeEN) \f[sup,1](\q[Change,talkinter])\f[sup,0]\n\n"
+
+		// "\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
+		
+		"\![*]\q[Back to Menu,BACKTOMENU]\e"
+	}
+}
+
+
+
+
+// ______                                                 _____ _             _   
+// | ___ \                                               /  ___| |           | |  
+// | |_/ / __ ___  _ __   ___  _   _ _ __  ___   ______  \ `--.| |_ __ _ _ __| |_ 
+// |  __/ '__/ _ \| '_ \ / _ \| | | | '_ \/ __| |______|  `--. \ __/ _` | '__| __|
+// | |  | | | (_) | | | | (_) | |_| | | | \__ \          /\__/ / || (_| | |  | |_ 
+// \_|  |_|  \___/|_| |_|\___/ \__,_|_| |_|___/          \____/ \__\__,_|_|   \__|
+                                                                               
+                                                                               
+
+
+
+//This and the next few set up the pronouns, as you can see by the linkedfunction names. If you're not going to add this feature, you can ignore these. I marked where the pronoun section begins and ends with some ascii banners. :3
+
+Select.TEACHPRONOUN : all
+{
+	if language=="ES"{
+		"\0\s[0]¿Eres un chico o una chica?\w5\n\n[half]\_q"
+		"\![*]\q[Chico,choicemasc]\n"
+		"\![*]\q[Chica,choicefem]\n"	
+		"\![*]\q[Otro,choiceneither]\e"
+	}else{
+		"\0\s[0]Are you a boy o a girl?\w5\n\n[half]\_q"
+		"\![*]\q[Boy,choicemasc]\n"
+		"\![*]\q[Girl,choicefem]\n"	
+		"\![*]\q[Other,choiceneither]\e"
+	}
+}
+
+Select.choicemasc
+{
+	presuffix = "masculine"
+	himher = "him"
+	heshe = "he"
+	hisher = "his"
+	hesshes = "he's"
+	espPron = "El"
+	espLetra = "o"
+	--
+	if language=="ES"{"\0\s[0]De acuerdo, lo recordaré.\e"}else{"\0\s[0]Okay, I'll remember that.\e"}
+}
+
+Select.choicefem
+{
+	presuffix = "feminine"
+	himher = "her"
+	heshe = "she"
+	hisher = "her"
+	hesshes = "she's"
+	espPron = "Ella"
+	espLetra = "a"
+	--
+	if language=="ES"{"\0\s[0]De acuerdo, lo recordaré.\e"}else{"\0\s[0]Okay, I'll remember that.\e"}
+}
+
+Select.choiceneither
+{
+	presuffix = "undefine"
+	himher = "them"
+	heshe = "they"
+	hisher = "their"
+	hesshes = "they're"
+	espPron = "Neutro"
+	espLetra = "x"
+	--
+	if language=="ES"{"\0\s[0]De acuerdo, lo recordaré.\e"}else{"\0\s[0]Okay, I'll remember that.\e"}
+}
+
+//Here are some examples of these envelopes in use.
+//"%(heshe) left that there."
+//"%(hisher) work is really cool."
+//"I'll ask %(himher) later."
+//"%(hesshes) really good at it."
+
+//These envelopes only apply if the pronouns are set! If the user can't set their pronouns, that then you don't have to think about these envelopes.
+
+
+
+// ______                                                 _____          _ 
+// | ___ \                                               |  ___|        | |
+// | |_/ / __ ___  _ __   ___  _   _ _ __  ___   ______  | |__ _ __   __| |
+// |  __/ '__/ _ \| '_ \ / _ \| | | | '_ \/ __| |______| |  __| '_ \ / _` |
+// | |  | | | (_) | | | | (_) | |_| | | | \__ \          | |__| | | | (_| |
+// \_|  |_|  \___/|_| |_|\___/ \__,_|_| |_|___/          \____/_| |_|\__,_|
+                                                                        
+                                                                        
+
+
+
+
+
+
+//These two options toggle whether or not you can delete your ghost. Leave them alone.
+
+Select.deleteon
+{
+	deleteshitai = "ON"
+	TalkConfig
+}
+
+Select.deleteoff
+{
+	deleteshitai = "OFF"
+	TalkConfig
+}
+
+
+
+
+ //  ____  _      _   _         _                       ____  _             _   
+ // | __ )(_)_ __| |_| |__   __| | __ _ _   _          / ___|| |_ __ _ _ __| |_ 
+ // |  _ \| | '__| __| '_ \ / _` |/ _` | | | |  _____  \___ \| __/ _` | '__| __|
+ // | |_) | | |  | |_| | | | (_| | (_| | |_| | |_____|  ___) | || (_| | |  | |_ 
+ // |____/|_|_|   \__|_| |_|\__,_|\__,_|\__, |         |____/ \__\__,_|_|   \__|
+                                     // |___/                                   
+
+
+//This next set of functions handles inputting the user's birthday. If you don't want this to be a feature, you can ignore all of this. I marked where the birthday code starts and ends for you with some good old-fashioned ascii banners. :3
+
+Select.TEACHBDAY
+	{	
+		if language=="ES"{
+			"\0\s[0]En que mes naciste? \w8\s[0]\i[8]Nombre o número esta bien.\![open,inputbox,OnUserBornMonth,-1]\e"
+		}else{
+			"\0\s[0]What month were you born in? \w8\s[0]\i[8]The month's name or number is fine.\![open,inputbox,OnUserBornMonth,-1]\e"
+		}
+		
+		//*********************Advanced User Info*******************************
+		//I'm going to break down the tag there at the end of the sentence so you know what it's doing. Basically, \! means a function is going to happen, open tells it to open something, inputbox tells it to open an input box, and OnUserBornMonth is the function the input box will be linked to, which is just below here. -1 means the input box should not time out. If you want to add input boxes to some new function for whatever reason, you should follow this basic format.
+		//On a related note, you can raise any function at the end of any piece of dialogue by using this format - \![raise,InsertFunctionName]. This can be handy for testing things if the function is hard to get to run otherwise.
+		//***********************************************************************
+	}
+
+//--OnUserBornMonth
+//This takes the value that the user put into the input box above and evaluates it.
+
+OnUserBornMonth
+{
+	_tempmonth = TOSTR(reference0) //this stores what the user put in as a variable called _tempmonth
+	_tempmonth = TOLOWER(_tempmonth) //changes it to lowercase
+	
+	//this is attaching the right value to the input from the user
+	if _tempmonth == "january" || _tempmonth == "enero" || _tempmonth == "1" {bornmonth = 1; bornmonthprint = "Enero"; bornmonthprintEN = "January"}
+	elseif _tempmonth == "february" || _tempmonth == "febrero" || _tempmonth == "2" {bornmonth = 2; bornmonthprint = "Febrero"; bornmonthprintEN = "February"}
+	elseif _tempmonth == "march" || _tempmonth == "marzo" || _tempmonth == "3" {bornmonth = 3; bornmonthprint = "Marzo"; bornmonthprintEN = "March"}
+	elseif _tempmonth == "april" || _tempmonth == "abril" || _tempmonth == "4" {bornmonth = 4; bornmonthprint = "Abril"; bornmonthprintEN = "April"}
+	elseif _tempmonth == "may" || _tempmonth == "mayo" || _tempmonth == "5" {bornmonth = 5; bornmonthprint = "Mayo"; bornmonthprintEN = "May"}
+	elseif _tempmonth == "june" || _tempmonth == "junio" || _tempmonth == "6" {bornmonth = 6; bornmonthprint = "Junio"; bornmonthprintEN = "June"}
+	elseif _tempmonth == "july" || _tempmonth == "julio" || _tempmonth == "7" {bornmonth = 7; bornmonthprint = "Julio"; bornmonthprintEN = "July"}
+	elseif _tempmonth == "august" || _tempmonth == "agosto" || _tempmonth == "8" {bornmonth = 8; bornmonthprint = "Agosto"; bornmonthprintEN = "August"}
+	elseif _tempmonth == "september" || _tempmonth == "septiembre" || _tempmonth == "9" {bornmonth = 9; bornmonthprint = "Septiembre"; bornmonthprintEN = "September"}
+	elseif _tempmonth == "october" || _tempmonth == "octubre" || _tempmonth == "10" {bornmonth = 10; bornmonthprint = "Octubre"; bornmonthprintEN = "October"}
+	elseif _tempmonth == "november" || _tempmonth == "noviembre" || _tempmonth == "11" {bornmonth = 11; bornmonthprint = "Noviembre"; bornmonthprintEN = "November"}
+	elseif _tempmonth == "december" || _tempmonth == "diiembre" || _tempmonth == "12" {bornmonth = 12; bornmonthprint = "Diciembre"; bornmonthprintEN = "December"}
+	
+	else //if the month isn't a valid month, like 32 or something.
+	{
+			if language=="ES"{
+				"\0\s[0]Mmm... \w8\s[24]No creo haber oído hablar de ese mes. Inténtalo de nuevo."
+			}else{
+				"\0\s[0]Hmm... \w8\s[24]I don't think that's a month I've heard of. Try again."
+			}
+			--
+			"\![open,inputbox,OnUserBornMonth,-1]\![set,balloontimeout,-1]\e"
+	}
+	--
+	//If it's a valid month
+	if language=="ES"{
+		"\0\s[0]Así que naciste en %(bornmonthprint).\n\w8En que día?"
+	}else{
+		"\0\s[0]So, you were born in %(bornmonthprintEN).\n\w8What day were you born on?"
+	}
+	
+	--
+	"\![open,inputbox,OnUserBornDay,-1]\![set,balloontimeout,-1]\e"
+}
+
+//Los sufijos solo son necesarios en inglés en este caso, así que en caso de ocuparlo descomentar Printday
+
+Printday
+{
+	if bornday == 1 || bornday == 21 || bornday == 31
+	{	"%(bornday)st"	}
+	elseif bornday == 2 || bornday == 22
+	{	"%(bornday)nd"	}
+	elseif bornday == 3 || bornday == 23
+	{	"%(bornday)rd"	}
+	else
+	{	"%(bornday)th"	}
+}	
+
+//--OnUserBornDay
+//This is much like the above function OnUserBornMonth. It'll take the value the user put in for the day and analyze it.
+
+OnUserBornDay
+{
+	_tempday = reference0 //storing the input in _tempday
+	_tempday = TOLOWER(_tempday) //changes it to lowercase
+	_tempday = REPLACE(_tempday,"st","") //if the user types something like 2nd, 3rd, etc, this will make it just the number. It'll just add the suffix back later on the one that actually shows.
+	_tempday = REPLACE(_tempday,"nd","")
+	_tempday = REPLACE(_tempday,"rd","")
+	_tempday = REPLACE(_tempday,"th","")
+	_tempday = TOINT(_tempday) //Converts it to an integer
+	
+	if ((bornmonth == 1 || bornmonth == 3 || bornmonth == 5 || bornmonth == 7 || bornmonth == 8 || bornmonth == 10 || bornmonth == 12) && _tempday >= 1 && _tempday <= 31) || (bornmonth == 2 && _tempday >= 1 && _tempday <= 29) || ((bornmonth == 4 || bornmonth == 6 || bornmonth == 9 || bornmonth == 11) && _tempday >= 1 && _tempday <= 30) //This ugly function checks if the day falls into a valid range. If it does, we set some variables and continue down.
+	{
+		bornday = _tempday
+		borndayprint=bornday//Cambiar por Printday si se usará en inglés
+		borndayprintEN=Printday
+		userbirthday = "%(bornmonth)month %(bornday)day"
+		birthdayprintEN = "%(bornmonthprintEN) %(borndayprintEN)"
+		birthdayprint = "%(borndayprint) de %(bornmonthprint)"
+		
+		"%(birthchecked)"
+	}
+	else
+	{	
+		if language=="ES"{
+			"\0\s[2]Creo que ese día no es real. intentalo de nuevo."
+		}else{
+			"\0\s[2]Hmm... I don't think that's a real day. Try again."
+		}
+		--
+		"\![open,inputbox,OnUserBornDay,-1]\e"
+	}	
+}
+
+//--birthchecked
+
+birthchecked
+{
+	if userbirthday == dayslot //if today is the user's birthday
+	{
+		if language=="ES"{"\0\s[7]¡¿Qué?!\n\n\w8\s[6]¡¿Hoy es tu cumpleaños?!\w8\n\n\w8\s[20]¡Feliz cumpleaños, %(username)!.\e"}else{"\0\s[7]What?!\n\n\w8\s[6]It's your birthday today?!\w8\n\n\w8\s[20]Happy Birthday, %(username)!"}
+	}
+	else //if the birthday is not listed above.
+	{
+		if language=="ES"{"\0\s[0]Así que tu cumpleaños es el %(borndayprint) de %(bornmonthprint). Lo recordaré.\e"}else{"\0\s[0]So, your birthday is on %(bornmonthprintEN) %(borndayprintEN). I'll remember that.\e"}
+	}
+}
+
+
+
+ //  ____  _      _   _         _                       _____           _ 
+ // | __ )(_)_ __| |_| |__   __| | __ _ _   _          | ____|_ __   __| |
+ // |  _ \| | '__| __| '_ \ / _` |/ _` | | | |  _____  |  _| | '_ \ / _` |
+ // | |_) | | |  | |_| | | | (_| | (_| | |_| | |_____| | |___| | | | (_| |
+ // |____/|_|_|   \__|_| |_|\__,_|\__,_|\__, |         |_____|_| |_|\__,_|
+                                     // |___/                             
+
+
+
+
+//--Talk Rate
+//This is when the user chooses to adjust the talk rate in the config menu. The talk rate is how often the ghost will read some dialogue from aitalk.dic.
+
+
+Select.talkinter : all
+ {
+ 	if language=="ES"{
+		"\0\s[0]\_q\b2¿Qué tan seguido debe hablar Kinger? El intervalo actual es cada %(talktime)."
+
+		"\0\n\n[half]"
+		"\![*]\q[Cada 30 segundos,TALKMAX]\n"
+		"\![*]\q[Cada minuto,TALKHIGH]\n"
+		"\![*]\q[Cada 3 minutos,TALKNORMAL]\n"
+		"\![*]\q[Cada 5 minutos,TALKPOOR]\n"
+		"\![*]\q[No hables,TALKNONE]\n\n[half]"
+		"\![*]\q[Así esta bien,TalksTill]\e"
+ 	}else{
+ 		"\0\s[0]\_q\b2How often should Kinger speak? The current interval is every %(talktimeEN)."
+
+		"\0\n\n[half]"
+		"\![*]\q[Every 30 seconds,TALKMAX]\n"
+		"\![*]\q[Every minute,TALKHIGH]\n"
+		"\![*]\q[Every 3 minutes,TALKNORMAL]\n"
+		"\![*]\q[Every 5 minutes,TALKPOOR]\n"
+		"\![*]\q[Don't speak,TALKNONE]\n\n[half]"
+		"\![*]\q[This is fine,TalksTill]\e"
+ 	}
+}
+
+
+Select.TalksTill
+{
+	if language=="ES"{
+		"\0\s[23]Sin cambios, \i[1]esta perfecto entonces.\e"
+	}else{
+		"\0\s[23]No changes, then. \i[1]I think it's perfect just the way it is.\e"
+	}	
+}
+
+//If the user chooses every 30 seconds.
+Select.TALKMAX
+	{
+ 		talktime = "30 segundos" //this sets up the envelope properly
+ 		talktimeEN = "30 seconds"
+		aitalkinterval = 30 //this changes the actual rate
+		
+ 		if language=="ES"{"\0\s[23]\i[1]Maravilloso, tengo muchas historias que contar.\s[24]\e"}else{"\0\s[23]\i[1]Wonderful! I've got so many stories to tell.\s[24]\e"}
+	}
+
+//If the user chooses every minute.
+Select.TALKHIGH
+	{
+ 		talktime = "minuto"
+ 		talktimeEN="Every minute"
+		aitalkinterval = 60
+		
+ 		if language=="ES"{"\0\s[23]Un minuto está bien.\nEs tiempo suficiente para asegurarme de que el mundo sigue aquí.\s[24]\e"}else{"\0\s[23]Un minuto está bien.\nEs tiempo suficiente para asegurarme de que el mundo sigue aquí.\s[24]\e"}
+	}
+
+//If the user chooses every three minutes.
+Select.TALKNORMAL
+	{
+ 		talktime = "3 minutos"
+ 		talktimeEN="3 minutes"
+		aitalkinterval = 180
+		
+ 		if language=="ES"{"\0\s[23]Tres minutos...\w8 \s[23]\i[1]Suena como un buen equilibrio.\nNo demasiado silencio... pero tampoco demasiado ruido.\e"}else{"\0\s[23]Three minutes...\w8 \s[23]\i[1]That sounds like a good balance.\nNot too much silence... but not too much noise either.\e"}
+	}
+
+//If the user chooses every five minutes. This is the default rate the ghost will start up in, as seen in bootend.dic.
+Select.TALKPOOR
+	{
+ 		talktime = "5 minutos"
+ 		talktimeEN="5 minutes"
+		aitalkinterval = 300
+		
+ 		if language=="ES"{"\0\s[0]Cinco minutos.\nEspero no distraerme y aparecer en otra habitación.\s[24]\e"}else{"\0\s[0]Five minutes.\nHopefully I won't get distracted and end up in another room.\s[24]\e"}
+	}
+
+//If the user chooses to not have them speak.
+Select.TALKNONE
+	{
+ 		talktime = "...En realidad no hablamos"
+ 		talktimeEN="...I think we don't talk"
+		aitalkinterval = 0
+		
+		if language=="ES"{"\0\s[6]¿Silencio absoluto?\n\w8...\w8 Bueno.\nSi empiezo a mirar fijamente la pared, procura despertarme, ¿sí?\e"}else{"\0\s[6]Complete silence?\n\w8...\w8 Alright.\nIf I start staring at the wall, make sure you snap me out of it, okay?\e"}
+	}
+
+
+
+//This is when the user chooses to change their name. It's linked to the functions outlined in nameteach.dic.
+Select.TEACHNAME
+{
+	OnTeachName	
+}
+
+
+//If the user selects cancel in a menu.
+Select.CANCEL
+{
+	if language=="ES"{
+		"\0Excelente.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0Correcto.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0Bien, todo en orden.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0De acuerdo.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+	}else{
+		"\excellent.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0All right, everything's in order.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0Agreed.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+	}
+}
+
+
+FunctionMenuIntros : nonoverlap
+{
+	if language=="ES"{
+		"\0\b2¿Qué puedo hacer por ti?.\n\n"
+ 		"\0\b2¿Qué haremos?.\n\n"
+ 	}else{
+ 		"\0\b2What can I do for you?\n\n"
+		"\0\b2So... what are we going to do?\n\n"
+ 	}
+}
+
+Select.dosomething : all
+{
+	FunctionMenuIntros	
+	
+	--
+	if language=="ES"{
+ 		"\![*]\q[Abrir Calendario,CALENDAR]\n"
+		//"\![*]\q[Revisar Email,MailCheck]\n"
+		"\![*]\q[Abrir Preferencias de SSP,sspconfig]\n"		
+		"\![*]\q[Vaciar La Papelera,ChoiceGarbagecan]\n"		
+		"\![*]\q[Información Del Sistema,ChoiceSystemInformation]\n\n"
+ 		"\![*]\q[Volver Al Menú,BACKTOMENU]\e"			
+	}else{
+		"\![*]\q[Open Calendar,CALENDAR]\n"
+		//"\![*]\q[Check Email,MailCheck]\n"
+		"\![*]\q[Open SSP Preferences,sspconfig]\n"
+		"\![*]\q[Empty Recycle Bin,ChoiceGarbagecan]\n"
+		"\![*]\q[System Information,ChoiceSystemInformation]\n\n"
+		"\![*]\q[Back to Menu,BACKTOMENU]\e"
+	}
+}
+
+//When the user clicks Open Calender.
+Select.CALENDAR{
+	if language=="ES"{"\0\s[0]Abriendo calendario.\w8\![open,calendar]\e"}else{"\0\s[0]Opening calendar.\w8\![open,calendar]\e"}
+}
+
+//When the user chooses SSP preferences.
+Select.sspconfig{
+	if language=="ES"{"\0\s[0]Abriendo configuración SSP.\w8\![open,configurationdialog]\e"}else{"\0\s[0]Opening SSP configuration.\w8\![open,configurationdialog]\e"}
+}
+
+
+//If the user chooses to empty the recycle bin.
+
+Select.ChoiceGarbagecan
+{
+	_gomicheck = FUNCTIONEX("gomi.dll", "-n")	//Don't touch this line. for those curious, it's referencing a SAORI, which are optional user-made plug-in dlls you can download to enable different functions on your ghost.
+	
+	if language=="ES"{
+		if _gomicheck == 0 //If the recycle bin is empty.
+		{
+			"\0\s[0]Hora de sacar la basura, ya vuelvo.\w8\s[0]...\w8\w8\s[-1]\w8\w8\w8\w8\w8\s[0]\c\s[2]Estaba vacia.\e"
+		}
+		elseif _gomicheck >= 1 //If the recycle bin is full.
+		{
+			"\0\s[0]Vaciando la papelera.\w8\w8\s[-1]\w8\w8\w8\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\s[0]\cListo.\e"
+			
+			"\0\s[0]Hora de sacar la basura, ya vuelvo.\w8\w8\s[-1]\w8\w8\w8\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\s[0]\cHecho.\e"
+			
+			//Somewhat similar to the above, but notice the \![raise],OnGarbagecanEmpty] tag in there. That's what actually empties the recycle bin, so make sure you don't delete that tag.
+		}
+	}else{
+		if _gomicheck == 0 //If the recycle bin is empty.
+		{
+			"\0\s[0]Time to take out the trash, I'll be right back.\w8\s[0]...\w8\w8\s[-1]\w8\w8\w8\w8\w8\s[0]\c\s[2]It was empty.\e"
+		}
+		elseif _gomicheck >= 1 //If the recycle bin is full.
+		{
+			"\0\s[0]Emptying the recycle bin.\w8\w8\s[-1]\w8\w8\w8\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\s[20]\cDone.\e"
+			
+			"\0\s[0]Time to take out the trash, I'll be right back.\w8\w8\s[-1]\w8\w8\w8\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\s[20]\cDone.\e"
+			
+			//Somewhat similar to the above, but notice the \![raise],OnGarbagecanEmpty] tag in there. That's what actually empties the recycle bin, so make sure you don't delete that tag.
+		}
+	}
+}
+
+
+//This is for the SAORI, don't touch it.
+OnGarbagecanEmpty
+{
+	_gomi = FUNCTIONEX("gomi.dll", "-f")
+}
+
+//This is when the user chooses System Information. Don't touch any of this either. For those curious though, note that this is done using another SAORI, this time saori_cpuid.dll.
+Select.ChoiceSystemInformation
+{
+	os_name = FUNCTIONEX("saori_cpuid.dll","os.name")
+	os_version = FUNCTIONEX("saori_cpuid.dll","os.version")
+	cpu_name = FUNCTIONEX("saori_cpuid.dll","cpu.name")
+	cpu_clockex = FUNCTIONEX("saori_cpuid.dll","cpu.clockex")
+	"/
+	\0\s[0]\b[2]/
+	\_q\f[bold,1]OS:\f[bold,0] %(os_name) %(os_version)\n/
+	\f[bold,1]Memory Load:\f[bold,0] %(memoryload)%\n/
+	\f[bold,1]Physical Memory:\f[bold,0] %(memoryavailphys) KB\n/
+	\f[bold,1]CPU:\f[bold,0] %(cpu_name) %(cpu_clockex)MHz\n/
+	\f[bold,1]Ukagaka:\f[bold,0] %property[baseware.version]/
+	\e"
+}
+
+//si la seleccion es myspecial
+Select.myspecial : all
+{
+	if language=="ES"{
+		"\0\b2¿Qué haremos?\n\n"	
+		--
+		if takagiwatch == 0
+		{
+			"\![*]\q[Ir al escondite,study]\n"
+			"\![*]\q[Veamos algo juntos,lookscreen]\n"
+		}
+		else
+		{
+			if takagiwatch==1{"\![*]\q[La función terminó,lookscreen]\n\n"}else{"\![*]\q[Sal de ahí,study]\n\n"}
+		}
+		//"\![*]\q[Veintiuno,TwentyOne]\n"
+		"\![*]\q[Piedra papel o tijera,glico]\n"
+		"\![*]\q[Recomienda un capitulo de TADC,animechap]\n\n"
+		"\![*]\q[Volver Al Menú,BACKTOMENU]\e"
+	}else{
+		"\0\b2What shall we do?\n\n"
+		
+		if takagiwatch == 0
+		{
+			"\![*]\q[Go to the hideout,study]\n"
+			"\![*]\q[Let's watch something together,lookscreen]\n"
+		}
+		else
+		{
+			if takagiwatch==1{"\![*]\q[The show is over,lookscreen]\n\n"}else{"\![*]\q[Get out of there,study]\n\n"}
+		}
+		//"\![*]\q[Twenty-One,TwentyOne]\n"*
+		"\![*]\q[Rock Paper Scissors,glico]\n"
+		"\![*]\q[Recommend a TADC episode,animechap]\n\n"
+		"\![*]\q[Back to Menu,BACKTOMENU]\e"
+	}
+}
+
+
+Select.lookscreen
+{
+	if language=="ES"{
+		if takagiwatch == 0
+		{	
+			takagiwatch = 1
+			"\0\s[13]Adoro el cine independiente.\w8\w8\w8\s[12]\e"
+			"\0\s[13]Me encantan las de ciencia ficción.\w8\w8\w8\s[12]\e"
+			"\0\s[13]¿Existiran perlículas de ajedrez?\w8\w8\w8\s[12]\e"
+			"\0\s[13]¿Será algo acerca de insectos?\w8\w8\w8\s[12]\e"
+		}
+		else
+		{
+			takagiwatch = 0
+			"\0\s[0]Fue divertido\i[6]\e"
+		}
+	}else{
+		if takagiwatch == 0
+		{	
+			takagiwatch = 1
+			"\0\s[13]I love independent movies.\w8\w8\w8\s[12]\e"
+			"\0\s[13]I love science fiction movies.\w8\w8\w8\s[12]\e"
+			"\0\s[13]I wonder if there are any chess movies.\w8\w8\w8\s[12]\e"
+			"\0\s[13]I wonder if there are any movies about insects.\w8\w8\w8\s[12]\e"
+		}
+		else
+		{
+			takagiwatch = 0
+			"\0\s[0]That was fun.\i[6]\e"
+		}
+	}
+}
+
+Select.study{
+	if language=="ES"{
+		if takagiwatch == 0
+		{	
+			takagiwatch = 2
+			studyTime = 0
+			
+			"\0\s[5]Este lugar siempre me reconforta.\w8\s[4]\i[0]\e"
+			"\0\s[5]Jeje esta oscuro...\w8\s[4]\i[0] Como me gusta\e"
+		}
+		else
+		{
+			_totalStudyTime = TOINT(studyTime/60)
+			_fue = "fueron"
+			_plural = "s"
+			if _totalStudyTime==1{
+				_fue="fue"
+				_plural=""
+			}
+			studyTime=0
+			takagiwatch=0
+		
+			"\0\s[0]¡Fua!\w8\w8\s[0] Hora de una nueva aventura?.\n\nSiento como si hubiera estado una eternidad ahí\s[2] pero apenas %(_fue) %(_totalStudyTime) minuto%(_plural).\n\nEl tiempo es relativo supongo.\w8\w8\w8\w8\w8\w8\s[0]\e"
+		}
+	}else{
+		if takagiwatch == 0
+		{
+			takagiwatch = 2
+			studyTime = 0
+			
+			"\0\s[5]This place always makes me feel better.\w8\s[4]\i[0]\e"
+			"\0\s[5]Hehe, it's dark...\w8\s[4]\i[0] Just the way I like it.\e"
+		}
+		else
+		{
+			_totalStudyTime = TOINT(studyTime/60)
+			_plural = "s"
+			if _totalStudyTime==1{
+				_plural=""
+			}
+			studyTime=0
+			takagiwatch=0
+			
+			"\0\s[0]Whoa!\w8\w8\s[0] Time for a new adventure?\n\nIt feels like I've been in there for an eternity,\s[2] but it was only %(_totalStudyTime) minute%(_plural).\n\nI suppose time is relative.\w8\w8\w8\w8\w8\w8\s[0]\e"
+		}
+	}
+}
+
+OnToDoList:all
+{
+	if language=="ES"{
+		"\0\s[22]\b2\_q\f[bold,1]\f[align,center]Tareas Pendientes\s[22]\i[1]\n\n\n[half]\f[bold,0]\f[align,left]"
+
+		_size = ARRAYSIZE(toDoArray)
+		if _size>0{
+			for _i=0;_i<_size;_i++
+			{
+				if toDoArrayDone[_i]==1{
+					"\q[✅ ,OnTasks,done,%(_i)]\f[strike,1]%(toDoArray[_i])\f[strike,0]"
+				}else{
+					"\q[🔲 ,OnTasks,done,%(_i)]%(toDoArray[_i])"
+				}
+				"\f[sup,1]\q[  Borrar,OnTasks,delete,%(_i)]\f[sup,0]\n\n[half]"
+			}
+		}else{
+			"No tienes tareas pendientes\n\n[half]"
+		}
+
+		"\n\![*]\q[Agregar Tarea✏️,addToDo]"
+		if _size>0{"\n\![*]\q[Borrar todo🗑️,OnTasks,deleteAll]"}
+		"\n\n\![*]\q[Volver Al Menú,BACKTOMENU]"
+		"\n\![*]\q[Salir,CANCEL]\e"
+	}else{
+		"\0\s[22]\b2\_q\f[bold,1]\f[align,center]To-Do List\s[22]\i[1]\n\n\n[half]\f[bold,0]\f[align,left]"
+		
+		_size = ARRAYSIZE(toDoArray)
+		if _size>0{
+			for _i=0;_i<_size;_i++
+			{
+				if toDoArrayDone[_i]==1{
+					"\q[✅ ,OnTasks,done,%(_i)]\f[strike,1]%(toDoArray[_i])\f[strike,0]"
+				}else{
+					"\q[🔲 ,OnTasks,done,%(_i)]%(toDoArray[_i])"
+				}
+				"\f[sup,1]\q[  Delete,OnTasks,delete,%(_i)]\f[sup,0]\n\n[half]"
+			}
+		}else{
+			"No pending tasks\n\n[half]"
+		}
+		
+		"\n\![*]\q[Add Task✏️,addToDo]"
+		if _size>0{"\n\![*]\q[Delete All🗑️,OnTasks,deleteAll]"}
+		"\n\n\![*]\q[Back to Menu,BACKTOMENU]"
+		"\n\![*]\q[Exit,CANCEL]\e"
+	}
+}
+
+Select.addToDo{
+	if language=="ES"{"\_q¿Qué tarea deseas añadir?"}else{"\_qWhat task would you like to add?"}
+	--
+	"\![open,inputbox,OnTasks,-1]\![enter,passivemode]"
+}
+
+OnTasks:all{
+	if reference0=="done"{
+		if toDoArrayDone[reference1]==0{
+			toDoArrayDone[reference1]=1
+		}else{
+			toDoArrayDone[reference1]=0
+		}
+	}elseif reference0=="delete"{
+		toDoArray[reference1] = IARRAY
+		toDoArrayDone[reference1] = IARRAY
+	}elseif reference0=="deleteAll"{
+		if language=="ES"{
+			"\0\s[2]¿Estas seguro de que deseas borrar \f[bold,1]TODAS\f[bold,0] las tareas?\n\n"
+			--
+			"\_q\f[align,center]\f[bold,1]\_l[80,50]\![*]\q[SI,deleteAllToDo]\_l[150,50]\![*]\q[NO,OnToDoList]\n\f[align,left]\f[bold,0]\e"
+		}else{
+			"\0\s[2]Are you sure you want to delete \f[bold,1]ALL\f[bold,0] tasks?\n\n"
+			--
+			"\_q\f[align,center]\f[bold,1]\_l[80,50]\![*]\q[YES,deleteAllToDo]\_l[150,50]\![*]\q[NO,OnToDoList]\n\f[align,left]\f[bold,0]\e"
+		}
+
+	}else{
+		"\![leave,passivemode]"
+		toDoArray ,= reference0
+		toDoArrayDone ,= 0
+	}
+	OnToDoList
+}
+
+Select.deleteAllToDo{
+	toDoArray = IARRAY
+	toDoArrayDone = IARRAY
+	OnToDoList
+}
+//----------------------------------------------Frases---------------------------------------------------
+FunctionPlayerWins : nonoverlap{
+	"\0\s[1]¡Ganaste! ¡Oh! Eso fue... bastante impresionante."
+	"\0\s[16]¿Ganaste? Ah... sí, claro. Eso era lo que estaba esperando que\s[24] hicieras."
+	"\0\s[1]¡Vaya! No me esperaba eso. Aunque... tampoco estaba prestando mucha atención."
+	"\0\s[16]Has ganado. Creo que deberíamos celebrarlo antes de que algo terrible ocurra.\s[24]"
+	"\0\s[23]\i[1]¡Una victoria! Excelente."
+}
+FunctionPlayerLoss : nonoverlap{
+	"\0\s[6]¿Gané?... \s[23]¡Lo hice a propósito!... \s[24]Creo."
+	"\0\s[23]¡Ja! ¡Victoria! \s[23]\i[1]Sabía exactamente lo que estabas haciendo.\s[16] Bueno... más o menos.\s[2]"
+	"\0\s[24]Parece que gané. Qué alivio... por un momento pensé."
+	"\0\s[24]¡He ganado! ¡Rápido, hay que celebrarlo antes de que alguien cambie las reglas!"
+	"\0\s[24]Perdiste. Pero no te preocupes... probablemente nadie se haya dado cuenta."
+	"\0\s[24]Je, je... gané. Definitivamente no fue por pura suerte."
+}
+FunctionPlayerGiveUp : nonoverlap{
+	"\0\s[1]¿Ya te vas? Ah... bueno. Creo que yo también me habría ido."
+	"\0\s[1]¿Te rindes? ¡Buena idea! A veces retirarse es la estrategia más inteligente."
+	"\0\s[1]¡Oh! Terminamos. Eso fue más rápido de lo que esperaba."
+	"\0\s[1]Te rindes... \s[5]¿Eso significa que gané? ...¿O perdí?"
+	"\0\s[1]Está bien. Podemos intentarlo de nuevo cuando estés preparado. O cuando yo recuerde cómo se juega."
+}
+//----------------------------------------Frases en Inglés---------------------------------------------------------
+FunctionPlayerWinsEN : nonoverlap{
+	"\0\s[1]You won! Oh! That was... quite impressive."
+	"\0\s[16]You won? Ah... yes, of course. That's exactly what I was expecting\s[24] you to do."
+	"\0\s[1]Wow! I didn't see that coming. Although... I wasn't really paying much attention."
+	"\0\s[16]You won. I think we should celebrate before something terrible happens.\s[24]"
+	"\0\s[23]\i[1]A victory! Excellent."
+}
+FunctionPlayerLossEN : nonoverlap{
+	"\0\s[6]I won?... \s[23]I did that on purpose!... \s[24]I think."
+	"\0\s[23]Ha! Victory! \s[23]\i[1]I knew exactly what you were doing.\s[16] Well... more or less.\s[2]"
+	"\0\s[24]Looks like I won. What a relief... for a moment there, I thought..."
+	"\0\s[24]I won! Quick, we have to celebrate before someone changes the rules!"
+	"\0\s[24]You lost. But don't worry... probably nobody noticed."
+	"\0\s[24]Heh, heh... I won. It definitely wasn't just luck."
+}
+FunctionPlayerGiveUpEN : nonoverlap{
+	"\0\s[1]You're leaving already? Ah... well. I think I would've left too."
+	"\0\s[1]You're giving up? Good idea! Sometimes retreating is the smartest strategy."
+	"\0\s[1]Oh! We're done. That was faster than I expected."
+	"\0\s[1]You're giving up... \s[5]Does that mean I won? ...Or did I lose?"
+	"\0\s[1]That's alright. We can try again when you're ready. Or when I remember how to play."
+}
+//--------------------------------------Fin-Frases---------------------------------------
+
+//--------------------------------------Glico---------------------------------------
+//		   _____ _      _____ _____ ____  
+//		  / ____| |    |_   _/ ____/ __ \ 
+//		 | |  __| |      | || |   | |  | |
+//		 | | |_ | |      | || |   | |  | |
+//		 | |__| | |____ _| || |___| |__| |
+//		  \_____|______|_____\_____\____/ 
+
+Select.glico:all
+{
+	if language=="ES"{
+		"\_q\f[bold,1]Elige tu movimiento.\f[bold,0]\n\n"
+	
+		"\![*]\q[Piedra,OnCheckGlico,piedra,false]\n"
+		"\![*]\q[Papel,OnCheckGlico,papel,false]\n"
+		"\![*]\q[Tijera,OnCheckGlico,tijera,false]\n\n"
+	
+		"\![*]\q[Volver al Menu,myspecial]\n"
+		"\![*]\q[Salir,CANCEL]\e"
+	}else{
+		"\_q\f[bold,1]Make your movement.\f[bold,0]\n\n"
+	
+		"\![*]\q[Rock,OnCheckGlico,piedra,rock]\n"
+		"\![*]\q[Paper,OnCheckGlico,papel,paper]\n"
+		"\![*]\q[Scissors,OnCheckGlico,tijera,scissors]\n\n"
+	
+		"\![*]\q[Back to Menu,myspecial]\n"
+		"\![*]\q[Exit,CANCEL]\e"
+	}
+}
+
+
+OnCheckGlico:all{
+	_myChoice = reference0
+	_myChoiceEN = reference1
+	glicoRounds++
+	_diference = playerWins-tkgWins
+	if _diference<0{_diference*=-1}
+	if _myChoice=="piedra"{timesRock++}elseif _myChoice=="papel"{timesPaper++}//elseif _myChoice=="tijera"{timesScissor++}
+
+	if language=="ES"{"\0\s[0]\f[bold,1]Bien, listo?\w3 Piedra,\w2 papel o.\w2.\w2.\w2 tijera\f[bold,0]\w8\n\n"}else{"\0\s[0]\f[bold,1]Ok, ready?\w3 Rock,\w2 paper.\w2.\w2.\w2 scissors\f[bold,0]\w8\n\n"}
+
+	//Este codigo evita que la diferencia en puntos se vaya a los cielos xdd hace que tkg gane o pierda una partida a proposito
+	if _diference<6{
+		//----------------------------------------------------------------------------------------------------------------------------------------
+		//Decisión de Takagi
+		//1.-TKG elige un numero (1-100), 2.-Se calcula el porcentaje de probabilidad de elección del jugador, 3.-Si es más probable que el
+		//jugador tire piedra, habra más posibilidad de que takagi use papel, esto mantiene un poco de azar y brinda más habilidad en el juego
+		//a TKG, además de que entre más partidas se juegue mejor sera su desempeño.
+
+		if glicoRounds > 0{
+			_currentRand = RAND(100) + 1
+			_ProbRock = TOINT((timesRock*100)/glicoRounds)
+			_ProbPaper = TOINT((timesPaper*100)/glicoRounds)
+			//_ProbScissor = TOINT((timesScissor*100)/glicoRounds)
+
+			if _currentRand <= _ProbRock{
+				tkgChoice="papel"
+				tkgChoiceEN="paper"
+			}elseif _currentRand <= _ProbRock + _ProbPaper{
+				tkgChoice="tijera"
+				tkgChoiceEN="scissors"
+			}else{
+				tkgChoice="piedra"
+				tkgChoiceEN="rock"
+			}
+		}else{
+			//Esto hace que Takagi gane siempre la primer partida, sinceramente no recuerdo por qué lo quise así
+			if _myChoice=="piedra"{tkgChoice="papel"}elseif _myChoice=="papel"{tkgChoice="tijera"}else{tkgChoice="piedra"}
+		}
+		//----------------------------------------------------------------------------------------------------------------------------------------
+	}else{
+		if playerWins>tkgWins{
+			if _myChoice=="piedra"{tkgChoice="papel";tkgChoiceEN="paper"}elseif _myChoice=="papel"{tkgChoice="tijera";tkgChoiceEN="scissors"}else{tkgChoice="piedra";tkgChoiceEN="scissors"}
+		}else{
+			if _myChoice=="piedra"{tkgChoice="tijera";tkgChoiceEN="scissors"}elseif _myChoice=="papel"{tkgChoice="piedra";tkgChoicENe="rock"}else{tkgChoice="papel";tkgChoiceEN="paper"}
+		}
+	}
+	//cambiar surface
+	if tkgChoice=="piedra"{
+		"\0\s[17]"
+	}elseif tkgChoice=="papel"{
+		"\0\s[18]"
+	}else{
+		"\0\s[19]"
+	}
+
+	if _myChoice != tkgChoice{
+		if language=="ES"{"\w8\w8Tu elegiste %(_myChoice) y yo %(tkgChoice)... "}else{"\w8\w8You chose %(_myChoiceEN), and I chose %(tkgChoiceEN)... "}		
+
+		if (_myChoice=="piedra" && tkgChoice=="tijera") || (_myChoice=="papel" && tkgChoice=="piedra") || (_myChoice=="tijera" && tkgChoice=="papel"){
+			playerWins++
+			if language=="ES"{FunctionPlayerWins}else{FunctionPlayerWinsEN}
+		}else{
+			tkgWins++
+			if language=="ES"{FunctionPlayerLoss}else{FunctionPlayerLossEN}
+		}
+	}else{
+		if language=="ES"{"\w8\w8Ambos elegimos %(tkgChoice), que coicidencia...\w2 Parece que empatamos."}else{"\w8\w8We both chose %(tkgChoice), what a coincidence...\w2 Looks like it's a tie."}
+	}
+	
+	if language=="ES"{
+ 		"\![quicksection,1]\n\f[align,center]Marcador\![quicksection,0]\w8\n"
+ 		"\![quicksection,1]%(username): %(playerWins) | Kinger: %(tkgWins)\![quicksection,0]\w8\n"
+ 		"\![quicksection,1]Rondas jugadas: %(glicoRounds)\![quicksection,0]\n\f[align,left]\w8"
+	
+		"\![*]\q[Otra vez,glico]\n"
+	
+		"\![*]\q[Bien Jugado,CANCEL]\e"
+	}else{
+		"\![quicksection,1]\n\f[align,center]Scoreboard\![quicksection,0]\w8\n"
+		"\![quicksection,1]%(username): %(playerWins) | Kinger: %(tkgWins)\![quicksection,0]\w8\n"
+		"\![quicksection,1]Rounds Played: %(glicoRounds)\![quicksection,0]\n\f[align,left]\w8"
+		
+		"\![*]\q[Play Again,glico]\n"
+		
+		"\![*]\q[Good Game,CANCEL]\e"
+	}
+}
+//--------------------------------------Fin-Glico---------------------------------------
+
+//--------------------------------------21---------------------------------------
+//NO LO HE TRADUCIDO PORQUE NO LO PLANEO INCLUIR EN KINGER
+//Si planeas traducirlo, basicamente 21 es un juego donde dos jugadores cuentan juntos hasta 21, cada jugador puede contar maximo
+//tres numeros por turno, el jugador que se vea obligado a decir el numero 21 pierde.
+//			  /$$$$$$    /$$  
+//			 /$$__  $$ /$$$$  
+//			|__/  \ $$|_  $$  
+//			  /$$$$$$/  | $$  
+//			 /$$____/   | $$  
+//			| $$        | $$  
+//			| $$$$$$$$ /$$$$$$
+//			|________/|______/
+
+
+Select.TwentyOne:all{
+	twentyOneText="\f[bold,1]Comencemos\f[bold,0]\n\n[half]"
+	twentyOneCount=0
+
+	"\0\s[0]Contaremos por turnos, maximo 3 números por turno, el que diga 21 pierde ¿Listo?\n"
+	"\f[bold,1]¿Quién comienza?\f[bold,0]\n\n[half]"
+	"\![*]\q[Yo quiero empezar,OnRunTwentyOne,other]\n"
+	"\![*]\q[Comienza tu,OnRunTwentyOne,tkg]\n\n[half]"
+	"\![*]\q[Volver al Menu,myspecial]\n"
+	"\![*]\q[Salir,CANCEL]"
+}
+
+OnRunTwentyOne:all{
+	"\b[2]"
+	"\c\![quicksection,1]%(twentyOneText)\![quicksection,0]"
+	currentPlayer=reference0
+	currentText=""
+	currentChoice=0
+
+	//Seleccion Del Jugador o TKG
+	if currentPlayer=="player"{
+		currentChoice=reference1
+		currentText+="\f[bold,1]%(username): \f[bold,0]"
+	}elseif currentPlayer=="tkg"{
+
+		_currentNext=4
+		while currentChoice==0{
+			if _currentNext-twentyOneCount>0 && _currentNext-twentyOneCount<=3{
+				currentChoice+=_currentNext-twentyOneCount
+			}elseif _currentNext-twentyOneCount<0{
+				_currentNext+=4
+			}else{
+				currentChoice=RAND(3)+1
+			}
+		}
+		
+		currentText+="\f[bold,1]TKG: \f[bold,0]"
+	}
+	
+	if twentyOneCount+currentChoice>21{
+		currentChoice=21-twentyOneCount
+	}
+
+	twentyOneCount+=currentChoice
+
+	for _i=currentChoice-1;_i>-1;_i--
+	{
+		currentText+="%(twentyOneCount-_i)"
+		if _i!=0{currentText+=", "}else{currentText+=".\n"}
+	}
+
+	if currentPlayer=="tkg"{
+		"\0\s[8]\w8\w8\w2%(currentText)"
+		if twentyOneCount==20{
+			twentyOneCount=21
+			currentPlayer="player"
+		}
+	}else{
+		currentText
+	}
+	twentyOneText+=currentText
+
+	if twentyOneCount<21{
+		if currentPlayer=="player"{
+			reference0="tkg"
+			OnRunTwentyOne
+		}else{
+			"\![quicksection,1]\n\n[half]"
+			"\![*]\q[+1,OnRunTwentyOne,player,1]   "
+			"\![*]\q[+2,OnRunTwentyOne,player,2]   "
+			"\![*]\q[+3,OnRunTwentyOne,player,3]\n\n[half]"
+			"\![*]\q[Me rindo,giveUp]\![quicksection,0]"
+		}
+	}else{
+		if currentPlayer=="tkg"{
+			"\n"
+			FunctionPlayerWins
+		}else{
+			"\0\n\s[15]Jeje... Te toca decir 21 así que... %(FunctionPlayerLoss)"
+		}
+		"\n\n[half]"
+		"\![*]\q[Otra vez,TwentyOne]\n"
+		"\![*]\q[Listo,CANCEL]\e"
+	}
+}
+
+Select.giveUp{
+	FunctionPlayerGiveUp
+}
+
+//--------------------------------------Fin 21---------------------------------------
+
+//-----------------------------------------
+Select.animechap : all{
+	FunctionRandomChap
+	if language=="ES"{
+		"\![*]\q[Elige otro,animechap]\n"
+		"\![*]\q[Listo,CANCEL]\e"
+	}
+}
+
+FunctionRandomChap{
+	_chapNumber = RAND(9)+1
+	//_chapSeason = RAND(3)+1
+
+	if language=="ES"{
+		"\0\s[0]Mmm...\w6 Sería interesante volver a ver el capítulo %(_chapNumber)\s[0]\i[8]\n\n"
+		"\0\s[0]Mmm...\w6 Tengo ganas de ver el capítulo %(_chapNumber)\s[0]\i[8]\n\n"
+	}else{
+		"\0\s[0]Hmm...\w6 It would be nice to watch episode %(_chapNumber) again.\s[0]\i[8]\n\n"
+		"\0\s[0]Hmm...\w6 I feel like watching episode %(_chapNumber).\s[0]\i[8]\n\n"
+	}
+	
+}  
+
+
+
+//This is when the user chooses to check their email. The rest of this function plays out in etc.dic. You can leave this alone.
+Select.MailCheck
+{
+	"\![biff]\e"
+}
+
+
+	
+//---- OnChoiceTimeout ---------------------------------------------------------
+//If the user is given a menu with choices, but doesn't pick one of the choices, it will eventually time out. At that point, they will say this dialogue.
+
+OnChoiceTimeout
+ {
+ 	if language=="ES"{
+		"\0Talvez luego.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0Quizá más tarde.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0¿Sigues ahí?\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+ 	}else{
+		"\0Maybe later.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0Perhaps later.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0Are you still there?\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+ 	}
+ }

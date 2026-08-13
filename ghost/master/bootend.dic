@@ -1,0 +1,466 @@
+//---------------------------Booting and Ending--------------------------
+
+//This .dic file is set aside for booting and ending dialogue, as well as a few other functions.
+
+//If you see a big block of commented text you want to uncomment, highlight the text and then hit ctrl-shift-k in Notepad++ and that should uncomment it. Mostly this is intended for advanced users.
+
+/* This file has...
+
+OnFirstBoot
+NameInput
+First pronoun stuff
+GetDaySlot/GetTimeSlot
+OnBoot
+normalboottalk
+OnClose
+OnWindowStateRestore
+OnGhostChanging
+OnGhostChanged
+OnShellChanging
+OnShellChanged
+OnDressupChanged
+*/
+
+//--OnFirstBoot--
+
+
+
+OnFirstBoot : all
+{
+//OnFirstBoot begins with some code at first to define some values your ghost will be using.
+
+ 	lastTalk = "" 		//This is part of how chained conversations work (see aitalk.dic).
+	passhour = 0
+	passmin  = 0 
+	passsec  = 0 		// These keep track of the time.
+	studyTime= 0
+	language = "EN" 	//Idioma
+ 	username = "USER" 	//This sets a temporary name for the user.
+	stroke           = 0			// Sets their being-pet state to zero.
+ 	teachusername    = 0			// Related to them learning your name.
+	mikireflag       = 0			// Determines behavior at certain points.
+ 	aitalkinterval   = 300 			//Their default talk rate.
+ 	birthdayprint    = "????" 		//El valor de la fecha de cumpleaños del usuario en Español
+ 	birthdayprintEN	 = "????" 		//A temporary value for the user's birthday.
+	talktime 		 = "5 minutos" 	//How the value aitalkinterval will display in the config menu.
+	talktimeEN 		 = "5 minutes" 	//How the value aitalkinterval will display in the config menu.
+	deleteshitai 	 = "ON" 		//Sets whether or not the user can uninstall the ghost to "OFF". The user can change it later in the config menu (see menu.dic). 
+	nowshell 		 = "master" 	//This is for a special if check in aitalk.dic to see what shell the ghost is using. You should use the name of your default shell folder here.
+	firstboot 		 = 1 			//This marks that this is the first time you've run the ghost. It's so it won't reroute to general name changing dialogue when the user inputs their name. Uncomment this if you're going to have your ghost ask the user directly when they're first booted for the user's name.
+	takagiwatch 	 = 0 			//Maquina de estados, sirve para controlar que dialogos se deben mostrar segun el estado en el que kinger se encuentra, se llama takagi porque es heredado de otro ukagaka y me dio flojera cambiar el nombre xdd
+
+	//GamesVariables
+	glicoRounds    = 0 //Rondas de Glico
+	playerWins     = 0 //Victorias de Takagi en glico
+	tkgWins        = 0 //Victorias de Takagi en glico
+	timesRock 	   = 0
+	timesPaper 	   = 0
+	//timesScissor = 0
+	twentyOneText  ="" //Texto para el juego de 21
+	twentyOneCount = 0 //Contador juego 21
+	
+	//ToDoList
+	toDoArray     = IARRAY //To Do List Array
+	toDoArrayDone = IARRAY //Tareas hechas array
+
+	//GenderDefaultVariables
+	himher   = "them"
+	heshe    = "they"
+	hisher   = "theirs"
+	hesshes  = "they're"
+	espPron	 = "Neutro"
+	espLetra = "x"
+
+	--
+ 	"\0\_q\s[14]\i[3]\n\f[align,center]Choose your \f[bold,1]language\f[bold,0]\nSelecciona un \f[bold,1]idioma\w5\n\n[half]\_q\n\n"
+	"\![*]\q[English,OnLanguageSelect,EN]\n\n"
+	"\![*]\q[Español,OnLanguageSelect,ES]\n\f[align,left]\f[bold,0]"
+}
+
+OnLanguageSelect:all{
+	language=reference0
+	PresentationStart
+}
+
+PresentationStart:all{
+		if language=="ES"{
+			"\0\s[15]¡Felicidades, Humano!, acabas de seleccionar a kinger como tu compañero de escritorio.\_b[kinger.png,85,40]\w8\w8\w8\w8\w8\w8\cAsegurate de cuidarlo bien, no queremos que se abstraiga JAJA JAJA\n\n\w8\w8Eh... Hablo en serio.\w8\w8\w8\w8\w8"
+			"\c\0\s[3]\w8\w8\w8\s[3]\i[1]Eh...\n¿Qué...\w8\w8\s[6]Qué es este lugar?\w8\w8\w8\w8\w8\w8\w8\w8\n\cOh Bueno,\s[2]\w8\w8 debe ser otra de las aventuras de \f[bold,1]Caine\f[bold,0]\w8\w8\w8\w8\c\s[0]\i[7]¡Oh! Hola, no te había visto\n\n\s[0]\i[2]Qué interesante sitio y muy bonito \i[8]por cierto.\w8.\w8.\w8\w8\n\n\c\s[0]Cierto, \s[20]mi nombre es \f[bold,1]Kinger\f[bold,0].\n\nCuentame un poco acerca de ti.\n\n\w8\w8"
+		}else{	
+			"\0\s[15]Congratulations, Human! You’ve just selected Kinger as your desktop companion.\_b[kinger.png,85,40]\w8\w8\w8\w8\w8\w8\cMake sure to take good care of him. We wouldn’t want him to abstract, HA HA HA.\n\n\w8\w8Uh... I’m serious.\w8\w8\w8\w8\w8"
+			"\c\0\s[3]\w8\w8\w8\s[3]\i[1]Uh...\nWhat...\w8\w8\s[6]What is this place?\w8\w8\w8\w8\w8\w8\w8\w8\n\cOh well,\s[2]\w8\w8 it must be another one of \f[bold,1]Caine's\f[bold,0] adventures.\w8\w8\w8\w8\c\s[0]\i[7]Oh! Hello, I didn’t see you there.\n\n\s[0]\i[2]What an interesting place... and quite lovely, \i[8]I might add.\w8.\w8.\w8\w8\n\n\c\s[0]Right, \s[20]my name is \f[bold,1]Kinger\f[bold,0].\n\nTell me a little about yourself.\n\n\w8\w8"
+		}
+		--
+		GenderChoice
+}
+//&&&&&&&
+//*********************************
+//NAME/PRONOUNS START
+//*********************************
+//&&&&&&&
+
+GenderChoice:all{
+	if language=="ES"{
+		"\0\s[0]\i[8]¿Eres un chico o una chica?\w5\n\n[half]\_q"
+		"\![*]\q[Chico,choicefirsthehim]\n"
+		"\![*]\q[Chica,choicefirstsheher]\n"
+		"\![*]\q[Otro,choicefirsttheythem]\e"
+	}else{
+		"\0\s[0]\i[8]Are you a boy or a girl?\w5\n\n[half]\_q"
+		"\![*]\q[Boy,choicefirsthehim]\n"
+		"\![*]\q[Girl,choicefirstsheher]\n"
+		"\![*]\q[they/them,choicefirsttheythem]\e"
+	}
+}
+
+
+Select.choicefirsthehim
+{
+	presuffix = "masculine"
+	himher = "him"
+	heshe = "he"
+	hisher = "his"
+	hesshes = "he's"
+	espPron = "El"
+	espLetra = "o"
+	--
+	NameInput
+}
+
+Select.choicefirstsheher
+{
+	presuffix = "feminine"
+	himher = "her"
+	heshe = "she"
+	hisher = "her"
+	hesshes = "she's"
+	espPron = "Ella"
+	espLetra = "a"
+	--
+	NameInput
+}
+
+Select.choicefirsttheythem
+{
+	himher = "them"
+	heshe = "they"
+	hisher = "theirs"
+	hesshes = "they're"
+	espPron = "Neutro"
+	espLetra = "x"
+	--
+	NameInput
+}
+
+
+//--NameInput
+
+NameInput
+{
+	if language=="ES"{
+		"\0\s[0]Bien amig%(espLetra), ya conoces mi nombre...\w8 ¿Cuál es el tuyo? \s[23]\i[6]\![open,inputbox,OnNameTeach,-1]\e"
+	}else{
+		"\0\s[0]Alright, friend, now you know my name...\w8 What's yours? \s[23]\i[6]\![open,inputbox,OnNameTeach,-1]\e"
+	}
+}
+
+//&&&&&&&
+//*********************************
+//NAME/PRONOUNS END
+//*********************************
+//&&&&&&&
+OnEndFirstBoot{
+	firstboot = 0
+	if language=="ES"{
+		"\0\c\s[0]Bien, \f[bold,1]%(username)\f[bold,0].\nComo ya mencioné, yo soy \f[bold,1]Kinger\f[bold,0]\s[20].\w8\w8\n\nPuedo ayudarte a organizar tus cosas con la lista de tareas\s[0]\i[8], jugar una partida de piedra, papel o tijeras... \w8\w8\n\nTambién podemos ver alguna película juntos, o simplemente quedarnos aquí un rato. No siempre hace falta hacer algo, \s[23]\i[1]¿sabes?\n\nAsí que... si necesitas compañía, puedes llamarme. \w8\s[0]Estaré por aquí.\n\nBueno... probablemente\s[24].\n\e"
+	}else{
+		"\0\c\s[0]Alright, \f[bold,1]%(username)\f[bold,0].\nAs I mentioned, I'm \f[bold,1]Kinger\f[bold,0]\s[20].\w8\w8\n\nI can help you organize your things with the to-do list\s[0]\i[8], play a game of rock, paper, scissors... \w8\w8\n\nWe can also watch a movie together, or simply stay here for a while. We don't always have to do something, \s[23]\i[1]you know?\n\nSo... if you need some company, you can call me. \w8\s[0]I'll be around.\n\nWell... probably\s[24].\n\e"
+	}
+}
+
+
+//--timeslot
+
+//make a note of the names used for each chunk of time, like earlymorning or lunch. Those are the names you'll be using later.
+
+timeslot
+{
+	if hour >= 5 && hour <= 8
+	{	"earlymorning"	}
+	elseif hour >= 9 && hour <= 11
+	{	"morning"	}
+	elseif hour >= 12 && hour <= 14
+	{	"lunch"	}
+	elseif hour >= 15 && hour <= 17
+	{	"afternoon"	}
+	elseif hour >= 18 && hour <= 20
+	{	"evening"	}
+	elseif hour >= 21 && hour <= 24
+	{ "latenight"	}
+	else
+	{ "midnight" }
+}
+
+dayslot
+{
+	"%(month)month %(day)day"
+}
+
+OnBoot
+ {
+	lastTalk = ""
+	passhour = 0
+	passmin = 0
+	passsec = 0
+
+	//Variables mySpecial
+	takagiwatch = 0
+	twentyOneText=""
+	twentyOneCount=0
+	//Borrar despues
+	// toDoArray = IARRAY //To Do List Array
+	// toDoArrayDone = IARRAY
+	
+	"\0\s[0]\1\s[10]"
+
+	--
+	
+	if dayslot == userbirthday
+	{
+		if language=="ES"{"\0\s[7]Es %(bornmonthprint) %(borndayprint).\w8 \n\n\f[bold,1]\s[20]Feliz cumpleaños, %(username).\f[bold,0]\e"}else{"\0\s[7]It's %(bornmonthprintEN) %(borndayprintEN).\w8 \n\n\f[bold,1]\s[20]Happy birthday, %(username).\f[bold,0]\e"}
+	}
+	elseif dayslot == "12month 25day"
+	{
+		if language=="ES"{"\0\s[20]\i[6]\f[bold,1]¡¡Feliz Navidad!!\f[bold,0]\e"}else{"\0\s[20]\i[6]\f[bold,1]Merry Christmas!!\f[bold,0]\e"}
+	}
+	else
+	{
+		"%(normalboottalk)" //If none of the days above match the current date, the ghost instead will go down to the next function, normalboottalk.
+	}
+
+}
+
+
+//--normalboottalk
+
+normalboottalk
+{
+	if language=="ES"{
+		if weekday == 4
+		{
+			"\0\s[23]\i[1]Feliz jueves.\e"
+		}
+
+		if timeslot == "earlymorning" || timeslot == "morning"
+		{
+			"\0\s[0]\i[7]\i[6]Buenos días ¿Qué haremos hoy?.\e"
+			"\0\s[0]\i[6]Es un bonito día.\w8\w8\w8\s[0]\e"
+		}
+		
+		"\0\s[4]\w8\w8\w8\w8\i[1]\w8\w8\w8\w8\f[bold,1]¡AAHH!\f[bold,0]\n\n¡Mi fortaleza impenetrable!.\w8\w8\w8\s[0]\s[6]\n\nOh! Hola \f[bold,1]%(username)\f[bold,0]\w8\w8\n\n\s[0]\i[2]\w8\w8¿Hora de una nueva aventura?\e"
+		"\0\s[0]\i[7]Oh. Estás aquí.\n\nPerfecto. \s[24]Ahora parezco menos perdido.\e"
+	}else{
+		if weekday == 4
+		{
+			"\0\s[23]\i[1]Happy Thursday.\e"
+		}
+
+		if timeslot == "earlymorning" || timeslot == "morning"
+		{
+			"\0\s[0]\i[7]\i[6]Good morning. What shall we do today?\e"
+			"\0\s[0]\i[6]It's a lovely day.\w8\w8\w8\s[0]\e"
+		}
+		
+		"\0\s[4]\w8\w8\w8\w8\i[1]\w8\w8\w8\w8\f[bold,1]AAHH!\f[bold,0]\n\nMy impenetrable fortress!\w8\w8\w8\s[0]\s[6]\n\nOh! Hello, \f[bold,1]%(username)\f[bold,0]\w8\w8\n\n\s[0]\i[2]\w8\w8Time for a new adventure?\e"
+		"\0\s[0]\i[7]Oh. You're here.\n\nPerfect. \s[24]Now I look a little less lost.\e"
+	}
+}
+
+
+//--OnClose
+//Do note, close dialogue must end with a \- instead of \e. \- will close the program.
+
+OnClose
+ {
+	 takagiwatch = 0
+	 if language=="ES"{"\0\s[5]Nos vemos pronto \f[bold,1]%(username)\f[bold,0].\w8\s[4]\w8\w8\w8\e"}else{"\0\s[5]See you soon, \f[bold,1]%(username)\f[bold,0].\w8\s[4]\w8\w8\w8\e"}
+ }
+
+
+
+ //-------------------------State Changing--------------------
+ //From here on, most of the dialogue will have to do with changing shells, ghosts, or states in some way.
+ 
+ 
+ //--OnWindowStateMinimize
+
+//This will run when you minimize them.
+
+ OnWindowStateMinimize
+{
+	if language=="ES"{
+		"\0\s[0]Jugamos escondidas? jeje.\e"
+		"\0\s[0]Hora de ocultarse.\e"
+	}else{
+		"\0\s[0]Wanna play hide-and-seek? Hehe.\e"
+		"\0\s[0]Time to hide.\e"
+	}
+}
+
+
+//--OnWindowStateRestore
+
+//This will run when you minimize them and then bring them back up.
+
+OnWindowStateRestore
+{
+	if language=="ES"{
+		"\0\s[0]Oh! Me encontraste jaja.\e"
+		"\0\s[0]Siento que he crecido un par de centimetros.\e"
+	}else{
+		"\0\s[0]Oh! You found me, haha.\e"
+		"\0\s[0]I feel like I've grown a couple of centimeters.\e"
+	}
+}
+
+
+//--OnGhostChanging
+
+//This runs whenever you change or reload the ghost. You can change ghosts by going into the right click menu and going to Change Ghost, but this dialogue will also be called if you reload them using Utilities->Reload Ghost or the Developer's Console->Reload->Ghost. Protip: If you are going to make a ghost, you will be reloading it A LOT.
+//Note: If you reload your ghost using the developer console instead of Utilities->Reload Ghost, it won't do this dialogue, so don't freak out if it doesn't show up.
+ 
+OnGhostChanging
+ {
+	if reference0 == "Kinger" //Replace this with the name of your Sakura character as you put in install.txt or descript.txt.
+	{
+		if language=="ES"{"\0\s[0]\i[7]Hola de nuevo.\w8\w8\e"}else{"\0\s[0]\i[7]Hello again.\w8\w8\e"}
+	}
+ 	else //If you're switching to another Ghost.
+	{
+		if language=="ES"{"\0\s[0]Vas a ver a %(reference0)? De acuerdo, suerte.\i[7]\i[6]\w8\w8\e"}else{"\0\s[0]Are you going to see %(reference0)? Alright, good luck.\i[7]\i[6]\w8\w8\e"}
+		//In OnGhostChanging, %(reference0) stores the name of the ghost being swapped to, so if you want to display what you're switching to, you can use %(reference0) as in this example.
+	}
+}
+
+
+//--OnGhostChanged
+
+//A sister to the above, this runs after the ghost has either reloaded itself, or when you switch from another ghost to this ghost.
+
+OnGhostChanged
+{
+	"\0\s[0]\1\s[10]" //this sets up their default poses
+	--
+	if reference0 == "Kinger" //As above, this should be the name of your ghost as in install.txt or descript.txt.
+	{
+		if language=="ES"{"\0\s[0]\i[6]\i[7]Estoy de vuelta.\e"}else{"\0\s[0]\i[6]\i[7]I'm back.\e"}
+	}
+	else //If you're switching to them from another ghost...
+	{
+		if language=="ES"{"\0\s[0]\i[6]Hasta pronto, %(reference0).\w8\e"}else{"\0\s[0]\i[6]See you soon, %(reference0).\w8\e"}
+
+		//Again, %(reference0) in this function is the name of the ghost in question.
+	}
+}
+
+
+//--OnShellChanging
+
+//This will run when you change your ghost's shell.
+
+OnShellChanging
+ {
+	if reference0 == "Hypothetical Shell that doesn't actually exist" //reference0 in OnShellChanging is the name of the shell you're swapping to. It should be defined in the descript.txt file in your shell folder.
+	{
+	"\0\s[0]This dialogue is specifically for changing to this particular shell.\w8\0\w8\s[9]It totally exists.\w8\e"
+	}
+	else //if you don't have any specific dialogue for a specific shell
+	{
+	"\0\s[0]This dialogue is for changing shells.\w8Sure is.\w8\e"
+	
+	"\0\s[10]This is another bit of dialogue for changing shells.\w8\0\s[8]I wonder how many people will actually have multiple shells?\e"
+	}
+ }
+ 
+ 
+ //--OnShellChanged
+ 
+ //The sister to the above, this is the dialogue after you've changed the shell.
+ 
+OnShellChanged
+ {
+ 	if reference0 == "Takagi-San" //Again, this is the name of your shell as you put in the descript.txt file for that shell.
+ 	{
+ 		nowshell = "master" //This is the folder name for your shell. Not the same as the above! 
+		
+ 		"\0\s[0]Un clásico.\w8 Nada como el atuendo original no?\e"
+ 	}
+ 	elseif reference0 == "Hypothetical Shell that doesn't actually exist"
+ 	{
+ 		nowshell = "totallyrealshell"
+		
+ 		"\0\s[0]This dialogue is for switching to that hypothetical shell.\e"
+		
+ 		"\0\s[0]This is another bit of dialogue for switching to this hypothetical shell.\w8\1\s[18]Man if you actually use this, you should tell Zar, it'll blow her mind.\w8\0\n\n[half]\s[9]Shut up, we're not supposed to be in-character here.\e"
+ 	}
+ 	elseif reference0 == "Another totally real shell wow"
+ 	{
+ 		nowshell = "thiswouldbesomuchwork"
+		
+ 		"\1\s[10]This dialogue is after we've switched to another totally real shell.\e"
+ 	}
+ 	else //For any shell without a specific name, or if you don't want to bother with individual responses to a shell.
+ 	{
+	"\0\s[0]¿%(reference[0])? Esto es nuevo jaja.\w8\0\s[18]Cuantos shells tienes?\e"
+	
+	//Note the %(reference[0]) here! This time that should store the name of whatever shell you're switching to.
+	}
+ }
+
+
+ //--OnDressupChanged
+ 
+ //This runs whenever you fiddle with their clothing via the dress-up option, if you've set any for your ghost.
+
+OnDressupChanged
+{
+if reference0 == 0 //in OnDressupChanged, reference0 refers to the character, therefore this is evaluating which character in question is getting dressed up. 0 is the main character, as you know from the walkthrough by now.
+	{
+	if reference1 == "Clothing for Girl" //This is the name of the clothing item in the descript.txt file, I'm pretty sure.
+		{
+			if reference2 == 1 //This checks if you're putting it on.
+			{
+			"\0\s[0]You put my clothing item on me.\w8\1\s[19]lol like zar would ever bother with clothes for a ghost.\w8\0\s[9]\n\n[half]Shut up dude you're going to get us in trouble.\e"
+			}
+			else // This checks if you're taking it off.
+			{
+			"\0\s[0]You took the clothing item off.\e"
+			}
+		}		
+	}
+else //if reference0 isn't the main character, then it has to be the side character.
+	{
+	if reference1 == "some kind of clothing for triangle??" //The name of the item of clothing in the descript.txt file in your shell folder.
+		{
+			if reference2 == 1 //If you put it on
+			{
+			"\1\s[10]I'm wearing some kind of clothing.\w8\0\s[8]Maybe a hat?\e"
+			}
+			else //When you take it off.
+			{
+			"\1\s[10]You took off some kind of clothing.\e"
+			}
+		}
+	elseif reference1 == "i'm gonna say a propeller beanie" //As you've seen above, you can use elseifs to expand the list if you have more than one item.
+		{
+			if reference2 == 1 //if you're putting it on
+			{
+			"\1\s[10]You put a hat on me.\w8\0\s[6]lol.\w8\1\n\n[half]\s[11]Shaddap.\e"
+			}
+			else //when you take it off
+			{
+			"\1\s[10]You took off the hat.\e"
+			}
+		}
+	}
+}
