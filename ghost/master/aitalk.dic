@@ -85,7 +85,8 @@ RandomTalk : nonoverlap_pool
 			"\0\s[1]¿Crees que los insectos sueñan? \i[2]Yo espero que no.\nYa tienen suficientes problemas.\e"
 			"\0\s[1]He estado evitando ese pasillo. No recuerdo por qué, pero...\w8\s[2] seguramente es una excelente razón."
 			"\0\s[25]No, no, no... así fue como empezó la otra vez.\w4.\w4.\w4\n\s[1]Creo... ¿Qué de qué hablo?...\n\s[0]\i[2]Ah...\w4Creo que lo olvide.\e"
-			//"\0Este dialogo es una prueba"//------------------------------------------------------------
+			"\0Este dialogo es una prueba para comprobar las actualizaciones"//------------------------------------------------------------
+			"\0Este dialogo es una prueba para comprobar las actualizaciones2"
 			//Bienestar
 			"\0\s[0]\i[8]Es importante hidratarse bien ¿Ya bebiste agua?.\e"
 			"\0\s[0]\i[8]Recuerda tomar un descanso de vez en cuando.\e"
