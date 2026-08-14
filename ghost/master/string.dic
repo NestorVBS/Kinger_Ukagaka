@@ -26,7 +26,7 @@ On_username
 
 On_homeurl
 {
-	"https://raw.githubusercontent.com/NestorVBS/Kinger_Ukagaka/master/"
+	"https://raw.githubusercontent.com/NestorVBS/Kinger_Ukagaka/main/"
 }
 
 
@@ -124,7 +124,7 @@ On_kero.recommendsites
  //What it will say on the menu for the option to Update.
  
 On_updatebutton.caption
- {
+{
 	if language=="ES"{"Buscar Actualizaciones"}else{"Check for Updates"}
 }
 
