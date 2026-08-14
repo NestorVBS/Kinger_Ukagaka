@@ -35,7 +35,7 @@ On_homeurl
 
 On_recommendrootbutton.caption
 {
-	"Sitios de contacto"
+	if language=="ES"{"Sitios de contacto"}else{"Contact Sites"}
 }
 
 
@@ -44,14 +44,14 @@ On_recommendrootbutton.caption
 
 On_sakura.recommendsites
  {
-	"Takagi Chikita (Autor)"
+	"Takagi Chikita (Author)"
 	--
 	//This first line is the name that will display in the menu for your site. In this case, it would display "Ghost Template Walkthrough".
 	"%ASC(1)https://x.com/TakagiChikita/%ASC(2)"
 	--
 	//And this is the site that it would link to. Note that a website address begins with %ASC(1) and ends with %ASC(2). Don't forget these!
 	
-	"Donaciones"
+	if language=="ES"{"Donaciones"}else{"Tip"}
 	--
 	"%ASC(1)https://ko-fi.com/takagichikita%ASC(2)"
 	--
@@ -68,7 +68,7 @@ On_sakura.recommendsites
 
 On_portalrootbutton.caption
  {
-	"Información Ukagaka"
+	if language=="ES"{"Información Ukagaka"}else{"Ukagaka Information"}
  }
 
  //---- Websites in the Second Option --------------------------------------------------

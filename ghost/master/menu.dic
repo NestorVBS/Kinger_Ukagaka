@@ -1102,7 +1102,7 @@ OnCheckGlico:all{
 			if language=="ES"{FunctionPlayerLoss}else{FunctionPlayerLossEN}
 		}
 	}else{
-		if language=="ES"{"\w8\w8Ambos elegimos %(tkgChoice), que coicidencia...\w2 Parece que empatamos."}else{"\w8\w8We both chose %(tkgChoice), what a coincidence...\w2 Looks like it's a tie."}
+		if language=="ES"{"\w8\w8Ambos elegimos %(tkgChoice), que coicidencia...\w2 Parece que empatamos."}else{"\w8\w8We both chose %(tkgChoiceEN), what a coincidence...\w2 Looks like it's a tie."}
 	}
 	
 	if language=="ES"{
