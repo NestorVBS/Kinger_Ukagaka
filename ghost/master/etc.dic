@@ -261,9 +261,13 @@ OnBIFFFailure
  
 OnUpdateBegin
  {
-	"\0\s[0]Hora de actualizarnos.\w8\e"
-	
-	"\0\s[0]Se instalará una nueva actualización ¡Que emoción!\e"
+		if language=="ES"{
+				"\0\s[0]Hora de actualizarnos.\w8\e"
+				"\0\s[0]Se instalará una nueva actualización ¡Que emoción!\e"
+		}else{
+				"\0\s[0]Time for an update.\w8\e"
+				"\0\s[0]A new update will be installed. How exciting!\e"
+		}
  }
 
  //---- OnUpdateReady ---------------------------------------------------------
@@ -274,7 +278,7 @@ OnUpdateReady
  
 	reference0++ //makes sure it starts at 1 instead of 0
 	
-  "\0\s[0]Hay %(reference0) nuevos archivos.\w8\e"
+  if language=="ES"{"\0\s[0]Hay %(reference0) nuevos archivos.\w8\e"}else{"\0\s[0]There are %(reference0) new files.\w8\e"}
 	
 	//reference0 here storing the number of new files. 
  }
@@ -287,13 +291,19 @@ OnUpdateComplete
  {
 	if reference0 == "none" //if the ghost had nothing to update with
  	{
- 		"\0\s[0]No hay nuevos archivos.\e"
- 		"\0\s[0]No hay nada que actualizar, todo esta en orden.\e"
- 		"\0\s[0]No hay nada que actualizar, estamos al día.\e"
+ 		if language=="ES"{
+ 				"\0\s[0]No hay nuevos archivos.\e"
+ 				"\0\s[0]No hay nada que actualizar, todo esta en orden.\e"
+ 				"\0\s[0]No hay nada que actualizar, estamos al día.\e"
+ 		}else{
+ 				"\0\s[0]There are no new files.\e"
+				"\0\s[0]There's nothing to update, everything is up to date.\e"
+				"\0\s[0]There's nothing to update, we're all up to date.\e"	
+ 		}
 	}
  	else //if the ghost has updated successfully
 	{
-		"\0\s[0]¡La actualización fue un éxito!\e"
+		if language=="ES"{"\0\s[0]¡La actualización fue un éxito!\e"}else{"\0\s[0]The update was successful!\e"}
  	}
 }
 
@@ -304,19 +314,34 @@ OnUpdateFailure
  {
 	 _file = SPLITPATH(reference1)[2] + SPLITPATH(reference1)[3] //This gets the name and extension of the offending file
 	 
-	 
-	if reference0 == "timeout" //if the connection times out
- 	{
- 		"\0\s[0]Se excedio el tiempo de conección.\e"
-	}
- 	elseif reference0 == "md5 miss" //This is the final message displayed when you've run into an md5 error below at some point.
-	{
-		"\0\s[0]El hash MD5 de %(_file) no coincide.\e"
- 	}
-	else //for other errors
- 	{
- 		"\0\s[0]La actualización no pudo ser completada.\w8\nError: '%(reference0)'.\e"
-	}
+	 if language=="ES"{
+	 		if reference0 == "timeout" //if the connection times out
+		 	{
+		 		"\0\s[0]Se excedio el tiempo de conección.\e"
+			}
+		 	elseif reference0 == "md5 miss" //This is the final message displayed when you've run into an md5 error below at some point.
+			{
+				"\0\s[0]El hash MD5 de %(_file) no coincide.\e"
+		 	}
+			else //for other errors
+		 	{
+		 		"\0\s[0]La actualización no pudo ser completada.\w8\nError: '%(reference0)'.\e"
+			}
+		}else{
+			if reference0 == "timeout" //if the connection times out
+			{
+				"\0\s[0]The connection timed out.\e"
+			}
+			elseif reference0 == "md5 miss" //This is the final message displayed when you've run into an md5 error below at some point.
+			{
+				"\0\s[0]The MD5 hash of %(_file) does not match.\e"
+			}
+			else //for other errors
+			{
+				"\0\s[0]The update could not be completed.\w8\nError: '%(reference0)'.\e"
+			}
+		}
+
  }
 
 
