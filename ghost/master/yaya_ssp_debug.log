@@ -1,5 +1,5 @@
 // AYA request log
-// load time: 2026/08/15 18:29:50
+// load time: 2026/08/15 18:37:20
 
 // response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
@@ -86,7 +86,7 @@ Reference1: SSP
 Reference2: 2.8.75.3000
 
 
-// response (Execution time : 15[ms])
+// response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -116,7 +116,7 @@ Reference13: response.securitylevel
 Reference14: response.requestcharset
 
 
-// response (Execution time : 0[ms])
+// response (Execution time : 16[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -132,7 +132,7 @@ ID: OnNotifyOSInfo
 Reference0: WindowsNT,10.0,Windows 11 25H2.8894 (Ver.25H2) Wow64@x64
 Reference1: AMD,2595,0.23.8.7,178bfbff
 Reference2: 6164744,4194176
-Reference3: 7467
+Reference3: 7475
 
 
 // response (Execution time : 0[ms])
@@ -350,7 +350,7 @@ Reference179: Cascadia Mono SemiLight
 Reference180: Cascadia Mono SemiBold
 
 
-// response (Execution time : 15[ms])
+// response (Execution time : 16[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -372,7 +372,7 @@ Reference5: KingerBalloon
 Reference6: C:/Users/nevic/Documents/Mis Archivos/ssp_2_8_50f/balloon/KingerBalloon/
 
 
-// response (Execution time : 16[ms])
+// response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -405,7 +405,7 @@ SenderType: internal
 ID: OnNotifyShellInfo
 Reference0: Kinger
 Reference1: C:/Users/nevic/Documents/Mis Archivos/ssp_2_8_50f/ghost/Kinger_TADC/shell/master/
-Reference2: 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,23,24,25,1001,1002,1101,1102,1113,1114,1400,1508,1509,1517,1518,1519,1528,2000,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010,3011,3012,3013,3014,3015,3016,3017,3018,3019,3020,3021,3022,3030,3031,3032,3033,3034,3035,3036,4001,4002,4003,4004,4005,4006,4007,4008,4009,4010,4020,4051,4052,4053,4054,4055,4056,4057,4058,4059,5001,5002,5003,5004,6000,6001,6002,6003,6004,6005,6006,6007,6008,6009,6010,6011,6012,6020,6021,6030,6031,6032,6033,6034,6040,6041,7000,7001,7002,7003,7004,7010
+Reference2: 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,23,24,25,1001,1002,1101,1102,1113,1114,1508,1509,1517,1518,1519,1528,2000,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010,3011,3012,3013,3014,3015,3016,3017,3018,3019,3020,3021,3022,3030,3031,3032,3033,3034,3035,3036,4001,4002,4003,4004,4005,4006,4007,4008,4009,4010,4020,4051,4052,4053,4054,4055,4056,4057,4058,4059,5001,5002,5003,5004,6000,6001,6002,6003,6004,6005,6006,6007,6008,6009,6010,6011,6012,6020,6021,6030,6031,6032,6033,6034,6040,6041,7000,7001,7002,7003,7004,7010
 
 
 // response (Execution time : 0[ms])
@@ -423,7 +423,7 @@ SenderType: internal
 ID: useorigin1
 
 
-// response (Execution time : 0[ms])
+// response (Execution time : 16[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -472,7 +472,7 @@ SenderType: internal
 ID: craftman
 
 
-// response (Execution time : 0[ms])
+// response (Execution time : 16[ms])
 SHIORI/3.0 200 OK
 Sender: AYA
 Charset: UTF-8
@@ -574,7 +574,7 @@ Reference1: 1366
 Reference2: 768
 
 
-// response (Execution time : 0[ms])
+// response (Execution time : 16[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -611,7 +611,7 @@ ID: OnTabletMode
 Reference0: 0
 
 
-// response (Execution time : 16[ms])
+// response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -641,8 +641,8 @@ SecurityOrigin: null
 Sender: SSP
 SenderType: internal
 ID: OnRecycleBinStatusUpdate
-Reference0: 8
-Reference1: 21252796
+Reference0: 9
+Reference1: 21492101
 Reference2: 0
 Reference3: 0
 Reference4: 1
@@ -713,7 +713,7 @@ ID: pluginpathlist
 Reference0: C:\Users\nevic\Documents\Mis Archivos\ssp_2_8_50f\plugin\
 
 
-// response (Execution time : 16[ms])
+// response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -777,7 +777,7 @@ ID: OnVoiceRecognitionStatus
 Reference0: 0
 
 
-// response (Execution time : 16[ms])
+// response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -927,10 +927,10 @@ SecurityOrigin: null
 Sender: SSP
 SenderType: internal
 ID: rateofusegraph
-Reference0: KingerKinger_MultiTriangle144240989.123196install7463180.279898110131189.427012
-Reference1: KingerKingerTriangle281555.734369install2815519.7201022815510.572988
-Reference2: Kinger_MultiKinger_MultiTriangle31365.031447install000.000000000.000000
-Reference3: Emily/Phase4.5EmilyTeddy330.110988install100.000000100.000000
+Reference0: KingerKinger_MultiTriangle144240988.860199install7463179.471033110131188.941655
+Reference1: KingerKingerTriangle321636.012541install3216320.5289673216311.058345
+Reference2: Kinger_MultiKinger_MultiTriangle31365.016599install000.000000000.000000
+Reference3: Emily/Phase4.5EmilyTeddy330.110660install100.000000100.000000
 
 
 // response (Execution time : 0[ms])
@@ -949,7 +949,7 @@ ID: OnDisplayHandover
 Reference0: init
 Reference1: 0
 Reference2: 
-Reference3: 1366,49,2732,817,32,0,bottom,769
+Reference3: 0,0,1366,768,32,1,bottom,720
 
 
 // response (Execution time : 0[ms])
@@ -988,7 +988,7 @@ Reference0: Emily
 Reference1: Kinger
 
 
-// response (Execution time : 15[ms])
+// response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -1111,7 +1111,7 @@ SenderType: internal
 ID: sakura.portalsites
 
 
-// response (Execution time : 15[ms])
+// response (Execution time : 16[ms])
 SHIORI/3.0 200 OK
 Sender: AYA
 Charset: UTF-8
@@ -1159,7 +1159,7 @@ SecurityOrigin: null
 Sender: SSP
 SenderType: internal
 ID: uniqueid
-Reference0: ssp_fmo_header_00001838_00360406
+Reference0: ssp_fmo_header_00001b1c_000c040a
 
 
 // response (Execution time : 0[ms])
@@ -1175,11 +1175,11 @@ SecurityOrigin: null
 Sender: SSP
 SenderType: internal
 ID: hwnd
-Reference0: 3539974722048
-Reference1: 3933244655824
+Reference0: 7874661639506
+Reference1: 1705196656476
 
 
-// response (Execution time : 0[ms])
+// response (Execution time : 15[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -1221,13 +1221,13 @@ SecurityOrigin: null
 Sender: SSP
 SenderType: internal
 ID: OnBatteryNotify
-Reference0: 89
-Reference1: 6199
+Reference0: 81
+Reference1: 5656
 Reference2: offline
 Reference3: high
 
 
-// response (Execution time : 16[ms])
+// response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -1271,15 +1271,32 @@ Sender: SSP
 SenderType: internal
 Status: talking
 ID: rateofusegraph
-Reference0: KingerKinger_MultiTriangle144240989.123196install7463180.279898110131189.427012
-Reference1: KingerKingerTriangle291555.734369boot2915519.7201022915510.572988
-Reference2: Kinger_MultiKinger_MultiTriangle31365.031447install000.000000000.000000
-Reference3: Emily/Phase4.5EmilyTeddy330.110988install100.000000100.000000
+Reference0: KingerKinger_MultiTriangle144240988.860199install7463179.471033110131188.941655
+Reference1: KingerKingerTriangle331636.012541boot3316320.5289673316311.058345
+Reference2: Kinger_MultiKinger_MultiTriangle31365.016599install000.000000000.000000
+Reference3: Emily/Phase4.5EmilyTeddy330.110660install100.000000100.000000
 
 
 // response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
+
+
+// request
+GET SHIORI/3.0
+Charset: UTF-8
+SecurityLevel: local
+SecurityOrigin: null
+Sender: SSP
+SenderType: internal
+ID: homeurl
+
+
+// response (Execution time : 0[ms])
+SHIORI/3.0 200 OK
+Sender: AYA
+Charset: UTF-8
+Value: https://raw.githubusercontent.com/NestorVBS/Kinger_Ukagaka/main/
 
 
 // request
@@ -1289,24 +1306,10 @@ SecurityLevel: local
 SecurityOrigin: null
 Sender: SSP
 SenderType: internal
-Status: talking
 ID: OnSurfaceChange
 Reference0: 0
 Reference1: 10
 Reference2: 0,0,320,320
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-NOTIFY SHIORI/3.0
-ID: otherghostname
-SecurityLevel: local
-Charset: UTF-8
-Sender: SSP
 
 
 // response (Execution time : 0[ms])
@@ -1340,277 +1343,6 @@ Charset: UTF-8
 Sender: SSP
 
 
-// response (Execution time : 16[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: homeurl
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: https://raw.githubusercontent.com/NestorVBS/Kinger_Ukagaka/main/
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: OnKeyPress
-Reference0: shift
-Reference1: 16
-Reference2: 1
-Reference3: 0
-Reference4: shift,ctrl
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-Status: talking
-ID: OnTranslate
-Reference0: \i[10]\e
-Reference1: 
-Reference2: 
-Reference3: 
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: \i[10]\e
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: OnMinuteChange
-Reference0: 124
-Reference1: 0
-Reference2: 0
-Reference3: 1
-Reference4: 0
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: OnBatteryNotify
-Reference0: 89
-Reference1: 6535
-Reference2: offline
-Reference3: high
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-NOTIFY SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: rateofusegraph
-Reference0: KingerKinger_MultiTriangle144240989.090237install7463180.177891110131189.366053
-Reference1: KingerKingerTriangle291565.769231boot2915619.8221092915610.633947
-Reference2: Kinger_MultiKinger_MultiTriangle31365.029586install000.000000000.000000
-Reference3: Emily/Phase4.5EmilyTeddy330.110947install100.000000100.000000
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-NOTIFY SHIORI/3.0
-ID: otherghostname
-SecurityLevel: local
-Charset: UTF-8
-Sender: SSP
-
-
-// response (Execution time : 16[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-Status: talking
-ID: OnTranslate
-Reference0: \i[1]\e
-Reference1: 
-Reference2: 
-Reference3: 
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: \i[1]\e
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: OnSurfaceRestore
-Reference0: 0
-Reference1: 10
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: \0\s[0]\e
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-Status: talking
-ID: OnTranslate
-Reference0: \0\s[0]\e
-Reference1: 
-Reference2: OnSurfaceRestore
-Reference3: 010
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: \0\s[0]\e
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: OnVideoPlayEx
-Reference0: 高嶺の花子さん／back number （Cover）
-Reference1: Goose house
-Reference2: sourceBrave
-Reference3: duration317
-Reference4: artworkC:\Users\nevic\Documents\Mis Archivos\ssp_2_8_50f\temp\cache\4\4a52f93fbb6614adebab77b34cfa955ea53576fed497bcc8b8e76755.png
-
-
-// response (Execution time : 15[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: OnMinuteChange
-Reference0: 124
-Reference1: 0
-Reference2: 0
-Reference3: 1
-Reference4: 0
-
-
-// response (Execution time : 15[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: OnBatteryNotify
-Reference0: 88
-Reference1: 6460
-Reference2: offline
-Reference3: high
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-NOTIFY SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: rateofusegraph
-Reference0: KingerKinger_MultiTriangle144240989.057301install7463180.076142110131189.305177
-Reference1: KingerKingerTriangle291575.804067boot2915719.9238582915710.694823
-Reference2: Kinger_MultiKinger_MultiTriangle31365.027726install000.000000000.000000
-Reference3: Emily/Phase4.5EmilyTeddy330.110906install100.000000100.000000
-
-
 // response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
@@ -1628,174 +1360,4 @@ Sender: SSP
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: OnCloseAll
-BaseID: OnClose
-Reference0: user
-Reference1: 0
-Reference2: 0
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: OnClose
-Reference0: user
-Reference1: 0
-Reference2: 0
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: \0\s[5]See you soon, \f[bold,1]Kyon\f[bold,0].\w8\s[4]\w8\w8\w8\e
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-Status: talking
-ID: OnTranslate
-Reference0: \0\s[5]See you soon, \f[bold,1]Kyon\f[bold,0].\w8\s[4]\w8\w8\w8\e
-Reference1: 
-Reference2: OnClose
-Reference3: user00
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: \0\s[5]See you soon, \f[bold,1]Kyon\f[bold,0].\w8\s[4]\w8\w8\w8\e
-
-
-// request
-NOTIFY SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-Status: talking,balloon(0=0)
-ID: OnSurfaceChange
-Reference0: 5
-Reference1: 10
-Reference2: 0,5,320,320
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-NOTIFY SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-Status: balloon(0=0)
-ID: OnSurfaceChange
-Reference0: 4
-Reference1: 10
-Reference2: 0,4,320,320
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-NOTIFY SHIORI/3.0
-ID: otherghostname
-SecurityLevel: local
-Charset: UTF-8
-Sender: SSP
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-NOTIFY SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-Status: balloon(0=0)
-ID: rateofusegraph
-Reference0: KingerKinger_MultiTriangle144240989.057301install7463180.076142110131189.305177
-Reference1: KingerKingerTriangle291575.804067install2915719.9238582915710.694823
-Reference2: Kinger_MultiKinger_MultiTriangle31365.027726install000.000000000.000000
-Reference3: Emily/Phase4.5EmilyTeddy330.110906install100.000000100.000000
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-NOTIFY SHIORI/3.0
-ID: otherghostname
-SecurityLevel: local
-Charset: UTF-8
-Sender: SSP
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-NOTIFY SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: OnDestroy
-Reference0: 
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-
-// response (Execution time : 0[ms])
-
-// Saving of variable value - C:\Users\nevic\Documents\Mis Archivos\ssp_2_8_50f\ghost\Kinger_TADC\ghost\master\yaya_variable.cfg
-// ...Done.
-
-// unload time: 2026/08/15 18:31:21
 

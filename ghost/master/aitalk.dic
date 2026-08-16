@@ -89,7 +89,7 @@ RandomTalk : nonoverlap_pool
 			"\0\s[0]\i[8]Es importante hidratarse bien ¿Ya bebiste agua?.\e"
 			"\0\s[0]\i[8]Recuerda tomar un descanso de vez en cuando.\e"
 			"\0\s[0]\i[8]Recuerda tomar pausas de 20 segundos de la pantalla por lo menos cada 20 min.\n\n\i[6]Por tu salud.\e"
-
+			"\0\s[0]Este es un dialogo de prueba 2 porque se me olvido no resetear a kinger"
 			//------------------------------------------------------------------------------------------
 			"\0\![raise,OnReminder]"
 			//------------------------------------------------------------------------------------------
