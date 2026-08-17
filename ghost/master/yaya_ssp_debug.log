@@ -1,5 +1,5 @@
 // AYA request log
-// load time: 2026/08/15 18:37:20
+// load time: 2026/08/17 14:55:30
 
 // response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
@@ -116,7 +116,7 @@ Reference13: response.securitylevel
 Reference14: response.requestcharset
 
 
-// response (Execution time : 16[ms])
+// response (Execution time : 15[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -132,7 +132,7 @@ ID: OnNotifyOSInfo
 Reference0: WindowsNT,10.0,Windows 11 25H2.8894 (Ver.25H2) Wow64@x64
 Reference1: AMD,2595,0.23.8.7,178bfbff
 Reference2: 6164744,4194176
-Reference3: 7475
+Reference3: 10133
 
 
 // response (Execution time : 0[ms])
@@ -405,10 +405,10 @@ SenderType: internal
 ID: OnNotifyShellInfo
 Reference0: Kinger
 Reference1: C:/Users/nevic/Documents/Mis Archivos/ssp_2_8_50f/ghost/Kinger_TADC/shell/master/
-Reference2: 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,22,23,24,25,1001,1002,1101,1102,1113,1114,1508,1509,1517,1518,1519,1528,2000,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010,3011,3012,3013,3014,3015,3016,3017,3018,3019,3020,3021,3022,3030,3031,3032,3033,3034,3035,3036,4001,4002,4003,4004,4005,4006,4007,4008,4009,4010,4020,4051,4052,4053,4054,4055,4056,4057,4058,4059,5001,5002,5003,5004,6000,6001,6002,6003,6004,6005,6006,6007,6008,6009,6010,6011,6012,6020,6021,6030,6031,6032,6033,6034,6040,6041,7000,7001,7002,7003,7004,7010
+Reference2: 0,1,2,3,4,5,6,7,10,12,13,14,15,16,17,18,19,20,22,23,24,25,1517,1518,1519,2000,3001,3002,3003,3004,3005,3006,3007,3008,3009,3010,3011,3012,3013,3014,3015,3016,3017,3018,3019,3020,3021,3022,3030,3031,3032,3033,3034,3035,3036,4001,4002,4003,4004,4005,4006,4007,4008,4009,4010,4020,4051,4052,4053,4054,4055,4056,4057,4058,4059,5001,5002,5003,5004,6000,6001,6002,6003,6004,6005,6006,6007,6008,6009,6010,6011,6012,6020,6021,6030,6031,6032,6033,6034,6040,6041,7000,7001,7002,7003,7004,7010
 
 
-// response (Execution time : 0[ms])
+// response (Execution time : 15[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -423,7 +423,7 @@ SenderType: internal
 ID: useorigin1
 
 
-// response (Execution time : 16[ms])
+// response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -472,7 +472,7 @@ SenderType: internal
 ID: craftman
 
 
-// response (Execution time : 16[ms])
+// response (Execution time : 0[ms])
 SHIORI/3.0 200 OK
 Sender: AYA
 Charset: UTF-8
@@ -553,7 +553,6 @@ SenderType: internal
 ID: OnDisplayChangeEx
 Reference0: init
 Reference1: 0,0,1366,768,32,1,bottom,720
-Reference2: 1366,49,2732,817,32,0,bottom,769
 
 
 // response (Execution time : 0[ms])
@@ -574,7 +573,7 @@ Reference1: 1366
 Reference2: 768
 
 
-// response (Execution time : 16[ms])
+// response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -588,10 +587,10 @@ Sender: SSP
 SenderType: internal
 ID: OnNetworkStatusChange
 Reference0: online
-Reference1: 192.168.0.108
+Reference1: 10.28.55.44
 Reference2: wifi
-Reference3: 300
-Reference4: 300
+Reference3: 866
+Reference4: 696
 Reference5: unrestricted
 
 
@@ -641,8 +640,8 @@ SecurityOrigin: null
 Sender: SSP
 SenderType: internal
 ID: OnRecycleBinStatusUpdate
-Reference0: 9
-Reference1: 21492101
+Reference0: 19
+Reference1: 21672998
 Reference2: 0
 Reference3: 0
 Reference4: 1
@@ -927,10 +926,10 @@ SecurityOrigin: null
 Sender: SSP
 SenderType: internal
 ID: rateofusegraph
-Reference0: KingerKinger_MultiTriangle144240988.860199install7463179.471033110131188.941655
-Reference1: KingerKingerTriangle321636.012541install3216320.5289673216311.058345
-Reference2: Kinger_MultiKinger_MultiTriangle31365.016599install000.000000000.000000
-Reference3: Emily/Phase4.5EmilyTeddy330.110660install100.000000100.000000
+Reference0: KingerKinger_MultiTriangle144240983.241189install6355261.469933110131179.118890
+Reference1: KingerKingerTriangle4734611.955771install4734638.5300674734620.881110
+Reference2: Kinger_MultiKinger_MultiTriangle31364.699378install000.000000000.000000
+Reference3: Emily/Phase4.5EmilyTeddy330.103663install100.000000100.000000
 
 
 // response (Execution time : 0[ms])
@@ -1111,11 +1110,11 @@ SenderType: internal
 ID: sakura.portalsites
 
 
-// response (Execution time : 16[ms])
+// response (Execution time : 0[ms])
 SHIORI/3.0 200 OK
 Sender: AYA
 Charset: UTF-8
-Value: SSPhttp://ssp.shillest.net/Ghost Documentation (J)http://usada.sakura.vg/contents/specification.htmlDisc-2 (J)UKADOC Project Wiki (J)http://ssp.shillest.net/ukadoc/manual/index.html/
+Value: SSPhttp://ssp.shillest.net/Ghost Documentation (J)http://usada.sakura.vg/contents/specification.htmlDisc-2 (J)http://disc2.s56.xrea.com/http://ssp.shillest.net/ukadoc/manual/index.html/
 
 
 // request
@@ -1159,7 +1158,7 @@ SecurityOrigin: null
 Sender: SSP
 SenderType: internal
 ID: uniqueid
-Reference0: ssp_fmo_header_00001b1c_000c040a
+Reference0: ssp_fmo_header_00003424_00130376
 
 
 // response (Execution time : 0[ms])
@@ -1175,11 +1174,11 @@ SecurityOrigin: null
 Sender: SSP
 SenderType: internal
 ID: hwnd
-Reference0: 7874661639506
-Reference1: 1705196656476
+Reference0: 124607010355978
+Reference1: 1705310197972
 
 
-// response (Execution time : 15[ms])
+// response (Execution time : 16[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -1221,10 +1220,10 @@ SecurityOrigin: null
 Sender: SSP
 SenderType: internal
 ID: OnBatteryNotify
-Reference0: 81
-Reference1: 5656
-Reference2: offline
-Reference3: high
+Reference0: 52
+Reference1: -1
+Reference2: online
+Reference3: charging
 
 
 // response (Execution time : 0[ms])
@@ -1271,32 +1270,15 @@ Sender: SSP
 SenderType: internal
 Status: talking
 ID: rateofusegraph
-Reference0: KingerKinger_MultiTriangle144240988.860199install7463179.471033110131188.941655
-Reference1: KingerKingerTriangle331636.012541boot3316320.5289673316311.058345
-Reference2: Kinger_MultiKinger_MultiTriangle31365.016599install000.000000000.000000
-Reference3: Emily/Phase4.5EmilyTeddy330.110660install100.000000100.000000
+Reference0: KingerKinger_MultiTriangle144240983.241189install6355261.469933110131179.118890
+Reference1: KingerKingerTriangle4834611.955771boot4834638.5300674834620.881110
+Reference2: Kinger_MultiKinger_MultiTriangle31364.699378install000.000000000.000000
+Reference3: Emily/Phase4.5EmilyTeddy330.103663install100.000000100.000000
 
 
 // response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: homeurl
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: https://raw.githubusercontent.com/NestorVBS/Kinger_Ukagaka/main/
 
 
 // request
@@ -1330,7 +1312,7 @@ Reference1: 10
 Reference2: 1,10,260,316
 
 
-// response (Execution time : 0[ms])
+// response (Execution time : 16[ms])
 SHIORI/3.0 204 No Content
 Charset: UTF-8
 
@@ -1354,6 +1336,64 @@ ID: otherghostname
 SecurityLevel: local
 Charset: UTF-8
 Sender: SSP
+
+
+// response (Execution time : 0[ms])
+SHIORI/3.0 204 No Content
+Charset: UTF-8
+
+
+// request
+GET SHIORI/3.0
+Charset: UTF-8
+SecurityLevel: local
+SecurityOrigin: null
+Sender: SSP
+SenderType: internal
+ID: homeurl
+
+
+// response (Execution time : 0[ms])
+SHIORI/3.0 200 OK
+Sender: AYA
+Charset: UTF-8
+Value: https://raw.githubusercontent.com/NestorVBS/Kinger_Ukagaka/main/
+
+
+// request
+GET SHIORI/3.0
+Charset: UTF-8
+SecurityLevel: local
+SecurityOrigin: null
+Sender: SSP
+SenderType: internal
+ID: OnVideoPlayEx
+Reference0: RADWIMPS - 愛にできることはまだあるかい [Official Music Video]
+Reference1: RADWIMPS
+Reference2: sourceBrave
+Reference3: duration448
+Reference4: artworkC:\Users\nevic\Documents\Mis Archivos\ssp_2_8_50f\temp\cache\3\38d855291491b51f77dd9df8e0ef8a2af2a9fb75df9a570a589f3889.png
+
+
+// response (Execution time : 0[ms])
+SHIORI/3.0 204 No Content
+Charset: UTF-8
+
+
+// request
+GET SHIORI/3.0
+Charset: UTF-8
+SecurityLevel: local
+SecurityOrigin: null
+Sender: SSP
+SenderType: internal
+ID: OnRecycleBinStatusUpdate
+Reference0: 20
+Reference1: 21706560
+Reference2: 1
+Reference3: 33562
+Reference4: 1
+Reference5: 
 
 
 // response (Execution time : 0[ms])
@@ -1369,11 +1409,11 @@ SecurityOrigin: null
 Sender: SSP
 SenderType: internal
 ID: OnMinuteChange
-Reference0: 124
+Reference0: 168
 Reference1: 0
 Reference2: 0
 Reference3: 1
-Reference4: 0
+Reference4: 9
 
 
 // response (Execution time : 0[ms])
@@ -1389,10 +1429,10 @@ SecurityOrigin: null
 Sender: SSP
 SenderType: internal
 ID: OnBatteryNotify
-Reference0: 81
-Reference1: 6348
-Reference2: offline
-Reference3: high
+Reference0: 52
+Reference1: -1
+Reference2: online
+Reference3: charging
 
 
 // response (Execution time : 0[ms])
@@ -1408,10 +1448,10 @@ SecurityOrigin: null
 Sender: SSP
 SenderType: internal
 ID: rateofusegraph
-Reference0: KingerKinger_MultiTriangle144240988.827434install7463179.371069110131188.881356
-Reference1: KingerKingerTriangle331646.047198boot3316420.6289313316411.118644
-Reference2: Kinger_MultiKinger_MultiTriangle31365.014749install000.000000000.000000
-Reference3: Emily/Phase4.5EmilyTeddy330.110619install100.000000100.000000
+Reference0: KingerKinger_MultiTriangle144240983.212435install6355261.401557110131179.071170
+Reference1: KingerKingerTriangle4834711.986183boot4834738.5984434834720.928830
+Reference2: Kinger_MultiKinger_MultiTriangle31364.697755install000.000000000.000000
+Reference3: Emily/Phase4.5EmilyTeddy330.103627install100.000000100.000000
 
 
 // response (Execution time : 0[ms])
@@ -1466,7 +1506,7 @@ Reference2: OnSurfaceRestore
 Reference3: 010
 
 
-// response (Execution time : 0[ms])
+// response (Execution time : 16[ms])
 SHIORI/3.0 200 OK
 Sender: AYA
 Charset: UTF-8
@@ -1480,52 +1520,12 @@ SecurityLevel: local
 SecurityOrigin: null
 Sender: SSP
 SenderType: internal
-ID: sakura.popupmenu.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: sakura.popupmenu.type
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: recommendrootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: sakura.recommendbuttoncaption
+ID: OnMinuteChange
+Reference0: 168
+Reference1: 0
+Reference2: 0
+Reference3: 1
+Reference4: 0
 
 
 // response (Execution time : 16[ms])
@@ -1540,2342 +1540,16 @@ SecurityLevel: local
 SecurityOrigin: null
 Sender: SSP
 SenderType: internal
-ID: recommendrootbutton.caption
+ID: OnBatteryNotify
+Reference0: 53
+Reference1: -1
+Reference2: online
+Reference3: charging
 
 
 // response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: Contact Sites
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: portalrootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: sakura.portalbuttoncaption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: portalrootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: Ukagaka Information
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: updatebutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: updatebuttoncaption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: sakura.updatebuttoncaption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: updatebutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: Check for Updates
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: readmebutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: readmebuttoncaption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: readmebutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: READ ME
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: vanishbuttonvisible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: vanishbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: 1
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: vanishbuttoncaption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: vanishbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: Uninstall
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: aistatebutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: aistatebutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: sakura.recommendsites
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: Takagi Chikita (Author)https://x.com/TakagiChikita/Tiphttps://ko-fi.com/takagichikitaZarla's Tumblrhttp://zarla-s.tumblr.com/
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: sakura.portalsites
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: SSPhttp://ssp.shillest.net/Ghost Documentation (J)http://usada.sakura.vg/contents/specification.htmlDisc-2 (J)http://disc2.s56.xrea.com/http://ssp.shillest.net/ukadoc/manual/index.html/
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: headlinesenserootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: headlinesenserootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: Headlines + RSS Feeds
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: pluginrootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: pluginrootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: biffbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: biffbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: shellscalerootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: shellscalerootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: shellscaleotherbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: shellscaleotherbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: balloonscalerootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: balloonscalerootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: balloonscaleotherbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: balloonscaleotherbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: utilityrootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: utilityrootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: calendarbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: calendarbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: messengerbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: messengerbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: sntpbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: sntpbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: ghostexplorerbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: ghostexplorerbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: pictureviewerbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: pictureviewerbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: archiveviewerbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: archiveviewerbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: backlogviewerbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: backlogviewerbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: updateplatformbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: updateplatformbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: dictationbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: dictationbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: texttospeechbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: texttospeechbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: addressbarbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: addressbarbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: openfilebutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: openfilebutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: openfolderbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: openfolderbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: scriptlogbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: scriptlogbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: duibutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: duibutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: purgeghostcachebutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: purgeghostcachebutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: updatefmobutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: updatefmobutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: reloadinfobutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: reloadinfobutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: switchreloadbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: switchreloadbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: leavepassivebutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: leavepassivebutton.caption
-
-
-// response (Execution time : 16[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: switchreloadtempghostbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: switchreloadtempghostbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: switchmovetodefaultpositionbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: switchmovetodefaultpositionbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: resetballoonpositionbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: resetballoonpositionbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: closeballoonbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: closeballoonbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: configurationrootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: configurationrootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: configurationbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: configurationbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: configurationghostbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: configurationghostbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: switchproxybutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: switchproxybutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: charsetbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: charsetbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: switchtalkghostbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: switchtalkghostbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: switchcompatiblemodebutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: switchcompatiblemodebutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: ghostrootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: ghostrootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: Change Ghost
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: callghostrootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: callghostrootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: Call Ghost
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: shellrootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: shellrootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: Change Shell
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: dressuprootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: dressuprootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: Dress-Up
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: dressupexplorerbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: dressupexplorerbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: balloonrootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: balloonrootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: historyrootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: historyrootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: ghosthistorybutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: ghosthistorybutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: callghosthistorybutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: callghosthistorybutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: balloonhistorybutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: balloonhistorybutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: headlinesensehistorybutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: headlinesensehistorybutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: pluginhistorybutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: pluginhistorybutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: inforootbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: inforootbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: firststaffbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: firststaffbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: readmebutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: readmebutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: READ ME
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: termsbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: termsbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: helpbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: helpbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: aistatebutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: aistatebutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: rateofusebutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: rateofusebutton.caption
-
-
-// response (Execution time : 0[ms])
 SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: systeminfobutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: systeminfobutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: hidebutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: hidebutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: closebutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: closebutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: quitbutton.visible
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: quitbutton.caption
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: Quit
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: OnUpdateProcessExec
-Reference0: manual
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: counterurl
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-ID: homeurl
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: https://raw.githubusercontent.com/NestorVBS/Kinger_Ukagaka/main/
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-Status: online
-ID: OnUpdateBegin
-Reference0: Kinger
-Reference1: C:/Users/nevic/Documents/Mis Archivos/ssp_2_8_50f/ghost/Kinger_TADC/
-Reference3: ghost
-Reference4: manual
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: \0\s[0]Se instalará una nueva actualización ¡Que emoción!\e
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-Status: talking,online
-ID: OnTranslate
-Reference0: \0\s[0]Se instalará una nueva actualización ¡Que emoción!\e
-Reference1: 
-Reference2: OnUpdateBegin
-Reference3: KingerC:/Users/nevic/Documents/Mis Archivos/ssp_2_8_50f/ghost/Kinger_TADC/ghostmanual
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: \0\s[0]Se instalará una nueva actualización ¡Que emoción!\e
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-Status: balloon(0=0)
-ID: OnUpdateComplete
-Reference0: none
-Reference1: 
-Reference3: ghost
-Reference4: manual
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
-Charset: UTF-8
-Value: \0\s[0]No hay nada que actualizar, estamos al día.\e
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-Status: talking,balloon(0=0)
-ID: OnUpdateResultEx
-Reference0: KingerghostOK0
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-Status: talking,balloon(0=0)
-ID: OnUpdateResult
-Reference0: ghostOK0
-
-
-// response (Execution time : 0[ms])
-SHIORI/3.0 204 No Content
-Charset: UTF-8
-
-
-// request
-GET SHIORI/3.0
-Charset: UTF-8
-SecurityLevel: local
-SecurityOrigin: null
-Sender: SSP
-SenderType: internal
-Status: talking,balloon(0=0)
-ID: OnTranslate
-Reference0: \0\s[0]No hay nada que actualizar, estamos al día.\e
-Reference1: 
-Reference2: OnUpdateComplete
-Reference3: noneghostmanual
-
-
-// response (Execution time : 16[ms])
-SHIORI/3.0 200 OK
-Sender: AYA
 Charset: UTF-8
-Value: \0\s[0]No hay nada que actualizar, estamos al día.\e
 
 
 // request
@@ -3885,12 +1559,63 @@ SecurityLevel: local
 SecurityOrigin: null
 Sender: SSP
 SenderType: internal
-Status: balloon(0=0)
 ID: rateofusegraph
-Reference0: KingerKinger_MultiTriangle144240988.827434install7463179.371069110131188.881356
-Reference1: KingerKingerTriangle331646.047198install3316420.6289313316411.118644
-Reference2: Kinger_MultiKinger_MultiTriangle31365.014749install000.000000000.000000
-Reference3: Emily/Phase4.5EmilyTeddy330.110619install100.000000100.000000
+Reference0: KingerKinger_MultiTriangle144240983.183702install6355261.333333110131179.023508
+Reference1: KingerKingerTriangle4834812.016575boot4834838.6666674834820.976492
+Reference2: Kinger_MultiKinger_MultiTriangle31364.696133install000.000000000.000000
+Reference3: Emily/Phase4.5EmilyTeddy330.103591install100.000000100.000000
+
+
+// response (Execution time : 0[ms])
+SHIORI/3.0 204 No Content
+Charset: UTF-8
+
+
+// request
+NOTIFY SHIORI/3.0
+ID: otherghostname
+SecurityLevel: local
+Charset: UTF-8
+Sender: SSP
+
+
+// response (Execution time : 0[ms])
+SHIORI/3.0 204 No Content
+Charset: UTF-8
+
+
+// request
+GET SHIORI/3.0
+Charset: UTF-8
+SecurityLevel: local
+SecurityOrigin: null
+Sender: SSP
+SenderType: internal
+ID: OnMinuteChange
+Reference0: 168
+Reference1: 0
+Reference2: 0
+Reference3: 1
+Reference4: 0
+
+
+// response (Execution time : 16[ms])
+SHIORI/3.0 204 No Content
+Charset: UTF-8
+
+
+// request
+GET SHIORI/3.0
+Charset: UTF-8
+SecurityLevel: local
+SecurityOrigin: null
+Sender: SSP
+SenderType: internal
+ID: OnBatteryNotify
+Reference0: 54
+Reference1: -1
+Reference2: online
+Reference3: charging
 
 
 // response (Execution time : 0[ms])
@@ -3905,8 +1630,11 @@ SecurityLevel: local
 SecurityOrigin: null
 Sender: SSP
 SenderType: internal
-ID: OnDestroy
-Reference0: 
+ID: rateofusegraph
+Reference0: KingerKinger_MultiTriangle144240983.154988install6355261.265261110131178.975904
+Reference1: KingerKingerTriangle4834912.046945boot4834938.7347394834921.024096
+Reference2: Kinger_MultiKinger_MultiTriangle31364.694512install000.000000000.000000
+Reference3: Emily/Phase4.5EmilyTeddy330.103555install100.000000100.000000
 
 
 // response (Execution time : 0[ms])
@@ -3915,11 +1643,128 @@ Charset: UTF-8
 
 
 // request
+NOTIFY SHIORI/3.0
+ID: otherghostname
+SecurityLevel: local
+Charset: UTF-8
+Sender: SSP
 
-// response (Execution time : 15[ms])
 
-// Saving of variable value - C:\Users\nevic\Documents\Mis Archivos\ssp_2_8_50f\ghost\Kinger_TADC\ghost\master\yaya_variable.cfg
-// ...Done.
+// response (Execution time : 0[ms])
+SHIORI/3.0 204 No Content
+Charset: UTF-8
 
-// unload time: 2026/08/15 18:38:25
+
+// request
+GET SHIORI/3.0
+Charset: UTF-8
+SecurityLevel: local
+SecurityOrigin: null
+Sender: SSP
+SenderType: internal
+ID: OnFileDropping
+Reference0: C:\Users\nevic\Documents\Mis Archivos\ssp_2_8_50f\ghost\Kinger_TADC\
+Reference1: 0
+
+
+// response (Execution time : 0[ms])
+SHIORI/3.0 204 No Content
+Charset: UTF-8
+
+
+// request
+GET SHIORI/3.0
+Charset: UTF-8
+SecurityLevel: local
+SecurityOrigin: null
+Sender: SSP
+SenderType: internal
+ID: OnUpdatedataCreating
+
+
+// response (Execution time : 0[ms])
+SHIORI/3.0 200 OK
+Sender: AYA
+Charset: UTF-8
+Value: \0\s[0]Creando el archivo updates2.dau.\e
+
+
+// request
+GET SHIORI/3.0
+Charset: UTF-8
+SecurityLevel: local
+SecurityOrigin: null
+Sender: SSP
+SenderType: internal
+Status: talking
+ID: OnTranslate
+Reference0: \0\s[0]Creando el archivo updates2.dau.\e
+Reference1: 
+Reference2: OnUpdatedataCreating
+Reference3: 
+
+
+// response (Execution time : 0[ms])
+SHIORI/3.0 200 OK
+Sender: AYA
+Charset: UTF-8
+Value: \0\s[0]Creando el archivo updates2.dau.\e
+
+
+// request
+GET SHIORI/3.0
+Charset: UTF-8
+SecurityLevel: local
+SecurityOrigin: null
+Sender: SSP
+SenderType: internal
+Status: talking,balloon(0=0)
+ID: OnUpdatedataCreated
+
+
+// response (Execution time : 0[ms])
+SHIORI/3.0 200 OK
+Sender: AYA
+Charset: UTF-8
+Value: \0\s[0]Se creó exitosamente updates2.dau.\e
+
+
+// request
+GET SHIORI/3.0
+Charset: UTF-8
+SecurityLevel: local
+SecurityOrigin: null
+Sender: SSP
+SenderType: internal
+Status: talking,balloon(0=0)
+ID: OnTranslate
+Reference0: \0\s[0]Se creó exitosamente updates2.dau.\e
+Reference1: 
+Reference2: OnUpdatedataCreated
+Reference3: 
+
+
+// response (Execution time : 0[ms])
+SHIORI/3.0 200 OK
+Sender: AYA
+Charset: UTF-8
+Value: \0\s[0]Se creó exitosamente updates2.dau.\e
+
+
+// request
+GET SHIORI/3.0
+Charset: UTF-8
+SecurityLevel: local
+SecurityOrigin: null
+Sender: SSP
+SenderType: internal
+Status: balloon(0=0)
+ID: OnBalloonTimeout
+Reference0: \0\s[0]Se creó exitosamente updates2.dau.\e
+
+
+// response (Execution time : 0[ms])
+SHIORI/3.0 204 No Content
+Charset: UTF-8
+
 

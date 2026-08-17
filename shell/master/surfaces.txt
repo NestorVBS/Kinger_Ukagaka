@@ -244,59 +244,15 @@ animation1.pattern2,overlay,-1,800,0,0
 
 }
 
-//Think
-surface8
-{
-element0,overlay,surface1508.png,0,0
-}
-
-//FingerUp
-surface9
-{
-element0,overlay,surface1509.png,0,0
-
-//blink
-animation0.interval,random,4
-animation0.pattern0,overlayfast,-1,100,0,0
-animation0.pattern1,overlayfast,1002,50,0,0
-animation0.pattern2,overlayfast,1001,100,0,0
-animation0.pattern3,overlayfast,-1,30,0,0
-
-//talk
-animation1.interval,talk,4
-animation1.pattern0,alternativestart,(2.3.4)
-
-animation2.interval,never
-animation2.pattern1,overlay,1102,100,0,0
-animation2.pattern2,overlay,1101,130,0,0
-animation2.pattern3,overlay,-1,100,0,0
-
-animation3.interval,never
-animation3.pattern0,overlay,1101,140,0,0
-animation3.pattern1,overlay,-1,100,0,0
-
-animation4.interval,never
-animation4.pattern0,overlay,1102,140,0,0
-animation4.pattern1,overlay,-1,100,0,0
-}
+//-----------------------------------------------------------------------------
+//Surface 8,9 y 11 fueron borradas para evitar que aparezcan ya que aun no
+//sutituyo las de TKG por las de Kinger
+//-----------------------------------------------------------------------------
 
 //Vacio null
 surface10
 {
 element0,overlay,surface2000.png,0,0
-}
-
-//sitting sentada 
-surface11
-{
-element0,overlay,surface1528.png,0,0
-
-//blink
-animation0.interval,random,4
-animation0.pattern0,overlayfast,1113,100,0,0
-animation0.pattern1,overlayfast,1114,50,0,0
-animation0.pattern2,overlayfast,1113,100,0,0
-animation0.pattern3,overlayfast,-1,30,0,0
 }
 
 //ObservandoPantalla

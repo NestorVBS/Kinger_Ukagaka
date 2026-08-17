@@ -711,20 +711,42 @@ OnShellScaling
 {
 	if reference0 >= 150
 	{
-		"\0\s[0]Alimentarse bien ayuda a crecer.\e"
+		if language=="ES"
+		{
+			"\0\s[0]\i[8]Alimentarse bien ayuda a crecer.\e"
+		}
+		else
+		{
+			"\0\s[0]\i[8]Eating well helps you grow.\e"
+		}
 	}
 	elseif reference0 == 100
 	{
-		"\0\s[0]Excelente.\e"
-		"\0\s[0]Nada como el original, cierto?\e"
+		if language=="ES"
+		{
+			"\0\s[23]\i[1]Excelente.\e"
+			"\0\s[23]\i[1]Nada como el original, cierto?\e"
+		}
+		else
+		{
+			"\0\s[23]\i[1]Excellent.\e"
+			"\0\s[23]\i[1]Nothing beats the original, right?\e"
+		}
 	}
-	elseif reference0 <= 50
+	elseif reference0 <= 70
 	{
-		"\0\s[2]UH? Acaso creciste?.\e"
-		"\0\s[0]Tamaño compacto.\e"
+		if language=="ES"
+		{
+			"\0\s[6]UH? Acaso \w8\s[7]\f[bold,1]CRECISTE?.\w8\w8\w8\s[6]\e"
+			"\0\s[24]Tamaño compacto.\e"
+		}
+		else
+		{
+			"\0\s[6]HUH? Did you \w8\s[7]\f[bold,1]GROW!?\f[bold,0].\w8\w8\w8\s[6]\e"
+			"\0\s[24]Compact size.\e"
+		}
 	}
 }
-
 
 //--OnFileDrop2
 
