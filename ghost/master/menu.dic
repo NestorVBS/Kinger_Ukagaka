@@ -12,6 +12,29 @@ Select.BACKTOMENU
 Delete on/off
 Test variable
 */
+
+/*
+----------------------------------!!!!!!HELLO WORLD!!!!!--------------------------------------
+
+Hello, I'm Kyon/TakagiChikita, the author of this Ukagaka. If you're reading this document, you're probably here for one of these reasons:
+Simple curiosity, you want to add something to Kinger, or you want to fix some disaster I made with the code xdd. Whatever
+the reason may be, feel free to contact me on X (Twitter) @takagichikita o @soykyon. I would love to hear what ideas you have and
+perhaps even add them to the original version of this Ukagaka. I'm always willing to help, as long as we treat each other with respect.
+
+I also want to clarify that although this code has been modified quite a bit, the original template was created by Zarla
+(http://zarla-s.tumblr.com/), whom I want to thank immensely for creating the template and making my work much easier.
+
+----------------------------------¡¡¡¡¡¡HOLA MUNDO!!!!!--------------------------------------
+
+Hola, soy Kyon/TakagiChikita, autor de este Ukagaka, si estas en este documento probablemente es por uno de estos motivos
+Simple curiosidad, quieres agregar algo a Kinger o quieres arreglar algún desastre que hice con el codigo xdd, sea cual
+sea el motivo sientete con la confianza de contactarme en X(twitter) @takagichikita o @soykyon, me gusstaría conocer que ideas tienes para
+incluso agregarlas en la versión orginal de este ukagaka, estoy en total disposición de ayudar siempre con respeto de por medio.
+
+Tambien quiero aclarar que si bien este codigo ha sido modificado bastante, la plantilla original es de Zarla (http://zarla-s.tumblr.com/)
+a quien quiero agradecer infinitamente por crear la plantilla y facilitar mucho mi trabajo.
+
+*/
 //--OpenSakuraMenu
 
 OpenSakuraMenu
@@ -241,6 +264,17 @@ OnJumpAuthor{
 	"\j[%(_goURL)]"
 }
 
+Select.changeLanguage : all
+{
+	if language =="ES"{
+		language="EN"
+		"\0\s[23]\i[1]Now we're speaking English, friend\e"
+	}else{
+		language="ES"
+		"\0\s[23]\i[1]Ahora hablamos español, amig%(espLetra)\e"
+	}
+}
+
 //--TalkConfig
 //I commented out birthday and pronoun options, you can uncomment them if you want to add them back.
 
@@ -255,7 +289,9 @@ TalkConfig : all
 		
 		"\n\f[bold,1]Tu cumpleaños:\f[bold,0] %(birthdayprint) \f[sup,1](\q[Cambiar,TEACHBDAY])\f[sup,0]\n"
 		
-		"\n\f[bold,1]Talk Rate:\f[bold,0] - cada %(talktime) \f[sup,1](\q[Cambiar,talkinter])\f[sup,0]\n\n"
+		"\n\f[bold,1]Talk Rate:\f[bold,0] - cada %(talktime) \f[sup,1](\q[Cambiar,talkinter])\f[sup,0]\n"
+
+		"\n\f[bold,1]Idioma:\f[bold,0] ESPAÑOL \f[sup,1](\q[Cambiar,changeLanguage])\f[sup,0]\n\n"
 
 		// "\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
 
@@ -267,15 +303,15 @@ TalkConfig : all
 		
 		"\n\f[bold,1]Your Birthday:\f[bold,0] %(birthdayprintEN) \f[sup,1](\q[Change,TEACHBDAY])\f[sup,0]\n"
 		
-		"\n\f[bold,1]Talk Rate:\f[bold,0] - every %(talktimeEN) \f[sup,1](\q[Change,talkinter])\f[sup,0]\n\n"
+		"\n\f[bold,1]Talk Rate:\f[bold,0] - every %(talktimeEN) \f[sup,1](\q[Change,talkinter])\f[sup,0]\n"
+
+		"\n\f[bold,1]language:\f[bold,0] ENGLISH \f[sup,1](\q[Change,changeLanguage])\f[sup,0]\n\n"
 
 		// "\![*]Enable Uninstall? (NOW : %(deleteshitai))\n\q[ON,deleteon] \q[OFF,deleteoff]\n\n[half]\n"
 		
 		"\![*]\q[Back to Menu,BACKTOMENU]\e"
 	}
 }
-
-
 
 
 // ______                                                 _____ _             _   

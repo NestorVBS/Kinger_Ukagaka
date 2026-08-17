@@ -41,7 +41,7 @@ ghost/master/kgr.icoa6b8086bf4ab672984d5e724772fcdf3size=67646date=2026-06-16
 ghost/master/kinger.ico238017019f949220e230ff1b37ce027asize=67646date=2026-06-16T14:58:30
 ghost/master/kinger.png15ee4dfef527b9ee107902e4a665fc74size=11114date=2026-07-06T13:47:43
 ghost/master/mciaudior.dllb1082bccd2aac2017f7936baf2d967b3size=29696date=2003-03-13T15:23:26
-ghost/master/menu.dic41d723a7c9a6528b7c5ea3ae441c1e9asize=46471date=2026-08-14T16:27:22
+ghost/master/menu.dicd8ffb18f985c29f5ac59a56eff57ef82size=48623date=2026-08-17T15:37:15
 ghost/master/mouse.dic4a8223e7a38fbd86fbbe6d7f5cf5b9f0size=2475date=2026-07-09T17:03:24
 ghost/master/nameteach.dic4c0502d47da0661df4829ef11d790223size=1448date=2026-08-13T16:32:50
 ghost/master/saori_cpuid.dlld13370aee8e579fe2517d789dba7c45esize=225280date=2004-04-17T18:47:18
@@ -49,7 +49,7 @@ ghost/master/string.dic07571e7b4ffd9b487b904be94da5404asize=8856date=2026-08-
 ghost/master/word.dic625062b272dffb65efef1a3b3bdd9571size=3066date=2023-09-28T21:13:03
 ghost/master/yaya.dll56e3af56c88e696cea1f39d53b239cefsize=880640date=2022-09-10T17:18:59
 ghost/master/yaya.txt7d1ec0d0df1391cf10372d074406fb81size=1910date=2023-09-28T15:48:53
-ghost/master/yaya_ssp_debug.loga6a3f876ad8bf1a7633fa2ad68ef3899size=34278date=2026-08-17T14:58:16
+ghost/master/yaya_ssp_debug.log23eb04b226eedeac14ae687e76da978csize=123487date=2026-08-17T15:37:12
 ghost/master/yaya_base/_loading_order.txt9c350c2c9c08f635bff5eaae149af8c8size=103date=2023-06-01T06:32:24
 ghost/master/yaya_base/compatible.dic4f8b1e8c8c08dc44e70b1bd4f52a1affsize=4297date=2023-06-01T06:32:24
 ghost/master/yaya_base/config.dicd07874f4b1ba03ba111df8f2fa3cd6dbsize=2592date=2023-06-01T06:32:24
