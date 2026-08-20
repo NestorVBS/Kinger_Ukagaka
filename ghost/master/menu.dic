@@ -11,9 +11,7 @@ nowhour
 Select.BACKTOMENU
 Delete on/off
 Test variable
-*/
 
-/*
 ----------------------------------!!!!!!HELLO WORLD!!!!!--------------------------------------
 
 Hello, I'm Kyon/TakagiChikita, the author of this Ukagaka. If you're reading this document, you're probably here for one of these reasons:
@@ -87,7 +85,8 @@ MenuRun : all
 		"\f[bold,1]Sistema\f[bold,0]\n\n[half]"
 		"\![*]\q[Utilidades,dosomething]\n"
 		"\![*]\q[Perfil,configmenu]\n"
-		"\![*]\q[Créditos,informationCredits]\n\n"
+		"\![*]\q[Créditos,informationCredits]\n"
+		"\![*]\q[Cerrar Ukagaka,OnClose]\n\n"
 	 	"\![*]\q[Salir,CANCEL]\n\n\n[half]%(wd), %(day)/%(month)/%(year) %(nowhour):%(nowmin)%(ap)\e"
 	}else{
 		"\f[bold,1]Features\f[bold,0]\n\n[half]"
@@ -103,7 +102,8 @@ MenuRun : all
 		"\f[bold,1]System\f[bold,0]\n\n[half]"
 		"\![*]\q[Utilities,dosomething]\n"
 		"\![*]\q[Profile,configmenu]\n"
-		"\![*]\q[Credits,informationCredits]\n\n"
+		"\![*]\q[Credits,informationCredits]\n"
+		"\![*]\q[Close Ukagaka,OnClose]\n\n"
 		"\![*]\q[Exit,CANCEL]\n\n\n[half]%(wd), %(month)/%(day)/%(year) %(nowhour):%(nowmin)%(ap)\e"
 	}
 	
