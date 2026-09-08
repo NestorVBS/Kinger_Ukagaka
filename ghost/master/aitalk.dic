@@ -22,7 +22,7 @@ OnKeyPress
 //Leave this alone. This is mostly setting up whether or not dialogue is in a chain before it displays.
 
 OnAiTalk
- {
+{
 	if RAND(100) < communicateratio
  	{
  		StartCommunicate
@@ -37,7 +37,7 @@ OnAiTalk
 			}
 			lastTalk
 	}
- }
+}
  
  
  //*********************Advanced User Info*******************************
@@ -248,7 +248,7 @@ if passmin >= 59
 
 
 OnMinuteChange //This is what will trigger time-based dialogue for your Ghost.
- {
+{
 	HourCheck //checks to see if an hour has passed, ignore it
 	--
 	if language=="ES"{
@@ -333,13 +333,13 @@ OnMinuteChange //This is what will trigger time-based dialogue for your Ghost.
  	// {
  		// MikireTalk
 	// }
- }
+}
 
 //--OnSecondChange
 //Like the above, this handles what happens every time a second goes by. Most of this you will not have to touch.
 
 OnSecondChange
- {
+{
 	if passsec == 59
 	{
  		passsec = 0
@@ -351,8 +351,13 @@ OnSecondChange
 	 	passsec = passsec + 1
 	 	studyTime++
 	}
- }
 
+	//Temporizador
+ 	if timerUser>-1{
+ 	 	if timerSeconds%60==0{timerMinutes--}
+		if timerSeconds==0{"\![raise,OnAlarm0]"}else{timerSeconds--}
+	}
+}
  //---- MikireTalk ---------------------------------------------------------------------
  //MikireTalk is dialogue for when your main character is off-screen. Like if you dragged Girl over to the side of your monitor until she was partially concealed by it. Advanced users, make sure to uncomment this along with all the other mikire related things in here I've pointed out.
  
@@ -375,7 +380,7 @@ OnSecondChange
 
 
 OnSurfaceRestore
- {
+{
  	if takagiwatch == 0{
  		"\0\s[0]\e"
  	}elseif takagiwatch == 1{
@@ -383,7 +388,7 @@ OnSurfaceRestore
  	}elseif takagiwatch ==2{
  		"\0\s[4]\e"
  	}
- }
+}
 
  
  //--OnKeyPress

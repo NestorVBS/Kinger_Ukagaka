@@ -83,7 +83,8 @@ MenuRun : all
 	 	"\![*]\q[Dime algo,OnAiTalk]\n"
 		"\![*]\q[Resumen,summary]\n"
 		"\![*]\q[Especial,myspecial]\n"
-		"\![*]\q[Lista de Pendientes,OnToDoList]\n\n"
+		"\![*]\q[Lista de Pendientes,OnToDoList]\n"
+		"\![*]\q[Temporizador,OnTimer]\n\n"
 		"\f[bold,1]Sistema\f[bold,0]\n\n[half]"
 		"\![*]\q[Utilidades,dosomething]\n"
 		"\![*]\q[Perfil,configmenu]\n"
@@ -99,7 +100,8 @@ MenuRun : all
 		"\![*]\q[Tell Me Something,OnAiTalk]\n"
 		"\![*]\q[Summary,summary]\n"
 		"\![*]\q[Special,myspecial]\n"
-		"\![*]\q[To-Do List,OnToDoList]\n\n"
+		"\![*]\q[To-Do List,OnToDoList]\n"
+		"\![*]\q[Timer,OnTimer]\n\n"
 		"\f[bold,1]System\f[bold,0]\n\n[half]"
 		"\![*]\q[Utilities,dosomething]\n"
 		"\![*]\q[Profile,configmenu]\n"
@@ -668,14 +670,14 @@ Select.TEACHNAME
 Select.CANCEL
 {
 	if language=="ES"{
-		"\0Excelente.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
-		"\0Correcto.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
-		"\0Bien, todo en orden.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
-		"\0De acuerdo.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0\s[23]\i[1]Excelente.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0\s[20]Correcto.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0\s[24]Bien, todo en orden.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0\s[24]De acuerdo.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
 	}else{
-		"\excellent.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
-		"\0All right, everything's in order.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
-		"\0Agreed.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0\s[23]\i[1]excellent.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0\s[24]All right, everything's in order.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\0\s[20]Agreed.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
 	}
 }
 
@@ -800,7 +802,8 @@ Select.myspecial : all
 		}
 		//"\![*]\q[Veintiuno,TwentyOne]\n"
 		"\![*]\q[Piedra papel o tijera,glico]\n"
-		"\![*]\q[Recomienda un capitulo de TADC,animechap]\n\n"
+		"\![*]\q[Recomienda un capitulo de TADC,animechap]\n"
+		"\![*]\q[Lista de series,OnSeriesList]\n\n"
 		"\![*]\q[Volver Al Menú,BACKTOMENU]\e"
 	}else{
 		"\0\b2What shall we do?\n\n"
@@ -816,8 +819,9 @@ Select.myspecial : all
 		}
 		//"\![*]\q[Twenty-One,TwentyOne]\n"*
 		"\![*]\q[Rock Paper Scissors,glico]\n"
-		"\![*]\q[Recommend a TADC episode,animechap]\n\n"
-		"\![*]\q[Back to Menu,BACKTOMENU]\e"
+		"\![*]\q[Recommend a TADC episode,animechap]\n"
+		"\![*]\q[List of TV Series,OnSeriesList]\n\n"
+		"\![*]\q[Volver Al Menú,BACKTOMENU]\e"
 	}
 }
 
@@ -902,60 +906,96 @@ Select.study{
 		}
 	}
 }
+/**
+*      ______         ____           __    _      __ 
+*     /_  __/___     / __ \____     / /   (_)____/ /_
+*      / / / __ \   / / / / __ \   / /   / / ___/ __/
+*     / / / /_/ /  / /_/ / /_/ /  / /___/ (__  ) /_  
+*    /_/  \____/  /_____/\____/  /_____/_/____/\__/  
+*                                                    
+* 
+												Contexto
+
+TODOLIST: Todo este bloque de codigo es la lista de cosas por hacer o To Do List en inglés, es bastante engorroso
+así que aquí algunas explicaciones breves.
+
+OnToDoList Es la función encargada de mostrar en el balloon las tareas, textos y todo lo visible para el usuario
+
+OnTask Es la función encargada de hacer los cambios en la lista de tareas como agregar, borrar, etc. y estas acciones
+dependen directamente de los argumentos o reference0 y reference1 presentes en los textos clickeables en OnToDoList
+
+Las tareas se almacenan en 2 arrays
+toDoArray = alamacena el texto de las tareas a realizar
+toDoArrayDone = almacena el estado de cada tarea 1:hecho 0:No hecho(default)
+Ambas listas deben ser trabajadas en paralelo para llevar un control adecuado, es decir si cambias o borras algo en
+una es recomendable cambiar o borrar la otra también.
+
+El motivo para hacerlo de esta manera es que YAYA de momento no soporta arrays multidimencionales.
+Hay una manera de emular esto, una tecnica que use en OnSeriesList pero es bastante más engorroso.
+*/
 
 OnToDoList:all
 {
+	_title = "To-Do List"
+	_delete = "Delete"
+	_empty = "No pending tasks..."
+	_add = "Add Task✏️"
+	_deleteAll = "Delete All🗑️"
+	_back = "Back to Menu"
+	_exit = "Exit"
+
 	if language=="ES"{
-		"\0\s[22]\b2\_q\f[bold,1]\f[align,center]Tareas Pendientes\s[22]\i[1]\n\n\n[half]\f[bold,0]\f[align,left]"
-
-		_size = ARRAYSIZE(toDoArray)
-		if _size>0{
-			for _i=0;_i<_size;_i++
-			{
-				if toDoArrayDone[_i]==1{
-					"\q[✅ ,OnTasks,done,%(_i)]\f[strike,1]%(toDoArray[_i])\f[strike,0]"
-				}else{
-					"\q[🔲 ,OnTasks,done,%(_i)]%(toDoArray[_i])"
-				}
-				"\f[sup,1]\q[  Borrar,OnTasks,delete,%(_i)]\f[sup,0]\n\n[half]"
-			}
-		}else{
-			"No tienes tareas pendientes\n\n[half]"
-		}
-
-		"\n\![*]\q[Agregar Tarea✏️,addToDo]"
-		if _size>0{"\n\![*]\q[Borrar todo🗑️,OnTasks,deleteAll]"}
-		"\n\n\![*]\q[Volver Al Menú,BACKTOMENU]"
-		"\n\![*]\q[Salir,CANCEL]\e"
-	}else{
-		"\0\s[22]\b2\_q\f[bold,1]\f[align,center]To-Do List\s[22]\i[1]\n\n\n[half]\f[bold,0]\f[align,left]"
-		
-		_size = ARRAYSIZE(toDoArray)
-		if _size>0{
-			for _i=0;_i<_size;_i++
-			{
-				if toDoArrayDone[_i]==1{
-					"\q[✅ ,OnTasks,done,%(_i)]\f[strike,1]%(toDoArray[_i])\f[strike,0]"
-				}else{
-					"\q[🔲 ,OnTasks,done,%(_i)]%(toDoArray[_i])"
-				}
-				"\f[sup,1]\q[  Delete,OnTasks,delete,%(_i)]\f[sup,0]\n\n[half]"
-			}
-		}else{
-			"No pending tasks\n\n[half]"
-		}
-		
-		"\n\![*]\q[Add Task✏️,addToDo]"
-		if _size>0{"\n\![*]\q[Delete All🗑️,OnTasks,deleteAll]"}
-		"\n\n\![*]\q[Back to Menu,BACKTOMENU]"
-		"\n\![*]\q[Exit,CANCEL]\e"
+		_title = "Tareas Pendientes"
+		_delete = "Borrar"
+		_empty = "No tienes tareas pendientes..."
+		_add = "Agregar Tarea✏️"
+		_deleteAll = "Borrar todo🗑️"
+		_back = "Volver al Menú"
+		_exit = "Salir"
 	}
+
+	"\0\s[22]\b2\_q\f[bold,1]\f[align,center]%(_title)\s[22]\i[1]\n\n\n[half]\f[bold,0]\f[align,left]"
+
+	_size = ARRAYSIZE(toDoArray)
+
+	if _size>0{
+		for _i=0;_i<_size;_i++
+		{
+			if toDoArrayDone[_i]==1{
+				"\q[✅ ,OnTasks,done,%(_i)]\f[strike,1]%(toDoArray[_i])\f[strike,0]"
+			}else{
+				"\q[🔲 ,OnTasks,done,%(_i)]%(toDoArray[_i])"
+			}
+
+			"\f[sup,1]\q[  %(_delete),OnTasks,delete,%(_i)]\f[sup,0]\n\n[half]"
+		}
+	}else{
+		"%(_empty)\n\n[half]"
+	}
+
+
+	"\n\![*]\q[%(_add),addToDo]"
+	if _size>0{"\n\![*]\q[%(_deleteAll),deleteAllToDo]"}
+	"\n\n\![*]\q[%(_back),BACKTOMENU]"
+	"\n\![*]\q[%(_exit),CANCEL]\e"
 }
 
 Select.addToDo{
 	if language=="ES"{"\_q¿Qué tarea deseas añadir?"}else{"\_qWhat task would you like to add?"}
 	--
 	"\![open,inputbox,OnTasks,-1]\![enter,passivemode]"
+}
+
+Select.deleteAllToDo{
+	if language=="ES"{
+		"\0\s[2]¿Estas seguro de que deseas borrar \f[bold,1]TODAS\f[bold,0] las tareas?\n\n"
+		--
+		"\_q\f[align,center]\f[bold,1]\_l[80,50]\![*]\q[SI,OnTasks,deleteAll]\_l[150,50]\![*]\q[NO,OnToDoList]\n\f[align,left]\f[bold,0]\e"
+	}else{
+		"\0\s[2]Are you sure you want to delete \f[bold,1]ALL\f[bold,0] tasks?\n\n"
+		--
+		"\_q\f[align,center]\f[bold,1]\_l[80,50]\![*]\q[YES,OnTasks,deleteAll]\_l[150,50]\![*]\q[NO,OnToDoList]\n\f[align,left]\f[bold,0]\e"
+	}
 }
 
 OnTasks:all{
@@ -969,16 +1009,8 @@ OnTasks:all{
 		toDoArray[reference1] = IARRAY
 		toDoArrayDone[reference1] = IARRAY
 	}elseif reference0=="deleteAll"{
-		if language=="ES"{
-			"\0\s[2]¿Estas seguro de que deseas borrar \f[bold,1]TODAS\f[bold,0] las tareas?\n\n"
-			--
-			"\_q\f[align,center]\f[bold,1]\_l[80,50]\![*]\q[SI,deleteAllToDo]\_l[150,50]\![*]\q[NO,OnToDoList]\n\f[align,left]\f[bold,0]\e"
-		}else{
-			"\0\s[2]Are you sure you want to delete \f[bold,1]ALL\f[bold,0] tasks?\n\n"
-			--
-			"\_q\f[align,center]\f[bold,1]\_l[80,50]\![*]\q[YES,deleteAllToDo]\_l[150,50]\![*]\q[NO,OnToDoList]\n\f[align,left]\f[bold,0]\e"
-		}
-
+		toDoArray = IARRAY
+		toDoArrayDone = IARRAY
 	}else{
 		"\![leave,passivemode]"
 		toDoArray ,= reference0
@@ -987,10 +1019,309 @@ OnTasks:all{
 	OnToDoList
 }
 
-Select.deleteAllToDo{
-	toDoArray = IARRAY
-	toDoArrayDone = IARRAY
-	OnToDoList
+/**
+*       _____           _              __    _      __ 
+*      / ___/___  _____(_)__  _____   / /   (_)____/ /_
+*      \__ \/ _ \/ ___/ / _ \/ ___/  / /   / / ___/ __/
+*     ___/ /  __/ /  / /  __(__  )  / /___/ (__  ) /_  
+*    /____/\___/_/  /_/\___/____/  /_____/_/____/\__/  
+*                                                      
+*/
+OnSeriesList:all
+{
+	_title = "Series List"
+	_watched = "You've watched"
+	_episodes = "episodes of"
+	_empty = "I can help you keep track of the series you're watching... so you won't have to worry about forgetting which episode you were on!"
+	_empty2 = "Although... this list seems to be emptier than my head when I try to remember something important."
+	_add = "Add Series✏️"
+	_delete = "Delete all🗑️"
+	_back = "Back to Menu"
+	_exit = "Exit"
+
+	if language=="ES"{
+		_title = "Lista de Series"
+		_watched = "Has visto"
+		_episodes = "capítulos de"
+		_empty = "Puedo ayudarte a llevar una lista de las series que estás viendo... ¡así no tendrás que preocuparte por olvidar en qué capítulo te quedaste!"
+		_empty2 = "Aunque... parece que esta lista está más vacía que mi cabeza cuando intento recordar algo importante."
+		_add = "Agregar Serie✏️"
+		_delete = "Borrar todo🗑️"
+		_back = "Volver al Menú"
+		_exit = "Salir"
+	}
+
+
+	"\![leave,passivemode]\0\s[22]\b2\_q\f[bold,1]\f[align,center]%(_title)\s[22]\i[1]\n\n\n[half]\f[bold,0]\f[align,left]"
+
+	_size = ARRAYSIZE(seriesArray)
+
+	if _size>0{
+		for _i=0;_i<_size;_i++
+		{
+			_seriesNAME = seriesArray[_i][0,"|"]
+			_seriesCHAPCurrent = seriesArray[_i][1,"|"]
+			_seriesCHAPTotal = seriesArray[_i][2,"|"]
+
+			if _seriesNAME=="-1"{
+				seriesArray[_i]=IARRAY
+			}else{
+				if _seriesCHAPCurrent<0{_seriesCHAPCurrent="?"}
+				if _seriesCHAPTotal<=0{_seriesCHAPTotal="?"}
+
+				"\0\f[bold,1]%(_seriesNAME)\f[bold,0]\f[sup,1]\q[  Borrar,OnSeriesListAction,delete,%(_i)]\f[sup,0]\n"
+				"\q[➖,OnSeriesListAction,minus,%(_i)] %(_watched) %(_seriesCHAPCurrent) %(_episodes) %(_seriesCHAPTotal) \q[➕,OnSeriesListAction,plus,%(_i)]\n\n\n[half]"
+			}
+		}
+	}else{
+		"\0\s[0]%(_empty)\n\n%(_empty2)\n\n[half]"
+	}
+
+	"\n\![*]\q[%(_add),addSerie]"
+	if _size>0{"\n\![*]\q[%(_delete),deleteAllSeries]"}
+	"\n\n\![*]\q[%(_back),BACKTOMENU]"
+	"\n\![*]\q[%(_exit),CANCEL]\e"
+}
+
+Select.addSerie:all{
+	seriesArray ,= "-1|-1|-1"
+	if language=="ES"{"\_q¿Cuál es el nombre de la serie que deseas añadir?"}else{"\_qWhich series would you like to add?"}
+	--
+	"\n\n\![*]\q[Cancelar,cancelAddSerie]"
+	"\![open,inputbox,OnAddNewSerie,-1]\![enter,passivemode]"
+}
+
+Select.cancelAddSerie{
+	"\![close,inputbox,OnAddNewSerie]\![leave,passivemode]"
+	reference0 = ""
+	OnAddNewSerie
+}
+
+Select.deleteAllSeries{
+	if language=="ES"{
+		"\0\s[2]¿Estas seguro de que deseas borrar \f[bold,1]TODAS\f[bold,0] las series?\n\n"
+		--
+		"\_q\f[align,center]\f[bold,1]\_l[80,50]\![*]\q[SI,OnSeriesListAction,deleteAll]\_l[150,50]\![*]\q[NO,OnSeriesList]\n\f[align,left]\f[bold,0]\e"
+	}else{
+		"\0\s[2]Are you sure you want to delete \f[bold,1]ALL\f[bold,0] series?\n\n"
+		--
+		"\_q\f[align,center]\f[bold,1]\_l[80,50]\![*]\q[YES,OnSeriesListAction,deleteAll]\_l[150,50]\![*]\q[NO,OnSeriesList]\n\f[align,left]\f[bold,0]\e"
+	}
+}
+
+OnSeriesListAction:all{
+	_action = reference0
+	_where	= reference1
+	_currentChapter = TOINT(seriesArray[_where][1,"|"])
+	_totalChapter = TOINT(seriesArray[_where][2,"|"])
+
+	if _action == "delete"{
+		seriesArray[_where] = IARRAY
+	}elseif _action=="deleteAll"{
+		seriesArray = IARRAY
+	}elseif _action == "plus"{
+		if _currentChapter<_totalChapter || _totalChapter<=0{
+			_currentChapter++
+			_to_change = seriesArray[_where]
+			_to_change[1,"|"] = _currentChapter
+			seriesArray[_where] = _to_change
+		}
+	}elseif _action == "minus"{
+		if _currentChapter>0{
+			_currentChapter--
+			_to_change = seriesArray[_where]
+			_to_change[1,"|"] = _currentChapter
+			seriesArray[_where] = _to_change
+		}
+	}
+
+	OnSeriesList //Retornar a la lista de series terminada la acción
+}
+
+OnAddNewSerie:all{
+	_place = ARRAYSIZE(seriesArray) - 1
+
+	if seriesArray[_place][0,"|"] == "-1"{
+		_newSerieName = reference0
+		if _newSerieName==""{
+			seriesArray[_place] = IARRAY
+			break;
+		}else{
+			_to_change = seriesArray[_place]
+			_to_change[0,"|"] = _newSerieName
+			seriesArray[_place] = _to_change
+		}
+		"\0\s[0]\f[bold,1]%(_newSerieName)\f[bold,0], un nombre interesante\n\n\f[align,center]¿En que numero de capitulo vas?\n\f[align,left]"
+		--
+		"\![open,inputbox,OnAddNewSerie,-1]\![enter,passivemode]"
+	}elseif seriesArray[_place][1,"|"] == "-1"{
+		_newSerieChapCurrent = reference0
+		_newSerieChapCurrent = TOLOWER(_newSerieChapCurrent)
+		_newSerieChapCurrent = REPLACE(_newSerieChapCurrent,"a","")
+		_newSerieChapCurrent = TOINT(_newSerieChapCurrent)
+		if _newSerieChapCurrent<0{_newSerieChapCurrent=0} //Por si alguien pone numeros negativos xddd
+
+		_to_change = seriesArray[_place]
+		_to_change[1,"|"] = _newSerieChapCurrent
+		seriesArray[_place] = _to_change
+
+		"\0\s[0]%(_newSerieChapCurrent), muy bien\n¿Cuantos capitulos tiene en total?\n(Si no lo sabes puedes poner x o dejarlo vacio.)"
+		--
+		"\![open,inputbox,OnAddNewSerie,-1]\![enter,passivemode]"
+	}elseif seriesArray[_place][2,"|"] == "-1"{
+		_newSerieChapTotal = reference0
+		_newSerieChapTotal = TOLOWER(_newSerieChapTotal)
+		_newSerieChapTotal = REPLACE(_newSerieChapTotal,"a","")
+		_newSerieChapTotal = TOINT(_newSerieChapTotal)
+
+		_newSerieChapCurrent = TOINT(seriesArray[_place][1,"|"])
+
+		if _newSerieChapTotal>=_newSerieChapCurrent || _newSerieChapTotal==0{
+			_to_change = seriesArray[_place]
+			_to_change[2,"|"] = _newSerieChapTotal
+			seriesArray[_place] = _to_change
+
+			"\0\s[1]\![leave,passivemode]Muy bien, te ayudare a recordar en que capitulo vas.\w8\w8\w8\w8"
+			--
+			OnSeriesList
+		}else{
+			"\0\s[0]Interesante, pero no creo que pueda tener menos capitulos de los que hallas visto jeje, intenta de nuevo.\n¿Cuantos capitulos tiene en total?\n(Si no lo sabes puedes poner x o dejarlo vacio.)"
+			--
+			"\![open,inputbox,OnAddNewSerie,-1]\![enter,passivemode]"
+		}
+	}else{
+		OnSeriesList
+	}
+}
+
+/**
+*      _______                    
+*     /_  __(_)___ ___  ___  _____
+*      / / / / __ `__ \/ _ \/ ___/
+*     / / / / / / / / /  __/ /    
+*    /_/ /_/_/ /_/ /_/\___/_/     
+*                                 
+*/
+OnTimer:all
+{	
+	if language=="ES"
+	{
+		if timerUser==-1
+		{
+			"\0\s[20]Un Temporizador? Deacuerdo, en cuantos minutos debo avisarte?\s[22]\n\n"
+			--
+			"\![*]\q[5 min,OnUserTimer,5]\n"
+			"\![*]\q[10 min,OnUserTimer,10]\n"
+			"\![*]\q[25 min,OnUserTimer,25]\n"
+			"\![*]\q[Otro,otherTimer]\n\n"
+			"\![*]\q[Cancelar,CANCEL]\e"
+		}else{
+			_tempSeconds = timerSeconds%60
+			"\0\s[0]Oh no, tranquilo, aún faltan %(timerMinutes) minutos y %(_tempSeconds) segundos\n\n"
+			"\![*]\q[Reiniciar,OnUserTimer,%(timerUser)]\n"
+			"\![*]\q[Borrar,clearTimer,0]\n\n"
+			"\![*]\q[Salir,CANCEL]\e"
+		}
+	}else{
+		if timerUser==-1
+		{
+			"\0\s[20]A timer? Alright, how many minutes should I wait before letting you know?\s[22]\n\n"
+			--
+			"\![*]\q[5 min,OnUserTimer,5]\n"
+			"\![*]\q[10 min,OnUserTimer,10]\n"
+			"\![*]\q[25 min,OnUserTimer,25]\n"
+			"\![*]\q[Other,otherTimer]\n\n"
+			"\![*]\q[Cancel,CANCEL]\e"
+		}else{
+			_tempSeconds = timerSeconds%60
+			"\0\s[0]Oh, no need to worry, there are still %(timerMinutes) minutes and %(_tempSeconds) seconds left.\n\n"
+			"\![*]\q[Restart,OnUserTimer,%(timerUser)]\n"
+			"\![*]\q[Clear,clearTimer,0]\n\n"
+			"\![*]\q[Exit,CANCEL]\e"
+		}
+	}
+
+}
+
+Select.otherTimer
+{
+	if language=="ES"{"\0\s[22]¿Cuantos minutos quieres poner en el temporizador?"}else{"\0\s[22]How many minutes would you like to set the timer for?"}
+	--
+	"\![open,inputbox,OnUserTimer,-1]"
+}
+
+Select.clearTimer
+{
+	timerUser=-1
+	timerMinutes=-1
+	if language=="ES"{"\0\s[22]\i[1]...\w8Deacuerdo, se borró el Temporizador\e"}else{"\0\s[22]\i[1]...\w8Alright, the timer has been cleared.\e"
+}
+}
+
+OnUserTimer:all
+{
+	_tempTimer = reference0
+	_tempTimer = TOLOWER(_tempTimer)//Si la entrada tiene mayusculas las convierte a minusculas
+	_tempTimer = REPLACE(_tempTimer,"a","")//Por alguna razon TOINT convierte a y A en 10, así las elimino
+	_tempTimer = TOINT(_tempTimer)//Convierte la entrada en valor numerico y de haber letras las elimina o retorna 0 en su defecto
+
+    if _tempTimer>0//It will return 1 for integers, 2 for real numbers, 3 for strings, and 4 for arrays. 0 means an internal error occurred.
+    {
+        timerUser = _tempTimer
+        timerMinutes = _tempTimer
+        timerSeconds = _tempTimer * 60
+        _plural = "s"
+        if timerMinutes==1{_plural = ""}
+
+        if language=="ES"{"\![leave,passivemode]\0\s[22]\i[1]Correcto, en %(timerUser) minuto%(_plural) te avisaré, confía en mi,\s[23]\i[1] no lo olvidare...\w8\n\n\s[2]Eso espero\e"}else{"\![leave,passivemode]\0\s[22]\i[1]Alright, I’ll let you know in %(timerUser) minute%(_plural). Trust me,\s[23]\i[1] I won’t forget... \w8\n\n\s[2]I hope so.\e"}
+    }
+    else
+    {
+        if language=="ES"{
+	        "\![leave,passivemode]\0\s[24]Eso no parece un número,\w8\w2\n\s[22]Introduce los minutos usando únicamente números.\n\n"
+			--
+			"\![*]\q[5 min,OnUserTimer,5]\n"
+			"\![*]\q[10 min,OnUserTimer,10]\n"
+			"\![*]\q[25 min,OnUserTimer,25]\n"
+			"\![*]\q[Otro,otherTimer]\n\n"
+			"\![*]\q[Cancelar,CANCEL]\e"
+		}else{
+			"\![leave,passivemode]\0\s[24]That doesn't seem to be a number,\w8\w2\n\s[22]Enter the minutes using numbers only.\n\n"
+			--
+			"\![*]\q[5 min,OnUserTimer,5]\n"
+			"\![*]\q[10 min,OnUserTimer,10]\n"
+			"\![*]\q[25 min,OnUserTimer,25]\n"
+			"\![*]\q[Other,otherTimer]\n\n"
+			"\![*]\q[Cancel,CANCEL]\e"
+		}
+    }
+}
+
+OnAlarm0:all
+{
+	_lastTimer=timerUser
+	timerUser=-1
+	timerMinutes=-1
+	timerSeconds=-1
+
+	if language=="ES"
+	{
+		"\0\s[24]Hmmm.\w4.\w4. Estoy recordando algo.\w4.\w4. ¿Qué es...?\w8\8"
+		--
+		"\c\f[height,150%]\f[bold,1]\f[align,center]\f[color,red]\s[7]\i[1]¡$#%&!\n\n\s[7]\i[1]¡$#%&!\n\n\s[7]\i[1]¡$#%&!\n\n\w8\w4\c"
+		--
+		"\f[height,150%]\f[color,red]\f[bold,1]\f[align,center]\s[7]¡%(username)!\n\n¡Se termino el tiempo en el temporizador!\n\n\f[bold,0]\f[align,center]\f[color,default]\f[height,default]"
+		"\![*]\q[Reiniciar (%(_lastTimer) min),OnUserTimer,%(_lastTimer)]\n"
+		"\![*]\q[Gracias Kinger,CANCEL]\e"
+	}else{
+		"\0\s[24]Hmmm.\w4.\w4. I'm remembering something.\w4.\w4. What is it...?\w8\8"
+		--
+		"\c\f[height,150%]\f[bold,1]\f[align,center]\f[color,red]\s[7]\i[1]$#%&!\n\n\s[7]\i[1]$#%&!\n\n\s[7]\i[1]$#%&!\n\n\w8\w4\c"
+		--
+		"\f[height,150%]\f[color,red]\f[bold,1]\f[align,center]\s[7]%(username)!\n\nThe timer has run out!\n\n\f[bold,0]\f[align,center]\f[color,default]\f[height,default]"
+		"\![*]\q[Restart (%(_lastTimer) min),OnUserTimer,%(_lastTimer)]\n"
+		"\![*]\q[Thanks Kinger,CANCEL]\e"
+	}
 }
 //----------------------------------------------Frases---------------------------------------------------
 FunctionPlayerWins : nonoverlap{

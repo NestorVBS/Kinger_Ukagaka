@@ -56,12 +56,17 @@ OnFirstBoot : all
 	timesRock 	   = 0
 	timesPaper 	   = 0
 	//timesScissor = 0
-	twentyOneText  ="" //Texto para el juego de 21
+	twentyOneText  = "" //Texto para el juego de 21
 	twentyOneCount = 0 //Contador juego 21
 	
 	//ToDoList
 	toDoArray     = IARRAY //To Do List Array
 	toDoArrayDone = IARRAY //Tareas hechas array
+
+	//Temporizador
+	timerUser	 = -1
+	timerMinutes = -1
+	timerSeconds = -1
 
 	//GenderDefaultVariables
 	himher   = "them"
@@ -70,6 +75,8 @@ OnFirstBoot : all
 	hesshes  = "they're"
 	espPron	 = "Neutro"
 	espLetra = "x"
+	//Series
+	seriesArray = IARRAY
 
 	--
  	"\0\_q\s[14]\i[3]\n\f[align,center]Choose your \f[bold,1]language\f[bold,0]\nSelecciona un \f[bold,1]idioma\w5\n\n[half]\_q\n\n"
@@ -196,9 +203,9 @@ timeslot
 	elseif hour >= 18 && hour <= 20
 	{	"evening"	}
 	elseif hour >= 21 && hour <= 24
-	{ "latenight"	}
+	{ 	"latenight"	}
 	else
-	{ "midnight" }
+	{ 	"midnight" }
 }
 
 dayslot
@@ -207,7 +214,7 @@ dayslot
 }
 
 OnBoot
- {
+{
 	lastTalk = ""
 	passhour = 0
 	passmin = 0
@@ -217,6 +224,10 @@ OnBoot
 	takagiwatch = 0
 	twentyOneText=""
 	twentyOneCount=0
+	//Temporizador
+	timerUser=-1
+ 	timerMinutes=-1
+ 	timerSeconds=-1
 	//Borrar despues
 	// toDoArray = IARRAY //To Do List Array
 	// toDoArrayDone = IARRAY
@@ -245,7 +256,8 @@ OnBoot
 
 normalboottalk
 {
-	if language=="ES"{
+	if language=="ES"
+	{
 		if weekday == 4
 		{
 			"\0\s[23]\i[1]Feliz jueves.\e"
@@ -281,10 +293,10 @@ normalboottalk
 //Do note, close dialogue must end with a \- instead of \e. \- will close the program.
 
 OnClose
- {
+{
 	 takagiwatch = 0
 	 if language=="ES"{"\0\s[5]Nos vemos pronto \f[bold,1]%(username)\f[bold,0].\w8\s[4]\w8\w8\w8\e"}else{"\0\s[5]See you soon, \f[bold,1]%(username)\f[bold,0].\w8\s[4]\w8\w8\w8\e"}
- }
+}
 
 
 
@@ -330,7 +342,7 @@ OnWindowStateRestore
 //Note: If you reload your ghost using the developer console instead of Utilities->Reload Ghost, it won't do this dialogue, so don't freak out if it doesn't show up.
  
 OnGhostChanging
- {
+{
 	if reference0 == "Kinger" //Replace this with the name of your Sakura character as you put in install.txt or descript.txt.
 	{
 		if language=="ES"{"\0\s[0]\i[7]Hola de nuevo.\w8\w8\e"}else{"\0\s[0]\i[7]Hello again.\w8\w8\e"}
@@ -369,7 +381,7 @@ OnGhostChanged
 //This will run when you change your ghost's shell.
 
 OnShellChanging
- {
+{
 	if reference0 == "Hypothetical Shell that doesn't actually exist" //reference0 in OnShellChanging is the name of the shell you're swapping to. It should be defined in the descript.txt file in your shell folder.
 	{
 	"\0\s[0]This dialogue is specifically for changing to this particular shell.\w8\0\w8\s[9]It totally exists.\w8\e"
@@ -380,7 +392,7 @@ OnShellChanging
 	
 	"\0\s[10]This is another bit of dialogue for changing shells.\w8\0\s[8]I wonder how many people will actually have multiple shells?\e"
 	}
- }
+}
  
  
  //--OnShellChanged
@@ -388,7 +400,7 @@ OnShellChanging
  //The sister to the above, this is the dialogue after you've changed the shell.
  
 OnShellChanged
- {
+{
  	if reference0 == "Takagi-San" //Again, this is the name of your shell as you put in the descript.txt file for that shell.
  	{
  		nowshell = "master" //This is the folder name for your shell. Not the same as the above! 
@@ -415,7 +427,7 @@ OnShellChanged
 	
 	//Note the %(reference[0]) here! This time that should store the name of whatever shell you're switching to.
 	}
- }
+}
 
 
  //--OnDressupChanged
