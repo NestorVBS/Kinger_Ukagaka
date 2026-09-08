@@ -624,53 +624,53 @@ Select.TalksTill
 
 //If the user chooses every 30 seconds.
 Select.TALKMAX
-	{
- 		talktime = "30 segundos" //this sets up the envelope properly
- 		talktimeEN = "30 seconds"
-		aitalkinterval = 30 //this changes the actual rate
-		
- 		if language=="ES"{"\0\s[23]\i[1]Maravilloso, tengo muchas historias que contar.\s[24]\e"}else{"\0\s[23]\i[1]Wonderful! I've got so many stories to tell.\s[24]\e"}
-	}
+{
+	talktime = "30 segundos" //this sets up the envelope properly
+	talktimeEN = "30 seconds"
+	aitalkinterval = 30 //this changes the actual rate
+
+	if language=="ES"{"\0\s[23]\i[1]Maravilloso, tengo muchas historias que contar.\s[24]\e"}else{"\0\s[23]\i[1]Wonderful! I've got so many stories to tell.\s[24]\e"}
+}
 
 //If the user chooses every minute.
 Select.TALKHIGH
-	{
- 		talktime = "minuto"
- 		talktimeEN="Every minute"
-		aitalkinterval = 60
-		
- 		if language=="ES"{"\0\s[23]Un minuto está bien.\nEs tiempo suficiente para asegurarme de que el mundo sigue aquí.\s[24]\e"}else{"\0\s[23]Un minuto está bien.\nEs tiempo suficiente para asegurarme de que el mundo sigue aquí.\s[24]\e"}
-	}
+{
+	talktime = "minuto"
+	talktimeEN="Every minute"
+	aitalkinterval = 60
+	
+	if language=="ES"{"\0\s[23]Un minuto está bien.\nEs tiempo suficiente para asegurarme de que el mundo sigue aquí.\s[24]\e"}else{"\0\s[23]One minute is fine.\nIt's enough time to make sure the world is still here.\s[24]\e"}
+}
 
 //If the user chooses every three minutes.
 Select.TALKNORMAL
-	{
- 		talktime = "3 minutos"
- 		talktimeEN="3 minutes"
-		aitalkinterval = 180
-		
- 		if language=="ES"{"\0\s[23]Tres minutos...\w8 \s[23]\i[1]Suena como un buen equilibrio.\nNo demasiado silencio... pero tampoco demasiado ruido.\e"}else{"\0\s[23]Three minutes...\w8 \s[23]\i[1]That sounds like a good balance.\nNot too much silence... but not too much noise either.\e"}
-	}
+{
+ 	talktime = "3 minutos"
+ 	talktimeEN="3 minutes"
+	aitalkinterval = 180
+	
+ 	if language=="ES"{"\0\s[23]Tres minutos...\w8 \s[23]\i[1]Suena como un buen equilibrio.\nNo demasiado silencio... pero tampoco demasiado ruido.\e"}else{"\0\s[23]Three minutes...\w8 \s[23]\i[1]That sounds like a good balance.\nNot too much silence... but not too much noise either.\e"}
+}
 
 //If the user chooses every five minutes. This is the default rate the ghost will start up in, as seen in bootend.dic.
 Select.TALKPOOR
-	{
- 		talktime = "5 minutos"
- 		talktimeEN="5 minutes"
-		aitalkinterval = 300
-		
- 		if language=="ES"{"\0\s[0]Cinco minutos.\nEspero no distraerme y aparecer en otra habitación.\s[24]\e"}else{"\0\s[0]Five minutes.\nHopefully I won't get distracted and end up in another room.\s[24]\e"}
-	}
+{
+	talktime = "5 minutos"
+	talktimeEN="5 minutes"
+	aitalkinterval = 300
+
+	if language=="ES"{"\0\s[0]Cinco minutos.\nEspero no distraerme y aparecer en otra habitación.\s[24]\e"}else{"\0\s[0]Five minutes.\nHopefully I won't get distracted and end up in another room.\s[24]\e"}
+}
 
 //If the user chooses to not have them speak.
 Select.TALKNONE
-	{
- 		talktime = "...En realidad no hablamos"
- 		talktimeEN="...I think we don't talk"
-		aitalkinterval = 0
-		
-		if language=="ES"{"\0\s[6]¿Silencio absoluto?\n\w8...\w8 Bueno.\nSi empiezo a mirar fijamente la pared, procura despertarme, ¿sí?\e"}else{"\0\s[6]Complete silence?\n\w8...\w8 Alright.\nIf I start staring at the wall, make sure you snap me out of it, okay?\e"}
-	}
+{
+	talktime = "...En realidad no hablamos"
+	talktimeEN="...I think we don't talk"
+	aitalkinterval = 0
+
+	if language=="ES"{"\0\s[6]¿Silencio absoluto?\n\w8...\w8 Bueno.\nSi empiezo a mirar fijamente la pared, procura despertarme, ¿sí?\e"}else{"\0\s[6]Complete silence?\n\w8...\w8 Alright.\nIf I start staring at the wall, make sure you snap me out of it, okay?\e"}
+}
 
 
 
