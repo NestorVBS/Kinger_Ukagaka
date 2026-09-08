@@ -70,45 +70,60 @@ MenuRun : all
  	wd = GetWeekDay
  	ap = GetAP
 	//It's putting together the information to display the time at the bottom of the balloon.
+	_title = "Features"
+	_repeat = "Repeat the Last Comment"
+	_talk = "Tell Me Something"
+	_summary = "Summary"
+	_special = "Special"
+	_todo = "To-Do List"
+	_timer = "Timer"
+	_system = "System"
+	_utilities = "Utilities"
+	_profile = "Profile"
+	_credits = "Credits"
+	_close = "Close Ukagaka"	
+	_exit = "Exit"
+	_date = "%(month)/%(day)/%(year)"
+
+	if language=="ES"{
+		_title = "Funciones"
+		_repeat = "Repite el último comentario"
+		_talk = "Dime algo"
+		_summary = "Resumen"
+		_special = "Especial"
+		_todo = "Lista de Pendientes"
+		_timer = "Temporizador"
+		_system = "Sistema"
+		_utilities = "Utilidades"
+		_profile = "Perfil"
+		_credits = "Créditos"
+		_close = "Cerrar Ukagaka"
+		_exit = "Salir"
+		_date = "%(day)/%(month)/%(year)"
+	}
 	--
 	"\n\n\_q\b2" // \_q means quick session, meaning all the text from this point on will display instantly instead of a few letters at a time like normal ghost dialogue.
 	--
-	if language=="ES"{
-		"\f[bold,1]Funciones\f[bold,0]\n\n[half]"
-		if lastTalk != "" //What this does is check to see if the ghost has already said a random bit of dialogue on its own, essentially by seeing if the lastTalk thing is NOT empty (!= means "does not equal").
-		{
-		  "\![*]\q[Repite el último comentario,OnLastTalk]\n\n[half]"
-		}
-		--
-	 	"\![*]\q[Dime algo,OnAiTalk]\n"
-		"\![*]\q[Resumen,summary]\n"
-		"\![*]\q[Especial,myspecial]\n"
-		"\![*]\q[Lista de Pendientes,OnToDoList]\n"
-		"\![*]\q[Temporizador,OnTimer]\n\n"
-		"\f[bold,1]Sistema\f[bold,0]\n\n[half]"
-		"\![*]\q[Utilidades,dosomething]\n"
-		"\![*]\q[Perfil,configmenu]\n"
-		"\![*]\q[Créditos,informationCredits]\n\n"
-	 	"\![*]\q[Salir,CANCEL]\n\n\n[half]%(wd), %(day)/%(month)/%(year) %(nowhour):%(nowmin)%(ap)\e"
-	}else{
-		"\f[bold,1]Features\f[bold,0]\n\n[half]"
-		if lastTalk != ""
-		{
-		  "\![*]\q[Repeat the Last Comment,OnLastTalk]\n\n[half]"
-		}
-		--
-		"\![*]\q[Tell Me Something,OnAiTalk]\n"
-		"\![*]\q[Summary,summary]\n"
-		"\![*]\q[Special,myspecial]\n"
-		"\![*]\q[To-Do List,OnToDoList]\n"
-		"\![*]\q[Timer,OnTimer]\n\n"
-		"\f[bold,1]System\f[bold,0]\n\n[half]"
-		"\![*]\q[Utilities,dosomething]\n"
-		"\![*]\q[Profile,configmenu]\n"
-		"\![*]\q[Credits,informationCredits]\n\n"
-		"\![*]\q[Exit,CANCEL]\n\n\n[half]%(wd), %(month)/%(day)/%(year) %(nowhour):%(nowmin)%(ap)\e"
+	"\f[bold,1]%(_title)\f[bold,0]\n\n[half]"
+
+	if lastTalk != ""{
+		"\![*]\q[%(_repeat),OnLastTalk]\n\n[half]"
 	}
-	
+	--
+	"\![*]\q[%(_talk),OnAiTalk]\n"
+	"\![*]\q[%(_summary),summary]\n"
+	"\![*]\q[%(_special),myspecial]\n"
+	"\![*]\q[%(_todo),OnToDoList]\n"
+	"\![*]\q[%(_timer),OnTimer]\n\n"
+
+	"\f[bold,1]%(_system)\f[bold,0]\n\n[half]"
+
+	"\![*]\q[%(_utilities),dosomething]\n"
+	"\![*]\q[%(_profile),configmenu]\n"
+	"\![*]\q[%(_credits),informationCredits]\n"
+	"\![*]\q[%(_close),OnClose]\n\n"
+
+	"\![*]\q[%(_exit),CANCEL]\n\n\n[half]%(wd), %(_date) %(nowhour):%(nowmin)%(ap)\e"
 }
 
 //Leave this alone
@@ -254,8 +269,8 @@ Select.informationCredits:all{
 		"\0\s[0]\i[6]\n\f[align,left]\![*]\q[OK,CANCEL]\e"
 	}else{
 		"\b2\0\s[0]\i[8]\f[align,center]The creator of this Ukagaka is\n\n\f[bold,1]\q[@TakagiChikita,OnJumpAuthor,https://x.com/takagichikita]\f[bold,0]\n\n"
-		"\0\s[0]\f[align,center]If you have any questions, suggestions, or issues related to this Ukagaka, you can contact them on X (Twitter),\s[0] though it may take a while for them to reply.\i[6]\w8\w8\n\n"
-		"\0\s[0]\i[8]\f[align,center]They are also the co-creator of another Ukagaka together with their friend\n\n\f[bold,1]\q[@SunflowHamato,OnJumpAuthor,https://x.com/SunflowHamato]\f[bold,0]\n\nFeel free to reach out to either of them for more information.\n\n"
+		"\0\s[0]\f[align,center]If you have any questions, suggestions, or issues related to this Ukagaka, you can contact him on X (Twitter),\s[0] though it may take a while for him to reply.\i[6]\w8\w8\n\n"
+		"\0\s[0]\i[8]\f[align,center]He is also the co-creator of another Ukagaka together with his friend\n\n\f[bold,1]\q[@SunflowHamato,OnJumpAuthor,https://x.com/SunflowHamato]\f[bold,0]\n\nFeel free to reach out to either of them for more information.\n\n"
 		"\0\s[6]\f[align,center]Creating Ukagakas takes a lot of time and effort. If you'd like to support the project, please consider making a small donation through\n\n\f[bold,1]\![*]\q[Ko-Fi.com,OnJumpAuthor,https://ko-fi.com/takagichikita]\![*]\f[bold,0]\n"
 		"\0\s[0]\i[8]\f[align,center]\nYour donations help support new content, updates, and the continued maintenance of this and other projects.\n"
 		"\0\s[0]\i[6]\n\f[align,left]\![*]\q[OK,CANCEL]\e"
@@ -670,14 +685,14 @@ Select.TEACHNAME
 Select.CANCEL
 {
 	if language=="ES"{
-		"\0\s[23]\i[1]Excelente.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
-		"\0\s[20]Correcto.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
-		"\0\s[24]Bien, todo en orden.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
-		"\0\s[24]De acuerdo.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\![leave,passivemode]\0\s[23]\i[1]Excelente.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\![leave,passivemode]\0\s[20]Correcto.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\![leave,passivemode]\0\s[24]Bien, todo en orden.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\![leave,passivemode]\0\s[24]De acuerdo.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
 	}else{
-		"\0\s[23]\i[1]excellent.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
-		"\0\s[24]All right, everything's in order.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
-		"\0\s[20]Agreed.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\![leave,passivemode]\0\s[23]\i[1]excellent.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\![leave,passivemode]\0\s[24]All right, everything's in order.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
+		"\![leave,passivemode]\0\s[20]Agreed.\w8\w8\w8\![raise,OnSurfaceRestore]\e"
 	}
 }
 
@@ -1306,7 +1321,7 @@ OnAlarm0:all
 
 	if language=="ES"
 	{
-		"\0\s[24]Hmmm.\w4.\w4. Estoy recordando algo.\w4.\w4. ¿Qué es...?\w8\8"
+		"\![enter,passivemode]\0\s[24]Hmmm.\w4.\w4. Estoy recordando algo.\w4.\w4. ¿Qué es...?\w8\8"
 		--
 		"\c\f[height,150%]\f[bold,1]\f[align,center]\f[color,red]\s[7]\i[1]¡$#%&!\n\n\s[7]\i[1]¡$#%&!\n\n\s[7]\i[1]¡$#%&!\n\n\w8\w4\c"
 		--
@@ -1314,7 +1329,7 @@ OnAlarm0:all
 		"\![*]\q[Reiniciar (%(_lastTimer) min),OnUserTimer,%(_lastTimer)]\n"
 		"\![*]\q[Gracias Kinger,CANCEL]\e"
 	}else{
-		"\0\s[24]Hmmm.\w4.\w4. I'm remembering something.\w4.\w4. What is it...?\w8\8"
+		"\![enter,passivemode]\0\s[24]Hmmm.\w4.\w4. I'm remembering something.\w4.\w4. What is it...?\w8\8"
 		--
 		"\c\f[height,150%]\f[bold,1]\f[align,center]\f[color,red]\s[7]\i[1]$#%&!\n\n\s[7]\i[1]$#%&!\n\n\s[7]\i[1]$#%&!\n\n\w8\w4\c"
 		--

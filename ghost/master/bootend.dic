@@ -295,7 +295,7 @@ normalboottalk
 OnClose
 {
 	 takagiwatch = 0
-	 if language=="ES"{"\0\s[5]Nos vemos pronto \f[bold,1]%(username)\f[bold,0].\w8\s[4]\w8\w8\w8\e"}else{"\0\s[5]See you soon, \f[bold,1]%(username)\f[bold,0].\w8\s[4]\w8\w8\w8\e"}
+	 if language=="ES"{"\0\s[5]Nos vemos pronto \f[bold,1]%(username)\f[bold,0].\w8\s[4]\w8\w8\w8\-"}else{"\0\s[5]See you soon, \f[bold,1]%(username)\f[bold,0].\w8\s[4]\w8\w8\w8\-"}
 }
 
 
