@@ -276,7 +276,7 @@ OnMinuteChange //This is what will trigger time-based dialogue for your Ghost.
 					"Ya es un bastante tarde.\e"
 					"No tienes frio?\e"
 				}elseif timeslot=="latenight"{
-					" Se esta haciendo tarde.\e"
+					"Se esta haciendo tarde.\e"
 				}
 			}
 		}
@@ -305,7 +305,7 @@ OnMinuteChange //This is what will trigger time-based dialogue for your Ghost.
 					"It's getting pretty late.\e"
 					"Aren't you cold?\e"
 				}elseif timeslot=="latenight"{
-					" It's getting late.\e"
+					"It's getting late.\e"
 				}
 			}
 		}

@@ -1050,6 +1050,7 @@ OnSeriesList:all
 	_empty = "I can help you keep track of the series you're watching... so you won't have to worry about forgetting which episode you were on!"
 	_empty2 = "Although... this list seems to be emptier than my head when I try to remember something important."
 	_add = "Add Series✏️"
+	_erase = "  Delete"
 	_delete = "Delete all🗑️"
 	_back = "Back to Menu"
 	_exit = "Exit"
@@ -1061,6 +1062,7 @@ OnSeriesList:all
 		_empty = "Puedo ayudarte a llevar una lista de las series que estás viendo... ¡así no tendrás que preocuparte por olvidar en qué capítulo te quedaste!"
 		_empty2 = "Aunque... parece que esta lista está más vacía que mi cabeza cuando intento recordar algo importante."
 		_add = "Agregar Serie✏️"
+		_erase = "  Borrar"
 		_delete = "Borrar todo🗑️"
 		_back = "Volver al Menú"
 		_exit = "Salir"
@@ -1084,7 +1086,7 @@ OnSeriesList:all
 				if _seriesCHAPCurrent<0{_seriesCHAPCurrent="?"}
 				if _seriesCHAPTotal<=0{_seriesCHAPTotal="?"}
 
-				"\0\f[bold,1]%(_seriesNAME)\f[bold,0]\f[sup,1]\q[  Borrar,OnSeriesListAction,delete,%(_i)]\f[sup,0]\n"
+				"\0\f[bold,1]%(_seriesNAME)\f[bold,0]\f[sup,1]\q[%(_erase),OnSeriesListAction,delete,%(_i)]\f[sup,0]\n"
 				"\q[➖,OnSeriesListAction,minus,%(_i)] %(_watched) %(_seriesCHAPCurrent) %(_episodes) %(_seriesCHAPTotal) \q[➕,OnSeriesListAction,plus,%(_i)]\n\n\n[half]"
 			}
 		}
@@ -1100,7 +1102,7 @@ OnSeriesList:all
 
 Select.addSerie:all{
 	seriesArray ,= "-1|-1|-1"
-	if language=="ES"{"\_q¿Cuál es el nombre de la serie que deseas añadir?"}else{"\_qWhich series would you like to add?"}
+	if language=="ES"{"\0\s[22]\_q¿Cuál es el nombre de la serie que deseas añadir?"}else{"\0\s[22]\_qWhich series would you like to add?"}
 	--
 	"\n\n\![*]\q[Cancelar,cancelAddSerie]"
 	"\![open,inputbox,OnAddNewSerie,-1]\![enter,passivemode]"
@@ -1154,6 +1156,18 @@ OnSeriesListAction:all{
 }
 
 OnAddNewSerie:all{
+	_dialog1 = ", an interesting name.\n\n\f[align,center]What episode are you on?\f[align,left]"
+	_dialog2 = ", very good.\nHow many episodes does it have in total?\n(If you don't know, you can enter x or leave it blank.)"
+	_dialog3 = "Very good. I'll help you remember which episode you're on.\w8\w8\w8\w8"
+	_dialog4 = "Interesting, but I don't think a series can have fewer episodes than the number you've already watched... hehe.\s[2] Try again.\nHow many episodes does it have in total?\s[22]\n(If you don't know, you can enter x or leave it blank.)"
+
+	if language=="ES"{
+		_dialog1 = "%(_newSerieName), un nombre interesante.\n\n\f[align,center]¿En qué número de capítulo vas?\f[align,left]"
+		_dialog2 = "%(_newSerieChapCurrent), muy bien.\n¿Cuántos capítulos tiene en total?\n(Si no lo sabes, puedes poner x o dejarlo vacío.)"
+		_dialog3 = "\![leave,passivemode]Muy bien, te ayudaré a recordar en qué capítulo vas.\w8\w8\w8\w8"
+		_dialog4 = "Interesante, pero no creo que una serie pueda tener menos capítulos de los que hayas visto... jeje.\s[2] Intenta de nuevo.\n¿Cuántos capítulos tiene en total?\s[22]\n(Si no lo sabes, puedes poner x o dejarlo vacío.)"
+	}
+
 	_place = ARRAYSIZE(seriesArray) - 1
 
 	if seriesArray[_place][0,"|"] == "-1"{
@@ -1166,23 +1180,27 @@ OnAddNewSerie:all{
 			_to_change[0,"|"] = _newSerieName
 			seriesArray[_place] = _to_change
 		}
-		"\0\s[0]\f[bold,1]%(_newSerieName)\f[bold,0], un nombre interesante\n\n\f[align,center]¿En que numero de capitulo vas?\n\f[align,left]"
+
+		"\0\s[22]\i[1]\f[bold,1]%(_newSerieName)\f[bold,0]%(_dialog1)"
 		--
 		"\![open,inputbox,OnAddNewSerie,-1]\![enter,passivemode]"
+
 	}elseif seriesArray[_place][1,"|"] == "-1"{
 		_newSerieChapCurrent = reference0
 		_newSerieChapCurrent = TOLOWER(_newSerieChapCurrent)
 		_newSerieChapCurrent = REPLACE(_newSerieChapCurrent,"a","")
 		_newSerieChapCurrent = TOINT(_newSerieChapCurrent)
-		if _newSerieChapCurrent<0{_newSerieChapCurrent=0} //Por si alguien pone numeros negativos xddd
+
+		if _newSerieChapCurrent<0{_newSerieChapCurrent=0}
 
 		_to_change = seriesArray[_place]
 		_to_change[1,"|"] = _newSerieChapCurrent
 		seriesArray[_place] = _to_change
 
-		"\0\s[0]%(_newSerieChapCurrent), muy bien\n¿Cuantos capitulos tiene en total?\n(Si no lo sabes puedes poner x o dejarlo vacio.)"
+		"\0\s[22]\i[1]%(_newSerieChapCurrent)%(_dialog2)"
 		--
 		"\![open,inputbox,OnAddNewSerie,-1]\![enter,passivemode]"
+
 	}elseif seriesArray[_place][2,"|"] == "-1"{
 		_newSerieChapTotal = reference0
 		_newSerieChapTotal = TOLOWER(_newSerieChapTotal)
@@ -1196,11 +1214,11 @@ OnAddNewSerie:all{
 			_to_change[2,"|"] = _newSerieChapTotal
 			seriesArray[_place] = _to_change
 
-			"\0\s[1]\![leave,passivemode]Muy bien, te ayudare a recordar en que capitulo vas.\w8\w8\w8\w8"
+			"\0\![leave,passivemode]\s[22]\i[1]%(_dialog3)"
 			--
 			OnSeriesList
 		}else{
-			"\0\s[0]Interesante, pero no creo que pueda tener menos capitulos de los que hallas visto jeje, intenta de nuevo.\n¿Cuantos capitulos tiene en total?\n(Si no lo sabes puedes poner x o dejarlo vacio.)"
+			"\0\s[1]%(_dialog4)"
 			--
 			"\![open,inputbox,OnAddNewSerie,-1]\![enter,passivemode]"
 		}
@@ -1219,41 +1237,41 @@ OnAddNewSerie:all{
 */
 OnTimer:all
 {	
-	if language=="ES"
+	_newTimerDialog = "A timer? Alright, how many minutes should I wait before letting you know?"
+	_other = "Other"
+	_cancel = "Cancel"
+	_noNewTimerDialogA = "Oh, no need to worry, there are still %(timerMinutes) minutes and "
+	_noNewTimerDialogB = " seconds left."
+	_restart = "Restart"
+	_clear = "Clear"
+	_exit = "Exit"
+
+	if language == "ES"{
+		_newTimerDialog = "Un Temporizador? Deacuerdo, en cuantos minutos debo avisarte?"
+		_other = "Otro"
+		_cancel = "Cancelar"
+		_noNewTimerDialogA = "Oh no, tranquilo, aún faltan %(timerMinutes) minutos y "
+		_noNewTimerDialogB = " segundos."
+		_restart = "Reiniciar"
+		_clear = "Borrar"
+		_exit = "Salir"
+	}
+
+	if timerUser==-1
 	{
-		if timerUser==-1
-		{
-			"\0\s[20]Un Temporizador? Deacuerdo, en cuantos minutos debo avisarte?\s[22]\n\n"
-			--
-			"\![*]\q[5 min,OnUserTimer,5]\n"
-			"\![*]\q[10 min,OnUserTimer,10]\n"
-			"\![*]\q[25 min,OnUserTimer,25]\n"
-			"\![*]\q[Otro,otherTimer]\n\n"
-			"\![*]\q[Cancelar,CANCEL]\e"
-		}else{
-			_tempSeconds = timerSeconds%60
-			"\0\s[0]Oh no, tranquilo, aún faltan %(timerMinutes) minutos y %(_tempSeconds) segundos\n\n"
-			"\![*]\q[Reiniciar,OnUserTimer,%(timerUser)]\n"
-			"\![*]\q[Borrar,clearTimer,0]\n\n"
-			"\![*]\q[Salir,CANCEL]\e"
-		}
+		"\0\s[20]%(_newTimerDialog)\s[22]\n\n"
+		--
+		"\![*]\q[5 min,OnUserTimer,5]\n"
+		"\![*]\q[10 min,OnUserTimer,10]\n"
+		"\![*]\q[25 min,OnUserTimer,25]\n"
+		"\![*]\q[%(_other),otherTimer]\n\n"
+		"\![*]\q[%(_cancel),CANCEL]\e"
 	}else{
-		if timerUser==-1
-		{
-			"\0\s[20]A timer? Alright, how many minutes should I wait before letting you know?\s[22]\n\n"
-			--
-			"\![*]\q[5 min,OnUserTimer,5]\n"
-			"\![*]\q[10 min,OnUserTimer,10]\n"
-			"\![*]\q[25 min,OnUserTimer,25]\n"
-			"\![*]\q[Other,otherTimer]\n\n"
-			"\![*]\q[Cancel,CANCEL]\e"
-		}else{
-			_tempSeconds = timerSeconds%60
-			"\0\s[0]Oh, no need to worry, there are still %(timerMinutes) minutes and %(_tempSeconds) seconds left.\n\n"
-			"\![*]\q[Restart,OnUserTimer,%(timerUser)]\n"
-			"\![*]\q[Clear,clearTimer,0]\n\n"
-			"\![*]\q[Exit,CANCEL]\e"
-		}
+		_tempSeconds = timerSeconds%60
+		"\0\s[0]%(_noNewTimerDialogA)%(_tempSeconds)%(_noNewTimerDialogB)\n\n"
+		"\![*]\q[%(_restart),OnUserTimer,%(timerUser)]\n"
+		"\![*]\q[%(_clear),clearTimer,0]\n\n"
+		"\![*]\q[%(_exit),CANCEL]\e"
 	}
 
 }
@@ -1292,23 +1310,23 @@ OnUserTimer:all
     }
     else
     {
-        if language=="ES"{
-	        "\![leave,passivemode]\0\s[24]Eso no parece un número,\w8\w2\n\s[22]Introduce los minutos usando únicamente números.\n\n"
-			--
-			"\![*]\q[5 min,OnUserTimer,5]\n"
-			"\![*]\q[10 min,OnUserTimer,10]\n"
-			"\![*]\q[25 min,OnUserTimer,25]\n"
-			"\![*]\q[Otro,otherTimer]\n\n"
-			"\![*]\q[Cancelar,CANCEL]\e"
-		}else{
-			"\![leave,passivemode]\0\s[24]That doesn't seem to be a number,\w8\w2\n\s[22]Enter the minutes using numbers only.\n\n"
-			--
-			"\![*]\q[5 min,OnUserTimer,5]\n"
-			"\![*]\q[10 min,OnUserTimer,10]\n"
-			"\![*]\q[25 min,OnUserTimer,25]\n"
-			"\![*]\q[Other,otherTimer]\n\n"
-			"\![*]\q[Cancel,CANCEL]\e"
-		}
+    	_errorDialog = "That doesn't seem to be a number,\w8\w2\n\s[22]Enter the minutes using numbers only."
+    	_other = "Other"
+    	_cancel = "Cancel"
+
+    	if language == "ES"{
+    		_errorDialog = "Eso no parece un número,\w8\w2\n\s[22]Introduce los minutos usando únicamente números."
+    		_other = "Otro"
+    		_cancel = "Cancelar"
+    	}
+
+		"\![leave,passivemode]\0\s[24]%(_errorDialog)\n\n"
+		--
+		"\![*]\q[5 min,OnUserTimer,5]\n"
+		"\![*]\q[10 min,OnUserTimer,10]\n"
+		"\![*]\q[25 min,OnUserTimer,25]\n"
+		"\![*]\q[%(_other),otherTimer]\n\n"
+		"\![*]\q[%(_cancel),CANCEL]\e"
     }
 }
 
