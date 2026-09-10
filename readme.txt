@@ -15,6 +15,9 @@ Features
 3. Usage summary.
 4. To-do list.
 5. Empty the recycle bin.
+6. Series List
+7. Timer
+
 
 This is a WIP (work in progress), as I still plan to add more features. Not many more, but it will take me some time.
 I'm only human :v
@@ -50,6 +53,8 @@ Caracteristicas
 3. Resumen de uso.
 4. Lista de pendientes.
 5. Vaciar papelera.
+6. Lista de series
+7. Temporizador
 
 Esto es un WIP (Trabajo en progreso), ya que aun planeo añadir más cosas, no muchas más, pero me tomara algo de tiempo
 Soy solo un humano :v
