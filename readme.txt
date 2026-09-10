@@ -35,7 +35,7 @@ Have fun.
 
 Version: 1.0.0
 Release: 08/17/2026
-
+Latest Update: 09/10/2026
 --LEER--
 
 Gracias por instalar a Kinger Ukagaka/Ghost
@@ -72,3 +72,4 @@ Diviértete.
 
 Versión: 1.0.0
 Lanzamiento: 17/08/2026
+Actualización más reciente: 10/09/2026
