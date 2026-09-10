@@ -23,10 +23,8 @@ This is a WIP (work in progress), as I still plan to add more features. Not many
 I'm only human :v
 
 Planned future features:
--Point system
+-Points system
 -Kinger abstraction
--Alarm
--A list to keep track of episodes from the user's shows
 
 I'd love to hear any comments, questions, or suggestions you may have. You can contact me on X (Twitter):
 @TakagiChikita or @soykyon
@@ -62,8 +60,6 @@ Soy solo un humano :v
 Futuras caracteristicas planeadas:
 -Sistema de puntos
 -Abstracción de Kinger
--Alarma
--Lista para llevar control de capitulos de las series del usuario
 
 Cualquier comentario, duda o recomendación me encantara escucharla, puedes contactarme en X (Twitter):
 @TakagiChikita o @soykyon
