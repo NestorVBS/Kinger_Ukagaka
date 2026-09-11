@@ -803,41 +803,49 @@ Select.ChoiceSystemInformation
 //si la seleccion es myspecial
 Select.myspecial : all
 {
+	_title = "What shall we do?"
+	_hideout = "Go to the hideout"
+	_watch = "Let's watch something together"
+	_finished = "The show is over"
+	_getout = "Get out of there"
+	_rockPaperScissors = "Rock Paper Scissors"
+	_recommend = "Recommend a TADC episode"
+	_series = "Series List"
+	_back = "Back to Menu"
+
 	if language=="ES"{
-		"\0\b2¿Qué haremos?\n\n"	
-		--
-		if takagiwatch == 0
-		{
-			"\![*]\q[Ir al escondite,study]\n"
-			"\![*]\q[Veamos algo juntos,lookscreen]\n"
-		}
-		else
-		{
-			if takagiwatch==1{"\![*]\q[La función terminó,lookscreen]\n\n"}else{"\![*]\q[Sal de ahí,study]\n\n"}
-		}
-		//"\![*]\q[Veintiuno,TwentyOne]\n"
-		"\![*]\q[Piedra papel o tijera,glico]\n"
-		"\![*]\q[Recomienda un capitulo de TADC,animechap]\n"
-		"\![*]\q[Lista de series,OnSeriesList]\n\n"
-		"\![*]\q[Volver Al Menú,BACKTOMENU]\e"
-	}else{
-		"\0\b2What shall we do?\n\n"
-		
-		if takagiwatch == 0
-		{
-			"\![*]\q[Go to the hideout,study]\n"
-			"\![*]\q[Let's watch something together,lookscreen]\n"
-		}
-		else
-		{
-			if takagiwatch==1{"\![*]\q[The show is over,lookscreen]\n\n"}else{"\![*]\q[Get out of there,study]\n\n"}
-		}
-		//"\![*]\q[Twenty-One,TwentyOne]\n"*
-		"\![*]\q[Rock Paper Scissors,glico]\n"
-		"\![*]\q[Recommend a TADC episode,animechap]\n"
-		"\![*]\q[List of TV Series,OnSeriesList]\n\n"
-		"\![*]\q[Volver Al Menú,BACKTOMENU]\e"
+		_title = "¿Qué haremos?"
+		_hideout = "Ir al escondite"
+		_watch = "Veamos algo juntos"
+		_finished = "La función terminó"
+		_getout = "Sal de ahí"
+		_rockPaperScissors = "Piedra papel o tijera"
+		_recommend = "Recomienda un capítulo de TADC"
+		_series = "Lista de series"
+		_back = "Volver al Menú"
 	}
+
+	"\0\b2%(_title)\n\n"
+	--
+	if takagiwatch == 0
+	{
+		"\![*]\q[%(_hideout),study]\n"
+		"\![*]\q[%(_watch),lookscreen]\n"
+	}
+	else
+	{
+		if takagiwatch==1{
+			"\![*]\q[%(_finished),lookscreen]\n\n"
+		}else{
+			"\![*]\q[%(_getout),study]\n\n"
+		}
+	}
+
+	//"\![*]\q[Veintiuno,TwentyOne]\n"
+	"\![*]\q[%(_rockPaperScissors),glico]\n"
+	"\![*]\q[%(_recommend),animechap]\n"
+	"\![*]\q[%(_series),OnSeriesList]\n\n"
+	"\![*]\q[%(_back),BACKTOMENU]\e"
 }
 
 
